@@ -1,0 +1,145 @@
+{% extends "myapp/base.html" %}
+{% block content %}
+    <h1>Student submissions</h1>
+    <form method="get" action=".">
+        <div class="input-group mb-3" style="max-width: 320px;">
+             <input 
+                type="search"
+                name="student"
+                class="form-control"
+                placeholder="Search student #"
+                value="{{ request.GET.student|default:'' }}"
+             >
+             <button class="btn btn-outline-secondary" type="submit">
+                Search
+             </button>
+        </div>
+        <div class="btn-group" role="group" aria-label="Filter options">
+            <input 
+                type="radio" 
+                class="btn-check" 
+                name="filter_by" 
+                id="all" 
+                value="all" 
+                    {% if not request.GET.filter_by or request.GET.filter_by == "all" %}
+                        checked
+                    {% endif %} 
+                onchange="this.form.submit()"
+            >
+            <label class="btn btn-outline-primary" for="all">All</label>
+
+            <input 
+                type="radio" 
+                class="btn-check" 
+                name="filter_by" 
+                id="course1" 
+                value="MAM1014F" 
+                    {% if request.GET.filter_by == "MAM1014F" %}
+                        checked
+                    {% endif %} 
+                onchange="this.form.submit()"
+            >
+            <label class="btn btn-outline-primary" for="course1">MAM1014F</label> 
+            <input 
+                type="radio" 
+                class="btn-check" 
+                name="filter_by" 
+                id="course2" 
+                value="MAM1022F" 
+                    {% if request.GET.filter_by == "MAM1022F" %}
+                        checked
+                    {% endif %} 
+                onchange="this.form.submit()"
+            >
+            <label class="btn btn-outline-primary" for="course2">MAM1022F</label>
+
+            <input 
+                type="radio" 
+                class="btn-check" 
+                name="filter_by" 
+                id="course3" 
+                value="MAM1013F" 
+                    {% if request.GET.filter_by == "MAM1013F" %}
+                        checked
+                    {% endif %} 
+                onchange="this.form.submit()"
+            >
+            <label class="btn btn-outline-primary" for="course3">MAM1013F</label>
+        </div>
+    </form>
+    <hr> <!-- Horizontal line to separate filter options from table -->
+        {% if page_obj %}
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center mt-3">
+                {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" 
+                            href="?page={{ page_obj.previous_page_number }}{% if request.GET.filter_by %}&filter_by={{ request.GET.filter_by|urlencode }}{% endif %}{% if per_page %}&per_page={{ per_page }}{% endif %}{% if request.GET.student %}&student={{ request.GET.student|urlencode }}{% endif %}" 
+                            aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>     
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link">&laquo;</span>
+                    </li>
+                {% endif %}
+                {% for num in page_obj.paginator.page_range %}                         
+                    {% if page_obj.number == num %}
+                        <li class="page-item active" aria-current="page">
+                            <span class="page-link">{{ num }}</span>
+                        </li>
+                    {% elif num >= page_obj.number|add:"-3" and num <= page_obj.number|add:"3" %}
+                        <li class="page-item">
+                            <a class="page-link"
+                                href="?page={{ num }}{% if request.GET.filter_by %}&filter_by={{ request.GET.filter_by|urlencode }}{% endif %}{% if per_page %}&per_page={{ per_page }}{% endif %}{% if request.GET.student %}&student={{ request.GET.student|urlencode }}{% endif %}">{{ num }}
+                            </a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+                {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" 
+                            href="?page={{ page_obj.next_page_number }}{% if request.GET.filter_by %}&filter_by={{ request.GET.filter_by|urlencode }}{% endif %}{% if per_page %}&per_page={{ per_page }}{% endif %}{% if request.GET.student %}&student={{ request.GET.student|urlencode }}{% endif %}" 
+                            aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>     
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link">&raquo;</span>
+                    </li>       
+                {% endif %}
+            </ul>
+        </nav>
+    {% endif %} 
+    <div class="overflow-auto" style="max-height: 600px; border:1px solid #ddd;">
+        <table id="submissionstable" class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <!-- Table header cell that labels the "Session ID" column in the table -->
+                    <th>Session ID</th>
+                    <th>Workbook Name</th>
+                    <th>Worksheet Name</th>
+                    <th>Student Number</th>
+                    <th colspan="2">Insert Timestamp</th>
+                    <th>Computer Name</th>
+                </tr>
+            </thead>
+            <!-- Loop through each row in the table_data context variable passed from the view -->
+            <tbody>
+                {% for row in table_data %}
+                <tr>
+                    <td scope="row">{{ row.sessionid }}</td>
+                    <td>{{ row.workbookname }}</td>
+                    <td>{{ row.worksheetname }}</td>
+                    <td>{{ row.studentnumber }}</td>
+                    <td colspan="2">{{ row.inserttimestamp }}</td>
+                    <td>{{ row.computername }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+        
+{% endblock %}

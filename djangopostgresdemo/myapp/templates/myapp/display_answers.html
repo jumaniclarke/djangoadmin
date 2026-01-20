@@ -1,0 +1,107 @@
+{% extends "myapp/base.html" %}
+{% block title %}Display Answers{% endblock %}
+
+{% block content %}
+{% if answers %}
+    <div class="d-flex gap-2 align-items-end mb-3">
+        <form method="get" action="." class="flex-grow-1">
+            <input type="hidden" name="sessionid" value="{{ sessionid }}">
+            <div class="input-group">
+                <input 
+                    type="search"
+                    name="questionid"
+                    class="form-control"
+                    placeholder="Go to question ID"
+                    value="{{ request.GET.questionid|default:'' }}"
+                >
+                <button class="btn btn-primary" type="submit">
+                    Search
+                </button>
+            </div>
+        </form>
+        <button id="first-btn" class="btn btn-primary" style="width: 120px;">First</button>
+        <button id="prev-btn" class="btn btn-primary" style="width: 120px;">Previous</button>
+        <button id="next-btn" class="btn btn-primary" style="width: 120px;">Next</button>
+        <button id="last-btn" class="btn btn-primary" style="width: 120px;">Last</button>
+    </div>
+    <hr>
+    <div id="answer-container"></div>
+    {{ answers|default:"[]"|json_script:"answers-data" }}
+    <script>
+        const answers = JSON.parse(document.getElementById('answers-data').textContent);
+        let current = 0;
+        const searchQid = "{{ request.GET.questionid|default:'' }}";
+        if (searchQid) {
+            // Case-insensitive substring match
+            const idx = answers.findIndex(a => String(a.questionid).toLowerCase().includes(searchQid.trim().toLowerCase()));
+            if (idx !== -1) current = idx;
+        }
+        answers.forEach(a => {
+            console.log('Comparing:', String(a.questionid).trim(), 'vs', searchQid);
+        });
+        function safe(val) {
+            return (val === null || val === undefined) ? '-' : val;
+        }
+        function showAnswer(idx) {
+            if (answers.length === 0) {
+                document.getElementById('answer-container').innerHTML = "<p>No answers found for this session.</p>";
+                return;
+            }
+            const a = answers[idx];
+            document.getElementById('answer-container').innerHTML = `
+                <div class="card p-3 mb-3">
+                <p><strong>Question ID:</strong> ${safe(a.questionid)}</p>
+                <p><strong>Answer Text:</strong> ${safe(a.answertext)}</p>
+                <p><strong>Formula:</strong> ${safe(a.answerformula)}</p>
+                <p><strong>Value:</strong> ${safe(a.answervalue)}</p>
+                <p><strong>Mark Awarded:</strong> ${safe(a.markawarded)}</p>
+                <p><strong>Feedback:</strong> ${safe(a.feedback)}</p>
+                <p><strong>Chart Data</strong>
+                    <pre class="bg-light p-2 rounded border"><code>${safe(JSON.stringify(JSON.parse(a.chartdata || '{}'), null, 2))}</code></pre>
+                </p>
+                <p><strong>Table Data</strong>
+                    <pre class="bg-light p-2 rounded border"><code>${safe(JSON.stringify(JSON.parse(a.tabledata || '{}'), null, 2))}</code></pre>
+                </p>
+                </div>
+                <p>Record ${idx+1} of ${answers.length}</p>
+            `;
+        }
+
+        document.getElementById('prev-btn').onclick = function() {
+            if (current > 0) { current--; showAnswer(current); }
+        };
+        document.getElementById('next-btn').onclick = function() {
+            if (current < answers.length - 1) { current++; showAnswer(current); }
+        };
+        document.getElementById('first-btn').onclick = function() {
+            if (answers.length > 0) { current = 0; showAnswer(current); }
+        };
+        document.getElementById('last-btn').onclick = function() {
+            if (answers.length > 0) { current = answers.length - 1; showAnswer(current); }
+        };
+
+        showAnswer(current);
+    </script>
+{% else %}
+  <p>No answers found for this session.</p>
+{% endif %}
+    <script>
+    const ws = new WebSocket('ws://' + window.location.host + '/ws/answers/');
+    ws.onopen = function() {
+    console.log('WebSocket connection opened');
+    };
+    ws.onmessage = function(event) {
+      const data = JSON.parse(event.data);
+      console.log('WebSocket message received:', data);
+      console.log('Current sessionid from template:', "{{ sessionid }}");
+      console.log('Type of data.submission_id:', typeof data.submission_id, 'Value:', data.submission_id);
+      console.log('Type of template sessionid:', typeof "{{ sessionid }}", 'Value:', "{{ sessionid }}");
+      if (data.submission_id) {
+        // Redirect to the answers page for the new sessionid
+        window.location.href = "/answers/?sessionid=" + data.submission_id;
+      } else {
+        console.log('no submission id supplied');
+      }
+    };
+    </script>
+{% endblock %}
