@@ -8,6 +8,7 @@ import psycopg2
 import psycopg2.extensions
 from asgiref.sync import async_to_sync
 from channels.layers import get_channel_layer
+from .marking import mark_answers_for_session
 channel_layer = get_channel_layer()
 
 class Command(BaseCommand):
@@ -34,6 +35,7 @@ class Command(BaseCommand):
 
                 while True:
                     # Wait until the connection has notifications
+                    
                     if select.select([conn], [], [], 30) == ([], [], []):
                         # heartbeat or metrics; keep the loop alive
                         continue
@@ -42,6 +44,7 @@ class Command(BaseCommand):
                     while conn.notifies:
                         notify = conn.notifies.pop(0)
                         # payload is a JSON string like {"id": 123}
+                        
                         try:
                             data = json.loads(notify.payload)
                             submission_id = data.get("sessionid")
@@ -53,7 +56,12 @@ class Command(BaseCommand):
                             continue
 
                         # Process immediately: enqueue a task, update cache, broadcast, etc.
+                        
+                        self.stdout.write(f"Step 1: Marking answers for submission ID: {submission_id}")
                         self.process_submission_id(submission_id)
+                        # mark answers for this session
+                        
+                        mark_answers_for_session(submission_id)
             except Exception as e:
                 self.stderr.write(self.style.ERROR(f"Listener error: {e}; retrying in 5s"))
                 time.sleep(5)
