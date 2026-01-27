@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-zk%2*518)4&=2lpx+q64&t(y7@mwh)-cs*x_x*xp65xaapk3vo
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'srvubusql002.uct.ac.za']
 
 
 # Application definition
@@ -78,9 +78,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'mam107h',#'demo_1',
-        'USER': 'jjaftha',#'jumaniclarke',
-        'PASSWORD': 'numeracy',#'Givemetheaws1',
-        'HOST': 'mamdb.cet.uct.ac.za',#'database-1.croyeqs8yoif.eu-north-1.rds.amazonaws.com',
+        'USER': 'numeracy',#'jumaniclarke',
+        'PASSWORD': 'A7f!r9LpX2q#BvT3',#'Givemetheaws1',
+        'HOST': 'srvubusql002.uct.ac.za',#'database-1.croyeqs8yoif.eu-north-1.rds.amazonaws.com',
         'PORT': '5432',#'5434',
     }
 }
@@ -133,6 +133,7 @@ CHANNEL_LAYERS = {
     },
 }
 
-ASGI_APPLICATION = 'djangodemopostgres.asgi.application' #'dbapp.asgi.application'
+# Use the Channels ASGI application so websocket routes are served
+ASGI_APPLICATION = 'dbapp.asgi.application' #'djangodemopostgres.asgi.application'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

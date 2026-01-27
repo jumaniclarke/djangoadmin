@@ -29,19 +29,20 @@
     {{ answers|default:"[]"|json_script:"answers-data" }}
     <script>
         const answers = JSON.parse(document.getElementById('answers-data').textContent);
+        console.log('All answers:', answers);
+        console.log('First answer:', answers[0]);
+        console.log('answervalue of first:', answers[0]?.answervalue);
+        
+        // Declare variables FIRST, before any functions
         let current = 0;
         const searchQid = "{{ request.GET.questionid|default:'' }}";
-        if (searchQid) {
-            // Case-insensitive substring match
-            const idx = answers.findIndex(a => String(a.questionid).toLowerCase().includes(searchQid.trim().toLowerCase()));
-            if (idx !== -1) current = idx;
-        }
-        answers.forEach(a => {
-            console.log('Comparing:', String(a.questionid).trim(), 'vs', searchQid);
-        });
+        
+        // Helper function
         function safe(val) {
             return (val === null || val === undefined) ? '-' : val;
         }
+        
+        // Main display function
         function showAnswer(idx) {
             if (answers.length === 0) {
                 document.getElementById('answer-container').innerHTML = "<p>No answers found for this session.</p>";
@@ -50,10 +51,10 @@
             const a = answers[idx];
             document.getElementById('answer-container').innerHTML = `
                 <div class="card p-3 mb-3">
+                <p><strong>Session ID:</strong> ${safe(a.sessionid)}</p>
                 <p><strong>Question ID:</strong> ${safe(a.questionid)}</p>
                 <p><strong>Answer Text:</strong> ${safe(a.answertext)}</p>
-                <p><strong>Formula:</strong> ${safe(a.answerformula)}</p>
-                <p><strong>Value:</strong> ${safe(a.answervalue)}</p>
+                <p><strong>Answer Value:</strong> ${safe(a.answervalue)}</p>
                 <p><strong>Mark Awarded:</strong> ${safe(a.markawarded)}</p>
                 <p><strong>Feedback:</strong> ${safe(a.feedback)}</p>
                 <p><strong>Chart Data</strong>
@@ -66,7 +67,8 @@
                 <p>Record ${idx+1} of ${answers.length}</p>
             `;
         }
-
+        
+        // Button handlers
         document.getElementById('prev-btn').onclick = function() {
             if (current > 0) { current--; showAnswer(current); }
         };
@@ -79,8 +81,52 @@
         document.getElementById('last-btn').onclick = function() {
             if (answers.length > 0) { current = answers.length - 1; showAnswer(current); }
         };
-
+        
+        // Search logic (after all declarations)
+        if (searchQid) {
+            const idx = answers.findIndex(a => String(a.questionid).toLowerCase().includes(searchQid.trim().toLowerCase()));
+            if (idx !== -1) current = idx;
+        }
+        
+        // FINALLY, show the initial answer
         showAnswer(current);
+        
+        // WebSocket with auto-reconnect for real-time mark updates
+        function makeSocket(url, onMessage) {
+            let ws;
+            function connect() {
+                ws = new WebSocket(url);
+                ws.onopen = () => console.log('[WS] connected', url);
+                ws.onmessage = onMessage;
+                ws.onclose = () => {
+                    console.log('[WS] closed, retrying in 2s', url);
+                    setTimeout(connect, 2000);
+                };
+                ws.onerror = (e) => {
+                    console.error('[WS] error', url, e);
+                    ws.close();
+                };
+            }
+            connect();
+            return () => ws && ws.close();
+        }
+
+        const sessionid = "{{ sessionid }}";
+        const marksUrl = 'ws://' + window.location.host + '/ws/marks/' + sessionid + '/';
+        makeSocket(marksUrl, (event) => {
+            const data = JSON.parse(event.data);
+            console.log('[Marks WS] Received update:', data);
+            if (data.type === 'mark_update') {
+                const qid = String(data.questionid);
+                const answerIdx = answers.findIndex(a => String(a.questionid) === qid);
+                if (answerIdx !== -1) {
+                    answers[answerIdx].markawarded = data.mark;
+                    if (answerIdx === current) {
+                        showAnswer(current);
+                    }
+                }
+            }
+        });
     </script>
 {% else %}
   <p>No answers found for this session.</p>

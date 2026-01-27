@@ -50,7 +50,7 @@ def display_answers(request):
     # Use raw SQL to query answers_stream to avoid ORM primary-key issues
     with connection.cursor() as cur:
         cur.execute(
-            '''SELECT questionid, answertext, answerformula, answervalue,
+            '''SELECT sessionid, questionid, answertext, answerformula, answervalue,
                       markawarded, feedback, chartdata, tabledata
                FROM answers_stream
                WHERE sessionid = %s
