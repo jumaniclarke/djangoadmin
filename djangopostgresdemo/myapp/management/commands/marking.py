@@ -162,10 +162,10 @@ def mark_formula_answer(answerformula, cursor, question_mdid):
 
         if idx >= len(answer_args):
             if not is_optional:
-                feedback_parts.append(f"✗ Argument {position} is missing (required).")
+                feedback_parts.append(f"\n✗ Argument {position} is missing (required).")
                 continue
             else:
-                feedback_parts.append(f"⊘ Argument {position} is missing (optional).")
+                feedback_parts.append(f"\n⊘ Argument {position} is missing (optional).")
                 continue
 
         answer_arg = answer_args[idx]
@@ -208,7 +208,7 @@ def mark_formula_answer(answerformula, cursor, question_mdid):
         if regex_text:
             if re.fullmatch(regex_text, answer_arg.strip()):
                 mark += 1
-                feedback_parts.append(f"✓ Argument {position} '{answer_arg}' matches the regex pattern.")
+                feedback_parts.append(f"\n✓ Argument: {position} '{answer_arg}' matches the regex pattern.")
                 print(f"Regex match for argument '{answer_arg}' with pattern '{regex_text}'")
                 continue
 
@@ -222,10 +222,10 @@ def mark_formula_answer(answerformula, cursor, question_mdid):
 
         if matched:
             mark += 1
-            feedback_parts.append(f"✓ Argument {position} '{answer_arg}' matches the expected value.")
+            feedback_parts.append(f"\n✓ Argument: {position} '{answer_arg}' matches the expected value.")
         else:
             expected_str = ", ".join(expected_values) if expected_values else "unknown"
-            feedback_parts.append(f"✗ Argument {position} '{answer_arg}' does not match. Expected: {expected_str}")
+            feedback_parts.append(f"\n✗ Argument: {position} '{answer_arg}' does not match. Expected: {expected_str}")
 
     feedback = " ".join(feedback_parts)
     return mark, feedback
