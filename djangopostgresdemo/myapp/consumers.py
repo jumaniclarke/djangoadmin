@@ -27,7 +27,7 @@ class SessionMarksConsumer(AsyncWebsocketConsumer):
     def fetch_data(self):
         with connection.cursor() as cur:
             cur.execute(
-                "SELECT questionid, markawarded FROM answers_stream WHERE sessionid = %s",
+                "SELECT questionid, markawarded, feedback FROM answers_stream WHERE sessionid = %s",
                 [self.sessionid],
             )
             return cur.fetchall()
@@ -45,11 +45,12 @@ class SessionMarksConsumer(AsyncWebsocketConsumer):
 
             # On connect, send current marks snapshot for this session (async-safe)
             rows = await self.fetch_data()
-            for questionid, mark in rows:
+            for questionid, mark, feedback in rows:
                 await self.send(text_data=json.dumps({
                     "type": "mark_update",
                     "questionid": str(questionid),
                     "mark": mark,
+                    "feedback": feedback,
                     "initial": True,
                 }))
         except Exception as e:
@@ -73,7 +74,8 @@ class SessionMarksConsumer(AsyncWebsocketConsumer):
             await self.send(text_data=json.dumps({
                 "type": "mark_update",
                 "questionid": str(event["questionid"]),
-                "mark": event["mark"]
+                "mark": event["mark"],
+                "feedback": event.get("feedback", "")
             }))
         except Exception as e:
             print(f"[SessionMarksConsumer] Send error: {e}")

@@ -55,6 +55,7 @@
                 <p><strong>Question ID:</strong> ${safe(a.questionid)}</p>
                 <p><strong>Answer Text:</strong> ${safe(a.answertext)}</p>
                 <p><strong>Answer Value:</strong> ${safe(a.answervalue)}</p>
+                <p><strong>Answer Formula:</strong> ${safe(a.answerformula)}</p>
                 <p><strong>Mark Awarded:</strong> ${safe(a.markawarded)}</p>
                 <p><strong>Feedback:</strong> ${safe(a.feedback)}</p>
                 <p><strong>Chart Data</strong>
@@ -121,6 +122,7 @@
                 const answerIdx = answers.findIndex(a => String(a.questionid) === qid);
                 if (answerIdx !== -1) {
                     answers[answerIdx].markawarded = data.mark;
+                    answers[answerIdx].feedback = data.feedback;
                     if (answerIdx === current) {
                         showAnswer(current);
                     }
