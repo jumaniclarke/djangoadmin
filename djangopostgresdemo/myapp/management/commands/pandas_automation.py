@@ -11,28 +11,32 @@ Original file is located at
 
 import nltk
 import spacy
+
+
 from nltk.corpus import wordnet
 from spacy import displacy
+nlp = spacy.load("en_core_web_trf")
 
 """# Load parsing routines"""
 def show_chunks(text):
-  nlp = spacy.load("en_core_web_sm")
   doc = nlp(text)
   for chunk in doc.noun_chunks:
     print(chunk.text, chunk.root.text, chunk.root.dep_,
           chunk.root.head.text)
 def print_pic(text):
-  nlp = spacy.load("en_core_web_sm")
   doc = nlp(text)
   import webbrowser
   from pathlib import Path
   html = displacy.render(doc, style="dep")
   out_path = Path.cwd() / "dep_parse.html"
   out_path.write_text(html, encoding="utf-8")
-  print(f"Wrote {out_path} ({len(html)} bytes)")
+
+  #print(f"✓ Wrote visualization to: {out_path.absolute()}")
+  #print(f"  File size: {len(html)} bytes")
+  #print(f"  Opening in browser...")
+
   webbrowser.open(out_path.as_uri())
 def print_chunks_pic(text):
-  nlp = spacy.load("en_core_web_sm")
   nlp.add_pipe("merge_noun_chunks", last=True)
   doc = nlp(text)
   import webbrowser
@@ -43,7 +47,6 @@ def print_chunks_pic(text):
   print(f"Wrote {out_path} ({len(html)} bytes)")
   webbrowser.open(out_path.as_uri())
 def is_equative(clause):
-  nlp = spacy.load("en_core_web_sm")
   clause_tokens = nlp(clause)
   dec_made = False
   clause_attr = False
@@ -74,7 +77,6 @@ def is_equative(clause):
 
 def rearrange_noun_phrase(noun_phrase):
 #moves preposition phrase to back from front
-  nlp = spacy.load("en_core_web_sm")
   noun_tokens = nlp(noun_phrase)
   return_phrase =''
   root_pos = 0
@@ -99,44 +101,70 @@ def rearrange_noun_phrase(noun_phrase):
   return return_phrase
 
 # takes a noun phrase and gives a concatenation of all the prepositional phrases that follow the head noun
+# for example "the proportion of people" becomes "people"
 def get_base_simple(noun_phrase):
-  nlp = spacy.load("en_core_web_sm")
-  phrase_rearranged = rearrange_noun_phrase(noun_phrase)
-  l_edges = set()
-  r_edges = set()
-  phrase = nlp(phrase_rearranged)
-  the_min = 0
-  the_max = 0
-  return_phrase = ''
-  for token in phrase:
-    if token.dep_ == 'ROOT':
-      for child in token.children:
-        if child.dep_ == 'prep':
-          for child2 in child.children:
-            if child2.dep_ == 'pobj':
-              l_edges.add(child2.left_edge.i)
-              r_edges.add(child2.right_edge.i+1)
-            elif child2.dep_ == 'prep':
-              for child3 in child2.children:
-                if child3.dep_ == 'pobj':
-                  l_edges.add(child3.left_edge.i)
-                  r_edges.add(child3.right_edge.i+1)
-
-  if len(l_edges)>0:
-    the_min = min(l_edges)
-
-  if len(r_edges)>0:
-    the_max = max(r_edges)
-
-  if len(l_edges) > 0:
-    return_phrase = phrase[the_min:the_max]
-  else:
-    return_phrase = phrase
-  return return_phrase
+  """
+  Extract prepositional phrases following the head noun in a noun phrase.
+  
+  Logic flow:
+  1. Rearrange the noun phrase to move prepositions to the end
+  2. Parse the rearranged phrase with spaCy
+  3. Find the ROOT token and iterate through its children
+  4. Collect left and right edges of prepositional objects (pobj)
+  5. Return the slice of tokens spanning from min left edge to max right edge
+  6. If no prepositional phrases exist, return the entire phrase
+  """
+  
+  try:
+    # Validate input
+    if not noun_phrase or not isinstance(noun_phrase, str):
+      raise ValueError("noun_phrase must be a non-empty string")
+    
+    phrase_rearranged = rearrange_noun_phrase(noun_phrase.strip())
+    l_edges = set()
+    r_edges = set()
+    phrase = nlp(phrase_rearranged)
+    
+    # Validate parsed phrase
+    if not phrase or len(phrase) == 0:
+      return phrase
+    
+    # Find ROOT token and traverse its dependency tree for prepositional phrases
+    for token in phrase:
+      # find the root of the noun phrase
+      if token.dep_ == 'ROOT' or token.head.text == ' ':
+        # Check direct children for prepositions
+        for child in token.children:
+          if child.dep_ == 'prep':
+            # Check for prepositional objects (pobj)
+            for child2 in child.children:
+              if child2.dep_ == 'pobj':
+                print(f"Found preposition object: '{child2.text}' with left edge {child2.left_edge.i} and right edge {child2.right_edge.i}")
+                l_edges.add(child2.left_edge.i)
+                r_edges.add(child2.right_edge.i + 1)
+              # Check for nested prepositions
+              elif child2.dep_ == 'prep':
+                for child3 in child2.children:
+                  if child3.dep_ == 'pobj':
+                    l_edges.add(child3.left_edge.i)
+                    r_edges.add(child3.right_edge.i + 1)
+    
+    # Extract min and max boundaries
+    the_min = min(l_edges) if l_edges else 0
+    the_max = max(r_edges) if r_edges else 0
+    
+    # Return slice if prepositional phrases found, otherwise return entire phrase
+    return_phrase = phrase[the_min:the_max] if l_edges else phrase
+    
+    return return_phrase
+    
+  except Exception as e:
+    print(f"Error in get_base_simple: {str(e)}")
+    # Return original phrase as fallback
+    return nlp(noun_phrase)
 
 # is it of the form 'the the nouns phrase is A'?
 def is_encrypting(clause):
-  nlp = spacy.load("en_core_web_sm")
   dec_encrypt = False
   if is_equative(clause)==True:
     clause_tokens = nlp(clause)
@@ -210,7 +238,6 @@ def get_right_noun_without_embed(atoken):
   return return_right #max(right_edges)
 
 def is_indication_clause(text):
-  nlp = spacy.load("en_core_web_sm")
   clause_tokens = nlp(text)
   dec_made = False
   for token in clause_tokens:
@@ -220,7 +247,6 @@ def is_indication_clause(text):
 
 def is_probability_clause(text):
 
-  nlp = spacy.load("en_core_web_sm")
   clause_tokens = nlp(text)
   dec_made = False
   for token in clause_tokens:
@@ -230,7 +256,6 @@ def is_probability_clause(text):
   return dec_made
 
 def is_syn_with(phrase,given_phrase):
-  nlp = spacy.load("en_core_web_sm")
   doc = nlp(phrase)
   # this lemmatizes the noun
   lem_phrase = ''
@@ -246,67 +271,88 @@ def is_syn_with(phrase,given_phrase):
   return is_prob
 
 def get_base(text):
-  nlp = spacy.load('en_core_web_sm')
-  head_phrase =''
+  """
+  Extract the base noun phrase from a clause, handling various syntactic structures.
+  
+  Logic flow:
+  1. If clause is indication-type, recursively extract the complement clause
+  2. If clause is probability-type, extract the relevant embedded clause
+  3. Otherwise, extract subject/attribute based on clause type (equative vs non-equative)
+  4. Return simplified base phrase without embedded modifiers
+  """
   text_tokens = nlp(text)
-  left_end = 0
-  embed_verb_pos = 0
-  embed_subj = ''
-  prop_phrase = ''
-  embed_text=''
-  pre_embed_text =''
+  
+  # Handle indication clauses (e.g., "X indicates that...")
   if is_indication_clause(text):
     for token in text_tokens:
-      if token.head.dep_=='ROOT' and token.dep_=='ccomp':
-        embed_text = ''
-        embed_verb_pos = token.i
-        for atoken in token.subtree:
-          embed_text = embed_text + ' ' + atoken.text
-    embed_text = embed_text.strip()
-    return get_base(embed_text)
+      if token.head.dep_ == 'ROOT' and token.dep_ == 'ccomp':
+        embed_text = ' '.join(atoken.text for atoken in token.subtree)
+        return get_base(embed_text.strip())
+  
+  # Handle probability clauses (e.g., "The chance that...")
   elif is_probability_clause(text):
     for token in text_tokens:
+      # Case 1: Extracted as acl (adjectival clause)
       if token.dep_ == 'acl' and token.head.head.dep_ == 'ROOT':
-        if token.head.dep_ == 'attr' or token.head.dep_ == 'nsubj':
-          for atoken in token.subtree:
-            embed_text = embed_text + ' ' + atoken.text
-        return get_base(embed_text)
-      elif token.dep_ == 'relcl' and is_syn_with(token.head.text,'chance') and token.head.head.dep_ =='ROOT':
-        for atoken in token.subtree:
-          if atoken.i > token.head.i+1 or atoken.text != 'that':
-            embed_text = embed_text + ' ' + atoken.text
-            embed_text = embed_text.strip()
-        return embed_text
-
-    return get_base(embed_text)
+        if token.head.dep_ in ('attr', 'nsubj'):
+          embed_text = ' '.join(atoken.text for atoken in token.subtree)
+          return get_base(embed_text)
+      
+      # Case 2: Extracted as relcl (relative clause)
+      elif token.dep_ == 'relcl' and is_syn_with(token.head.text, 'chance') and token.head.head.dep_ == 'ROOT':
+        embed_text = ' '.join(
+          atoken.text for atoken in token.subtree 
+          if atoken.i > token.head.i + 1 or atoken.text != 'that'
+        )
+        return embed_text.strip()
+    
+    return get_base(embed_text) if embed_text else text
+  
+  # Handle standard clauses
   else:
-    if is_equative(text) == False:
-      for token in text_tokens:   #find where the root verb is
-        if token.dep_ == 'ROOT':
-          left_end = token.i
+    # Non-equative clause: extract subject phrase
+    if not is_equative(text):
+      head_phrase = ''
+      left_end = 0
+      
+      # Find subject or nominal modifier
       for token in text_tokens:
-        if token.dep_ == 'nsubj' and token.head.dep_ == 'ROOT' or token.dep_ == 'npadvmod' and token.head.dep_ == 'ROOT':
+        if token.dep_ in ('nsubj', 'npadvmod') and token.head.dep_ == 'ROOT':
           left_end = get_left_noun(token)
           head_phrase = text_tokens[left_end:get_right_noun(token)].text
+          break
+      
+      # Prepend any prepositional phrase that precedes the subject
       for token in text_tokens:
-        if token.dep_ == 'prep' and token.head.dep_ =='ROOT' and token.i < left_end:
-          prop_phrase = text_tokens[token.left_edge.i:token.right_edge.i+1].text
+        if token.dep_ == 'prep' and token.head.dep_ == 'ROOT' and token.i < left_end:
+          prop_phrase = text_tokens[token.left_edge.i:token.right_edge.i + 1].text
           head_phrase = prop_phrase + ' ' + head_phrase
+          break
+    
+    # Equative clause: extract attribute or subject based on encryption
     else:
-      the_dep = 'attr' #for encrypting clauses
-      if is_encrypting(text)!=True:
-        the_dep = 'nsubj'  #for non-encrypting clauses
+      the_dep = 'attr' if is_encrypting(text) else 'nsubj'
+      
       for token in text_tokens:
-        right_edge_index = 0
         if token.dep_ == the_dep and token.head.dep_ == 'ROOT':
-          if there_is_embedding(token):
-            right_edge_index = get_right_noun_without_embed(token)
-          else:
-            right_edge_index = token.right_edge.i+1
-          head_phrase = text_tokens[get_left_noun(token):right_edge_index].text
-    return get_base_simple(head_phrase).text
+          # Determine right boundary, excluding embedded relative clauses
+          right_edge_index = (
+            get_right_noun_without_embed(token) 
+            if there_is_embedding(token) 
+            else token.right_edge.i + 1
+          )
+          left_token_index = min([t.i for token in token.subtree for t in token.subtree])
+          head_phrase = text_tokens[left_token_index:right_edge_index].text
+          print(f"head_phrase: {head_phrase}")
+          break
   
+  return get_base_simple(head_phrase).text
 
+def extract_prep_children(text, prep_text="of"):
+  doc = nlp(text)
+  prep_phrases = []
+  
+  
 #text = '27% is the proportion of people aged 31-40 years that tested positive for an illicit drug.'
 #nlp = spacy.load('en_core_web_sm')
 #text_tokens = nlp(text)
@@ -323,3 +369,8 @@ def there_is_embedding(thetoken):
     if descendent.head != thetoken and descendent.dep_ == 'relcl':
       the_decision = True
   return the_decision
+
+if __name__ == "__main__":
+  text = "27% is the proportion of people aged 31-40 years that tested positive for an illicit drug."
+  print_pic(text)
+  print('get_base:', get_base(text))
