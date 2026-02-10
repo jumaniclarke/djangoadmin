@@ -7,7 +7,7 @@ def mark_boolean_answer(answertext, solution):
     """Mark a boolean answer (case-insensitive exact match)."""
     return 1 if str(answertext).strip().lower() == str(solution).strip().lower() else 0
 
-def mark_value_answer(answervalue, solution, cursor, question_mdid):
+def mark_value_answer(answervalue, solution, cursor, question_md_id):
     """Mark a value answer with tolerance range from question_value_rule."""
     try:
         answer_float = float(answervalue)
@@ -15,8 +15,8 @@ def mark_value_answer(answervalue, solution, cursor, question_mdid):
         
         # Fetch tolerance value from question_value_rule
         cursor.execute(
-            "SELECT tol_value FROM question_value_rule WHERE question_mdid = %s",
-            [question_mdid]
+            "SELECT tol_value FROM question_value_rule WHERE question_md_id = %s",
+            [question_md_id]
         )
         tol_row = cursor.fetchone()
         
@@ -83,13 +83,13 @@ def _normalize_formula_text(text, case_insensitive=False, ignore_whitespace=Fals
     
     return value
 
-def mark_formula_answer(answerformula, cursor, question_mdid):
+def mark_formula_answer(answerformula, cursor, question_md_id):
     """Mark a function/formula answer based on question_formula_rule and question_formula_arg.
     
     Returns:
         tuple: (mark, feedback) where mark is int and feedback is str
     """
-    print(f"Marking formula answer: {answerformula} for question_mdid: {question_mdid}")
+    print(f"Marking formula answer: {answerformula} for question_md_id: {question_md_id}")
     feedback_parts = []
     
     if not answerformula:
@@ -100,15 +100,15 @@ def mark_formula_answer(answerformula, cursor, question_mdid):
         """
         SELECT rule_id, function_name, arg_count, match_policy, case_insensitive, ignore_whitespace
         FROM question_formula_rule
-        WHERE question_mdid = %s AND is_active = TRUE
+        WHERE question_md_id = %s AND is_active = TRUE
         ORDER BY rule_id ASC
         LIMIT 1
         """,
-        [question_mdid]
+        [question_md_id]
     )
     rule_row = cursor.fetchone()
     if not rule_row:
-        print(f"No active formula rule found for question_mdid: {question_mdid}")
+        print(f"No active formula rule found for question_md_id: {question_md_id}")
         return 0, "No formula rule found for this question."
 
     rule_id, function_name, arg_count, match_policy, case_insensitive, ignore_whitespace = rule_row
@@ -268,7 +268,7 @@ def mark_answers_for_session(sessionid):
         feedback = None
         with connection.cursor() as cursor:
             cursor.execute(
-                "SELECT question_mdid, question_type, question_sol FROM question_md WHERE question_id = %s",
+                "SELECT question_md_id, question_type, question_sol FROM question_md WHERE question_id = %s",
                 [questionid]
             )
             row = cursor.fetchone()
@@ -277,7 +277,7 @@ def mark_answers_for_session(sessionid):
                 mark = 0  # or handle missing solution
                 feedback = "No solution found."
             else:
-                question_mdid, question_type, solution = row
+                question_md_id, question_type, solution = row
                 print(f"Comparing answer '{answertext}' to solution '{solution}'")
                 # Mark based on question type
                 if question_type == 'boolean':
@@ -286,11 +286,11 @@ def mark_answers_for_session(sessionid):
                     feedback = "Correct." if mark else "Incorrect."
                 elif question_type == 'value':
                     print(f"Marking value question for questionid {questionid}, with answervalue {answervalue} and solution {solution}")
-                    mark = mark_value_answer(answervalue, solution, cursor, question_mdid)
+                    mark = mark_value_answer(answervalue, solution, cursor, question_md_id)
                     feedback = "Correct." if mark else "Incorrect."
                 elif question_type == 'formula':
                     print(f"Marking formula question for questionid {questionid}, with formula {answerformula}")
-                    mark, feedback = mark_formula_answer(answerformula, cursor, question_mdid)
+                    mark, feedback = mark_formula_answer(answerformula, cursor, question_md_id)
                 else:
                     print(f"Unknown question type '{question_type}' for questionid {questionid}")
                     mark = 0

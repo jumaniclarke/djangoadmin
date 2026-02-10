@@ -347,11 +347,29 @@ def get_base(text):
           break
   
   return get_base_simple(head_phrase).text
-
-def extract_prep_children(text, prep_text="of"):
-  doc = nlp(text)
-  prep_phrases = []
   
+def extract_root_noun(noun_phrase):
+  """
+  Extract the root noun from a noun phrase.
+  
+  Args:
+    noun_phrase: A string containing a noun phrase
+    
+  Returns:
+    The root noun token as a string
+  """
+  doc = nlp(noun_phrase)
+  
+  for token in doc:
+    if token.dep_ == 'ROOT' or token.head == token:
+      return token.text
+  
+  # Fallback: return the first noun if no ROOT found
+  for token in doc:
+    if token.pos_ == 'NOUN':
+      return token.text
+  
+  return noun_phrase
   
 #text = '27% is the proportion of people aged 31-40 years that tested positive for an illicit drug.'
 #nlp = spacy.load('en_core_web_sm')
@@ -374,3 +392,4 @@ if __name__ == "__main__":
   text = "27% is the proportion of people aged 31-40 years that tested positive for an illicit drug."
   print_pic(text)
   print('get_base:', get_base(text))
+  print('Root noun:', extract_root_noun(get_base(text)))
