@@ -4,6 +4,7 @@ from asgiref.sync import async_to_sync
 import re
 import spacy
 from .pandas_automation import get_base
+from .chart_lookup.xl_chart_types import CODE_TO_META
 
 def mark_boolean_answer(answertext, solution):
     """Mark a boolean answer (case-insensitive exact match)."""
@@ -361,6 +362,12 @@ def mark_nlp_answer(answertext, cursor, question_md_id):
         return 0, feedback
 
 import json
+import os
+
+# Load chart type lookup
+CHART_LOOKUP_PATH = os.path.join(os.path.dirname(__file__), 'chart_lookup', 'xl_chart_types.json')
+with open(CHART_LOOKUP_PATH, 'r') as f:
+    CHART_LOOKUP = json.load(f)
 
 def _normalize_cell_reference(cell_ref):
     """Remove $ signs from cell reference for flexible matching."""
@@ -468,14 +475,26 @@ def mark_chart_answer(chartdata_json, cursor, question_md_id):
     total_marks_available = sum(item.get("marks", 0) for item in marks_config)
     
     # Validate chart_type
-    student_chart_type = str(student_chart.get("chart type", ""))
-    if student_chart_type == str(expected_chart_type):
-        mark += next((item["marks"] for item in marks_config if item["property"] == "chart_type"), 0)
-        feedback_parts.append(f"✓ Chart type '{student_chart_type}' matches expected type.")
-        print(f"Chart type match: {student_chart_type}")
+    student_chart_type_code = str(student_chart.get("chart type", ""))
+    
+    # Look up category from code
+    code_to_meta = CHART_LOOKUP.get("code_to_meta", {})
+    student_chart_meta = code_to_meta.get(student_chart_type_code)
+    
+    if not student_chart_meta:
+        feedback_parts.append(f"✗ Chart type code '{student_chart_type_code}' not recognized.")
+        print(f"Chart type code not recognized: {student_chart_type_code}")
     else:
-        feedback_parts.append(f"✗ Chart type '{student_chart_type}' does not match expected type '{expected_chart_type}'.")
-        print(f"Chart type mismatch: {student_chart_type} vs {expected_chart_type}")
+        student_chart_category = student_chart_meta.get("category", "")
+        student_chart_name = student_chart_meta.get("name", "")
+        
+        if student_chart_category == str(expected_chart_type):
+            mark += next((item["marks"] for item in marks_config if item["property"] == "chart_type"), 0)
+            feedback_parts.append(f"✓ Chart type '{student_chart_name}' (category: {student_chart_category}) matches expected type '{expected_chart_type}'.")
+            print(f"Chart type match: {student_chart_name} -> {student_chart_category}")
+        else:
+            feedback_parts.append(f"✗ Chart type '{student_chart_name}' (category: {student_chart_category}) does not match expected type '{expected_chart_type}'.")
+            print(f"Chart type mismatch: {student_chart_category} vs {expected_chart_type}")
     
     # Validate title (presence only)
     student_title = student_chart.get("title", "").strip()
