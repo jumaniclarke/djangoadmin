@@ -12,9 +12,9 @@ class MyTable(models.Model):
     
     class Meta:
         managed = False
-        db_table = 'session_stream'
+        db_table = 'sessions'
         
-# Note: the answers_stream table is queried directly in views using raw SQL
+# Note: the answers table is queried directly in views using raw SQL
 # because the original table may use a composite primary key (sessionid, questionid)
 # and the database schema is managed externally. If you prefer an ORM model,
 # add a surrogate primary key column in the DB or adjust this model to match

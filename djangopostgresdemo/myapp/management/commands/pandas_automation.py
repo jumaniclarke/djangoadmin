@@ -389,7 +389,8 @@ def there_is_embedding(thetoken):
   return the_decision
 
 if __name__ == "__main__":
-  text = "27% is the proportion of people aged 31-40 years that tested positive for an illicit drug."
+  #text = "27% is the proportion of people aged 31-40 years that tested positive for an illicit drug."
+  text = "At least 50% of the data is less than or equal to 63"
   print_pic(text)
   print('get_base:', get_base(text))
   print('Root noun:', extract_root_noun(get_base(text)))

@@ -47,12 +47,12 @@ def display_answers(request):
             'error': 'No sessionid provided. Use ?sessionid=<id> to view answers.'
         })
 
-    # Use raw SQL to query answers_stream to avoid ORM primary-key issues
+    # Use raw SQL to query answers to avoid ORM primary-key issues
     with connection.cursor() as cur:
         cur.execute(
             '''SELECT sessionid, questionid, answertext, answerformula, answervalue,
                       markawarded, feedback, chartdata, tabledata
-               FROM answers_stream
+               FROM answers
                WHERE sessionid = %s
                ORDER BY questionid''', [sessionid]
         )

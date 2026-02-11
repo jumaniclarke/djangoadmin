@@ -2,6 +2,8 @@ from django.db import connection
 from channels.layers import get_channel_layer
 from asgiref.sync import async_to_sync
 import re
+import spacy
+from .pandas_automation import get_base
 
 def mark_boolean_answer(answertext, solution):
     """Mark a boolean answer (case-insensitive exact match)."""
@@ -230,6 +232,344 @@ def mark_formula_answer(answerformula, cursor, question_md_id):
     feedback = " ".join(feedback_parts)
     return mark, feedback
 
+def _extract_root_nouns(phrase_text):
+    """
+    Extract all root nouns from a phrase using spaCy.
+    
+    Args:
+        phrase_text: String containing the phrase
+        
+    Returns:
+        List of root noun texts. Returns empty list if no root nouns found.
+    """
+    nlp = spacy.load("en_core_web_trf")
+    doc = nlp(phrase_text)
+    root_nouns = []
+    
+    for token in doc:
+        if token.pos_ == 'NOUN' and (token.dep_ == 'ROOT' or token.head == token):
+            root_nouns.append(token.text)
+    
+    return root_nouns
+
+def mark_nlp_answer(answertext, cursor, question_md_id):
+    """Mark an NLP answer by comparing root nouns with expected phrase variants.
+    
+    Logic:
+    1. Fetch the active NLP rule for the question
+    2. Fetch all phrase variants for that rule
+    3. For each variant, extract base form using get_base() and extract root nouns
+    4. Extract base form and root nouns from student's answer
+    5. Compare: if student's root noun matches any expected root noun, award 2 marks
+    6. If match: feedback says "correct"
+    7. If no match: feedback says "your base is different from the expected base" and lists expected bases
+    
+    Returns:
+        tuple: (mark, feedback) where mark is int and feedback is str
+    """
+    print(f"Marking NLP answer: {answertext} for question_md_id: {question_md_id}")
+    
+    if not answertext:
+        print("No answer text provided")
+        return 0, "No answer provided."
+    
+    # Fetch the active NLP rule for this question
+    cursor.execute(
+        """
+        SELECT question_nlp_rule_id, language, spacy_model
+        FROM question_nlp_rule
+        WHERE question_md_id = %s AND is_active = TRUE
+        ORDER BY question_nlp_rule_id ASC
+        LIMIT 1
+        """,
+        [question_md_id]
+    )
+    rule_row = cursor.fetchone()
+    
+    if not rule_row:
+        print(f"No active NLP rule found for question_md_id: {question_md_id}")
+        return 0, "No NLP rule found for this question."
+    
+    question_nlp_rule_id, language, spacy_model = rule_row
+    print(f"Using NLP rule_id: {question_nlp_rule_id}, language: {language}, spacy_model: {spacy_model}")
+    
+    # Fetch all active phrase variants for this rule
+    cursor.execute(
+        """
+        SELECT phrase_variant_id, phrase_text
+        FROM question_nlp_phrase_variant
+        WHERE question_nlp_rule_id = %s AND active = TRUE
+        ORDER BY variant_rank ASC
+        """,
+        [question_nlp_rule_id]
+    )
+    phrase_variants = cursor.fetchall()
+    
+    if not phrase_variants:
+        print(f"No active phrase variants found for rule_id: {question_nlp_rule_id}")
+        return 0, "No phrase variants found for this question."
+    
+    # Extract base and root nouns from student's answer
+    try:
+        student_base = get_base(answertext.strip())
+        print(f"Student base: {student_base}")
+        student_root_nouns = _extract_root_nouns(student_base)
+        print(f"Student root nouns: {student_root_nouns}")
+        
+        # Only proceed if student has exactly one root noun
+        if len(student_root_nouns) != 1:
+            return 0, f"Your answer has {len(student_root_nouns)} root noun(s). Expected exactly 1."
+        
+        student_root_noun = student_root_nouns[0].lower()
+    except Exception as e:
+        print(f"Error extracting base from student answer: {e}")
+        return 0, f"Error processing your answer: {str(e)}"
+    
+    # Extract base and root nouns from each expected phrase variant
+    expected_bases = []
+    expected_root_nouns = []
+    
+    for variant_id, phrase_text in phrase_variants:
+        try:
+            expected_base = get_base(phrase_text.strip())
+            print(f"Expected base for variant {variant_id}: {expected_base}")
+            expected_bases.append(expected_base)
+            
+            variant_root_nouns = _extract_root_nouns(expected_base)
+            print(f"Expected root nouns for variant {variant_id}: {variant_root_nouns}")
+            
+            # Only accept variants with exactly one root noun
+            if len(variant_root_nouns) == 1:
+                expected_root_nouns.append(variant_root_nouns[0].lower())
+        except Exception as e:
+            print(f"Error extracting base from variant {variant_id}: {e}")
+            continue
+    
+    if not expected_root_nouns:
+        print("No valid expected root nouns found")
+        return 0, "Error: Unable to extract valid expected answers."
+    
+    # Compare student's root noun with expected root nouns
+    if student_root_noun in expected_root_nouns:
+        print(f"Match found! Student root noun '{student_root_noun}' matches expected root noun(s)")
+        return 2, f"You chose as base \"{student_base}\". This is correct."
+    else:
+        # Format expected bases for feedback
+        expected_bases_str = ", ".join(expected_bases) if expected_bases else "unknown"
+        feedback = f"Your base is different from the expected base. Expected base(s): {expected_bases_str}"
+        print(f"No match. Student: '{student_root_noun}', Expected: {expected_root_nouns}")
+        return 0, feedback
+
+import json
+
+def _normalize_cell_reference(cell_ref):
+    """Remove $ signs from cell reference for flexible matching."""
+    if not cell_ref:
+        return ""
+    return cell_ref.replace("$", "").lower()
+
+def _series_matches(student_series, expected_series):
+    """
+    Check if a student series matches an expected series.
+    Flexible matching: ignore $ signs, case-insensitive.
+    """
+    student_values = student_series.get("values", {})
+    student_xvalues = student_series.get("xvalues", {})
+    
+    expected_values_ref = expected_series.get("expected_values_reference", "")
+    expected_xvalues_ref = expected_series.get("expected_xvalues_reference", "")
+    
+    # Normalize and compare values
+    student_values_norm = _normalize_cell_reference(
+        student_values.get("value", "")
+    )
+    expected_values_norm = _normalize_cell_reference(expected_values_ref)
+    
+    # Normalize and compare xvalues
+    student_xvalues_norm = _normalize_cell_reference(
+        student_xvalues.get("value", "")
+    )
+    expected_xvalues_norm = _normalize_cell_reference(expected_xvalues_ref)
+    
+    # Both values and xvalues must match
+    values_match = student_values_norm == expected_values_norm
+    xvalues_match = student_xvalues_norm == expected_xvalues_norm
+    
+    return values_match and xvalues_match
+
+def mark_chart_answer(chartdata_json, cursor, question_md_id):
+    """Mark a chart answer based on question_chart_rule and question_chart_arguments.
+    
+    Logic:
+    1. Parse JSON, extract first chart
+    2. Fetch chart rule for the question
+    3. Validate required properties: chart_type, title, legend, x/y-axis titles
+    4. Validate at least one student series matches a rule series
+    5. Calculate mark from marks_config
+    
+    Returns:
+        tuple: (mark, feedback) where mark is int and feedback is str
+    """
+    print(f"Marking chart answer for question_md_id: {question_md_id}")
+    
+    if not chartdata_json:
+        print("No chart data provided")
+        return 0, "No chart data provided."
+    
+    # Parse JSON
+    try:
+        chart_data = json.loads(chartdata_json) if isinstance(chartdata_json, str) else chartdata_json
+        charts = chart_data.get("charts", [])
+        
+        if not charts:
+            print("No charts found in chartdata")
+            return 0, "No charts found in submission."
+        
+        student_chart = charts[0]  # First chart
+        chart_title = student_chart.get("title", "Untitled")
+        chart_label = f"Chart '{chart_title}'" if chart_title else "Chart 1"
+        
+    except (json.JSONDecodeError, TypeError) as e:
+        print(f"Error parsing chartdata JSON: {e}")
+        return 0, f"Error parsing chart data: {str(e)}"
+    
+    # Fetch active chart rule
+    cursor.execute(
+        """
+        SELECT question_chart_rule_id, chart_type, marks_config, 
+               require_title, require_legend, require_x_axis_title, require_y_axis_title
+        FROM question_chart_rule
+        WHERE question_md_id = %s AND is_active = TRUE
+        ORDER BY question_chart_rule_id ASC
+        LIMIT 1
+        """,
+        [question_md_id]
+    )
+    rule_row = cursor.fetchone()
+    
+    if not rule_row:
+        print(f"No active chart rule found for question_md_id: {question_md_id}")
+        return 0, "No chart rule found for this question."
+    
+    (rule_id, expected_chart_type, marks_config_json, 
+     require_title, require_legend, require_x_axis_title, require_y_axis_title) = rule_row
+    
+    print(f"Using chart rule_id: {rule_id}, expected type: {expected_chart_type}")
+    
+    # Parse marks_config
+    try:
+        marks_config = marks_config_json if isinstance(marks_config_json, list) else json.loads(marks_config_json)
+    except (json.JSONDecodeError, TypeError):
+        marks_config = []
+    
+    # Initialize mark and feedback
+    mark = 0
+    feedback_parts = []
+    total_marks_available = sum(item.get("marks", 0) for item in marks_config)
+    
+    # Validate chart_type
+    student_chart_type = str(student_chart.get("chart type", ""))
+    if student_chart_type == str(expected_chart_type):
+        mark += next((item["marks"] for item in marks_config if item["property"] == "chart_type"), 0)
+        feedback_parts.append(f"✓ Chart type '{student_chart_type}' matches expected type.")
+        print(f"Chart type match: {student_chart_type}")
+    else:
+        feedback_parts.append(f"✗ Chart type '{student_chart_type}' does not match expected type '{expected_chart_type}'.")
+        print(f"Chart type mismatch: {student_chart_type} vs {expected_chart_type}")
+    
+    # Validate title (presence only)
+    student_title = student_chart.get("title", "").strip()
+    if require_title:
+        if student_title:
+            mark += next((item["marks"] for item in marks_config if item["property"] == "title"), 0)
+            feedback_parts.append(f"✓ Title present: '{student_title}'.")
+            print("Title present")
+        else:
+            feedback_parts.append("✗ Title is required but missing.")
+            print("Title missing")
+    
+    # Validate legend (presence only)
+    has_legend = "legend position" in student_chart
+    if require_legend:
+        if has_legend:
+            mark += next((item["marks"] for item in marks_config if item["property"] == "legend"), 0)
+            feedback_parts.append("✓ Legend is present.")
+            print("Legend present")
+        else:
+            feedback_parts.append("✗ Legend is required but missing.")
+            print("Legend missing")
+    
+    # Validate x-axis title (presence only)
+    x_axis_title = student_chart.get("x-axis title", "").strip()
+    if require_x_axis_title:
+        if x_axis_title:
+            mark += next((item["marks"] for item in marks_config if item["property"] == "x_axis_title"), 0)
+            feedback_parts.append(f"✓ X-axis title present: '{x_axis_title}'.")
+            print("X-axis title present")
+        else:
+            feedback_parts.append("✗ X-axis title is required but missing.")
+            print("X-axis title missing")
+    
+    # Validate y-axis title (presence only)
+    y_axis_title = student_chart.get("y-axis title", "").strip()
+    if require_y_axis_title:
+        if y_axis_title:
+            mark += next((item["marks"] for item in marks_config if item["property"] == "y_axis_title"), 0)
+            feedback_parts.append(f"✓ Y-axis title present: '{y_axis_title}'.")
+            print("Y-axis title present")
+        else:
+            feedback_parts.append("✗ Y-axis title is required but missing.")
+            print("Y-axis title missing")
+    
+    # Validate series data
+    cursor.execute(
+        """
+        SELECT argument_id, expected_values_reference, expected_xvalues_reference, is_required
+        FROM question_chart_arguments
+        WHERE question_chart_rule_id = %s
+        ORDER BY series_index ASC
+        """,
+        [rule_id]
+    )
+    expected_series_list = cursor.fetchall()
+    
+    student_series_list = student_chart.get("series data", [])
+    
+    if expected_series_list:
+        # Check if at least one student series matches a rule series
+        series_match_found = False
+        
+        for expected_series_row in expected_series_list:
+            argument_id, exp_values_ref, exp_xvalues_ref, is_required = expected_series_row
+            
+            expected_series = {
+                "expected_values_reference": exp_values_ref,
+                "expected_xvalues_reference": exp_xvalues_ref,
+                "is_required": is_required
+            }
+            
+            # Check if any student series matches this expected series
+            for student_series in student_series_list:
+                if _series_matches(student_series, expected_series):
+                    series_match_found = True
+                    break
+            
+            if series_match_found:
+                break
+        
+        if series_match_found:
+            mark += next((item["marks"] for item in marks_config if item["property"] == "series_data"), 0)
+            feedback_parts.append("✓ Series data matches expected data.")
+            print("Series data match")
+        else:
+            feedback_parts.append("✗ Series data does not match expected data.")
+            print("Series data mismatch")
+    
+    feedback = " ".join(feedback_parts)
+    print(f"Final mark: {mark}/{total_marks_available}")
+    
+    return mark, feedback
+
 def mark_answers_for_session(sessionid):
     """
     For a given sessionid, fetch all answers, compare to solutions in question_md,
@@ -245,12 +585,12 @@ def mark_answers_for_session(sessionid):
     with connection.cursor() as cursor:
         try:
             # Debug: check if data exists for this sessionid
-            cursor.execute("SELECT COUNT(*) FROM answers_stream WHERE sessionid = %s", [sessionid])
+            cursor.execute("SELECT COUNT(*) FROM answers WHERE sessionid = %s", [sessionid])
             count = cursor.fetchone()[0]
             print(f"Step 2b: COUNT(*) for sessionid {sessionid} = {count}")
 
             cursor.execute(
-            "SELECT sessionid, questionid, answertext, answervalue, answerformula FROM answers_stream WHERE sessionid = %s",
+            "SELECT sessionid, questionid, answertext, answervalue, answerformula, chartdata FROM answers WHERE sessionid = %s",
             [sessionid]
             )
             answers = list(cursor.fetchall()) #convert to list immediately, fetchall() returns a list of tuples
@@ -264,7 +604,7 @@ def mark_answers_for_session(sessionid):
         print("answers is empty or exhausted")
         return
     
-    for orig_sessionid, questionid, answertext, answervalue, answerformula in answers:
+    for orig_sessionid, questionid, answertext, answervalue, answerformula, chartdata in answers:
         feedback = None
         with connection.cursor() as cursor:
             cursor.execute(
@@ -272,6 +612,14 @@ def mark_answers_for_session(sessionid):
                 [questionid]
             )
             row = cursor.fetchone()
+
+            if not row:
+                mark = 0
+                feedback = "No solution found."
+            else:
+                question_md_id, question_type, solution = row
+                print(f"DEBUG: question_id={questionid}, question_type='{question_type}', question_md_id={question_md_id}")  # ADD THIS
+                print(f"Comparing answer '{answertext}' to solution '{solution}'")
 
             if not row:
                 mark = 0  # or handle missing solution
@@ -291,6 +639,12 @@ def mark_answers_for_session(sessionid):
                 elif question_type == 'formula':
                     print(f"Marking formula question for questionid {questionid}, with formula {answerformula}")
                     mark, feedback = mark_formula_answer(answerformula, cursor, question_md_id)
+                elif question_type == 'nlp':
+                    print(f"Marking NLP question for questionid {questionid}, with answer text {answertext}")
+                    mark, feedback = mark_nlp_answer(answertext, cursor, question_md_id)
+                elif question_type == 'chart':
+                    print(f"Marking chart question for questionid {questionid}")
+                    mark, feedback = mark_chart_answer(chartdata, cursor, question_md_id)
                 else:
                     print(f"Unknown question type '{question_type}' for questionid {questionid}")
                     mark = 0
@@ -298,7 +652,7 @@ def mark_answers_for_session(sessionid):
 
         with connection.cursor() as cursor:
             cursor.execute(
-                "UPDATE answers_stream SET markawarded = %s, feedback = %s WHERE sessionid = %s AND questionid = %s",
+                "UPDATE answers SET markawarded = %s, feedback = %s WHERE sessionid = %s AND questionid = %s",
                 [mark, feedback, orig_sessionid, questionid]
             )
             print(f"Updated markawarded to {mark} and feedback to '{feedback}' for sessionid {orig_sessionid}, questionid {questionid}")

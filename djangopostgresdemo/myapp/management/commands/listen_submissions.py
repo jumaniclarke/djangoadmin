@@ -9,6 +9,7 @@ import psycopg2.extensions
 from asgiref.sync import async_to_sync
 from channels.layers import get_channel_layer
 from .marking import mark_answers_for_session
+#from .marking import get_base
 channel_layer = get_channel_layer()
 
 class Command(BaseCommand):
