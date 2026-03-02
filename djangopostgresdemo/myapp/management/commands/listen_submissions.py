@@ -8,8 +8,10 @@ import psycopg2
 import psycopg2.extensions
 from asgiref.sync import async_to_sync
 from channels.layers import get_channel_layer
-from .marking import mark_answers_for_session
-#from .marking import get_base
+from myapp.tasks import mark_submission_async  # Import Celery task
+import logging
+
+logger = logging.getLogger(__name__)
 channel_layer = get_channel_layer()
 
 class Command(BaseCommand):
@@ -56,13 +58,13 @@ class Command(BaseCommand):
                             self.stderr.write("Received malformed payload; skipping")
                             continue
 
-                        # Process immediately: enqueue a task, update cache, broadcast, etc.
+                        # Enqueue marking task to Celery instead of blocking
+                        self.stdout.write(f"Step 1: Enqueuing marking task for submission ID: {submission_id}")
                         
-                        self.stdout.write(f"Step 1: Marking answers for submission ID: {submission_id}")
-                        self.process_submission_id(submission_id)
-                        # mark answers for this session
+                        # Queue the async task (returns immediately)
+                        mark_submission_async.delay(submission_id)
                         
-                        mark_answers_for_session(submission_id)
+                        self.stdout.write(self.style.SUCCESS(f"✓ Task queued for submission {submission_id}; worker will process"))
             except Exception as e:
                 self.stderr.write(self.style.ERROR(f"Listener error: {e}; retrying in 5s"))
                 time.sleep(5)

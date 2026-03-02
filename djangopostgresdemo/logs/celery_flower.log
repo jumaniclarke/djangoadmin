@@ -1,0 +1,25 @@
+[I 260214 05:47:43 command:168] Visit me at http://0.0.0.0:5555
+[I 260214 05:47:43 command:176] Broker: redis://127.0.0.1:6379/0
+[I 260214 05:47:43 command:177] Registered tasks: 
+    ['celery.accumulate',
+     'celery.backend_cleanup',
+     'celery.chain',
+     'celery.chord',
+     'celery.chord_unlock',
+     'celery.chunks',
+     'celery.group',
+     'celery.map',
+     'celery.starmap',
+     'dbapp.celery.debug_task',
+     'myapp.tasks.detect_unmarked_submissions',
+     'myapp.tasks.mark_submission_async',
+     'myapp.tasks.submit_notification_update']
+[I 260214 05:47:43 mixins:228] Connected to redis://127.0.0.1:6379/0
+[W 260214 05:47:44 inspector:44] Inspect method active_queues failed
+[W 260214 05:47:44 inspector:44] Inspect method conf failed
+[W 260214 05:47:44 inspector:44] Inspect method active failed
+[W 260214 05:47:44 inspector:44] Inspect method registered failed
+[W 260214 05:47:44 inspector:44] Inspect method stats failed
+[W 260214 05:47:44 inspector:44] Inspect method revoked failed
+[W 260214 05:47:44 inspector:44] Inspect method scheduled failed
+[W 260214 05:47:44 inspector:44] Inspect method reserved failed

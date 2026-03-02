@@ -57,7 +57,8 @@
                 <p><strong>Answer Value:</strong> ${safe(a.answervalue)}</p>
                 <p><strong>Answer Formula:</strong> ${safe(a.answerformula)}</p>
                 <p><strong>Mark Awarded:</strong> ${safe(a.markawarded)}</p>
-                <p><strong>Feedback:</strong> ${safe(a.feedback)}</p>
+                <p><strong>Feedback:</strong></p>
+                <div style="white-space: pre-wrap; padding-left: 1rem; tab-size: 4;">${safe(a.feedback)}</div>
                 <p><strong>Chart Data</strong>
                     <pre class="bg-light p-2 rounded border"><code>${safe(JSON.stringify(JSON.parse(a.chartdata || '{}'), null, 2))}</code></pre>
                 </p>
@@ -126,6 +127,23 @@
                     if (answerIdx === current) {
                         showAnswer(current);
                     }
+                }
+            } else if (data.type === 'batch_mark_update') {
+                const marks = Array.isArray(data.marks) ? data.marks : [];
+                let updatedCurrent = false;
+                marks.forEach((item) => {
+                    const qid = String(item.questionid);
+                    const answerIdx = answers.findIndex(a => String(a.questionid) === qid);
+                    if (answerIdx !== -1) {
+                        answers[answerIdx].markawarded = item.mark;
+                        answers[answerIdx].feedback = item.feedback;
+                        if (answerIdx === current) {
+                            updatedCurrent = true;
+                        }
+                    }
+                });
+                if (updatedCurrent) {
+                    showAnswer(current);
                 }
             }
         });

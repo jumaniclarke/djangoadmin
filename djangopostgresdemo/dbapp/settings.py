@@ -82,6 +82,11 @@ DATABASES = {
         'PASSWORD': 'A7f!r9LpX2q#BvT3',#'Givemetheaws1',
         'HOST': 'srvubusql002.uct.ac.za',#'database-1.croyeqs8yoif.eu-north-1.rds.amazonaws.com',
         'PORT': '5432',#'5434',
+        # Connection pooling + persistent connections
+        'CONN_MAX_AGE': 600,  # Reuse connections for 10 minutes
+        'OPTIONS': {
+            'connect_timeout': 10,
+        }
     }
 }
 
@@ -137,3 +142,26 @@ CHANNEL_LAYERS = {
 ASGI_APPLICATION = 'dbapp.asgi.application' #'djangodemopostgres.asgi.application'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# ============ Celery Configuration ============
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379/0'
+CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379/0'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'UTC'
+CELERY_TASK_TRACK_STARTED = True
+CELERY_TASK_TIME_LIMIT = 30 * 60  # 30 minutes hard limit per marking task
+CELERY_WORKER_PREFETCH_MULTIPLIER = 1  # One task per worker at a time (no prefetching)
+CELERY_WORKER_MAX_TASKS_PER_CHILD = 100  # Restart worker every 100 tasks (memory safety)
+
+# ============ Celery Beat (Scheduled Tasks) ============
+from celery.schedules import crontab
+
+CELERY_BEAT_SCHEDULE = {
+    'detect-unmarked-submissions': {
+        'task': 'myapp.tasks.detect_unmarked_submissions',
+        'schedule': crontab(minute='*/5'),  # Run every 5 minutes
+        'options': {'queue': 'default'}
+    },
+}

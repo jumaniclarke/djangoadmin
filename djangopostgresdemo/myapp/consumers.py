@@ -79,3 +79,27 @@ class SessionMarksConsumer(AsyncWebsocketConsumer):
             }))
         except Exception as e:
             print(f"[SessionMarksConsumer] Send error: {e}")
+
+    async def batch_mark_update(self, event):
+        """
+        Handle batched mark updates from the server.
+        Expects: {"type": "batch_mark_update", "marks": [..]}
+        """
+        try:
+            marks = event.get("marks", [])
+            print(f"[SessionMarksConsumer] Sending batch mark update: {len(marks)} items")
+
+            # Send a single payload containing all marks
+            await self.send(text_data=json.dumps({
+                "type": "batch_mark_update",
+                "marks": [
+                    {
+                        "questionid": str(item.get("questionid")),
+                        "mark": item.get("mark"),
+                        "feedback": item.get("feedback", "")
+                    }
+                    for item in marks
+                ]
+            }))
+        except Exception as e:
+            print(f"[SessionMarksConsumer] Batch send error: {e}")

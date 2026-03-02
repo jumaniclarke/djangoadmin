@@ -4,7 +4,7 @@ from asgiref.sync import async_to_sync
 import re
 import spacy
 from .pandas_automation import get_base
-from .chart_lookup.xl_chart_types import CODE_TO_META
+#from .chart_lookup.xl_chart_types import CODE_TO_META
 
 def mark_boolean_answer(answertext, solution):
     """Mark a boolean answer (case-insensitive exact match)."""
@@ -243,8 +243,8 @@ def _extract_root_nouns(phrase_text):
     Returns:
         List of root noun texts. Returns empty list if no root nouns found.
     """
-    nlp = spacy.load("en_core_web_trf")
-    doc = nlp(phrase_text)
+    from .pandas_automation import get_nlp
+    doc = get_nlp()(phrase_text)
     root_nouns = []
     
     for token in doc:
@@ -363,17 +363,56 @@ def mark_nlp_answer(answertext, cursor, question_md_id):
 
 import json
 import os
+import math
 
 # Load chart type lookup
 CHART_LOOKUP_PATH = os.path.join(os.path.dirname(__file__), 'chart_lookup', 'xl_chart_types.json')
 with open(CHART_LOOKUP_PATH, 'r') as f:
     CHART_LOOKUP = json.load(f)
 
+def _format_mark(mark_value):
+    """Format a mark value as int if whole number, else as float with 1 decimal."""
+    try:
+        m = float(mark_value)
+        if math.isclose(m, round(m), abs_tol=1e-9):
+            return int(round(m))
+        else:
+            return round(m, 1)
+    except (ValueError, TypeError):
+        return mark_value
+
 def _normalize_cell_reference(cell_ref):
     """Remove $ signs from cell reference for flexible matching."""
     if not cell_ref:
         return ""
     return cell_ref.replace("$", "").lower()
+
+def _format_chart_name(chart_name):
+    """
+    Format chart type name for readable feedback.
+    Removes 'xl' prefix and adds spaces before capital letters.
+    
+    Examples:
+        'xlPie' -> 'Pie'
+        'xlColumn' -> 'Column'
+        'xlCylinderColClustered' -> 'Cylinder Col Clustered'
+    """
+    if not chart_name:
+        return chart_name
+    
+    # Remove 'xl' prefix if present
+    name = chart_name
+    if name.startswith('xl'):
+        name = name[2:]
+    
+    # Add space before each capital letter (except the first one)
+    formatted = ''
+    for i, char in enumerate(name):
+        if i > 0 and char.isupper():
+            formatted += ' '
+        formatted += char
+    
+    return formatted
 
 def _series_matches(student_series, expected_series):
     """
@@ -481,63 +520,70 @@ def mark_chart_answer(chartdata_json, cursor, question_md_id):
     code_to_meta = CHART_LOOKUP.get("code_to_meta", {})
     student_chart_meta = code_to_meta.get(student_chart_type_code)
     
+    chart_type_marks = next((item["marks"] for item in marks_config if item["property"] == "chart_type"), 0)
+    
     if not student_chart_meta:
-        feedback_parts.append(f"✗ Chart type code '{student_chart_type_code}' not recognized.")
+        feedback_parts.append(f"<span style='color: red; font-weight: bold;'>✗</span> Chart type code '{student_chart_type_code}' not recognized. [0/{_format_mark(chart_type_marks)} mark(s)]")
         print(f"Chart type code not recognized: {student_chart_type_code}")
     else:
-        student_chart_category = student_chart_meta.get("category", "")
+        student_chart_type = student_chart_meta.get("category", "")
         student_chart_name = student_chart_meta.get("name", "")
-        
-        if student_chart_category == str(expected_chart_type):
-            mark += next((item["marks"] for item in marks_config if item["property"] == "chart_type"), 0)
-            feedback_parts.append(f"✓ Chart type '{student_chart_name}' (category: {student_chart_category}) matches expected type '{expected_chart_type}'.")
-            print(f"Chart type match: {student_chart_name} -> {student_chart_category}")
+        formatted_chart_name = _format_chart_name(student_chart_name)
+        formatted_expected_chart_name = _format_chart_name(expected_chart_type)
+        if str(student_chart_name).strip().lower() == str(expected_chart_type).strip().lower():
+            mark += chart_type_marks
+            feedback_parts.append(f"<span style='color: red; font-weight: bold;'>✓</span> Your chart type is correct [{_format_mark(chart_type_marks)}/{_format_mark(chart_type_marks)} mark(s)]")
+            print(f"Chart type match: {student_chart_name} -> {student_chart_type}")
         else:
-            feedback_parts.append(f"✗ Chart type '{student_chart_name}' (category: {student_chart_category}) does not match expected type '{expected_chart_type}'.")
-            print(f"Chart type mismatch: {student_chart_category} vs {expected_chart_type}")
+            feedback_parts.append(f"<span style='color: red; font-weight: bold;'>✗</span> Your chart type is '{formatted_chart_name}' but expected type is '{formatted_expected_chart_name}'. [0/{_format_mark(chart_type_marks)} mark(s)]")
+            print(f"Chart type mismatch: {student_chart_name} vs {expected_chart_type}")
     
     # Validate title (presence only)
     student_title = student_chart.get("title", "").strip()
     if require_title:
+        title_marks = next((item["marks"] for item in marks_config if item["property"] == "title"), 0)
         if student_title:
-            mark += next((item["marks"] for item in marks_config if item["property"] == "title"), 0)
-            feedback_parts.append(f"✓ Title present: '{student_title}'.")
+            mark += title_marks
+            feedback_parts.append(f"\n<span style='color: red; font-weight: bold;'>✓</span> Title present: '{student_title}'. [{_format_mark(title_marks)}/{_format_mark(title_marks)} mark(s)]")
             print("Title present")
         else:
-            feedback_parts.append("✗ Title is required but missing.")
+            feedback_parts.append(f"\n<span style='color: red; font-weight: bold;'>✗</span> Title is required but missing. [0/{_format_mark(title_marks)} mark(s)]")
             print("Title missing")
     
     # Validate legend (presence only)
     has_legend = "legend position" in student_chart
     if require_legend:
+        legend_marks = next((item["marks"] for item in marks_config if item["property"] == "legend"), 0)
         if has_legend:
-            mark += next((item["marks"] for item in marks_config if item["property"] == "legend"), 0)
-            feedback_parts.append("✓ Legend is present.")
+            mark += legend_marks
+            feedback_parts.append(f"\n<span style='color: red; font-weight: bold;'>✓</span> Legend is present. [{_format_mark(legend_marks)}/{_format_mark(legend_marks)} mark(s)]")
             print("Legend present")
         else:
-            feedback_parts.append("✗ Legend is required but missing.")
+            feedback_parts.append(f"\n<span style='color: red; font-weight: bold;'>✗</span> Legend is required but missing. [0/{_format_mark(legend_marks)} mark(s)]")
             print("Legend missing")
     
     # Validate x-axis title (presence only)
     x_axis_title = student_chart.get("x-axis title", "").strip()
     if require_x_axis_title:
+        x_axis_marks = next((item["marks"] for item in marks_config if item["property"] == "x_axis_title"), 0)
         if x_axis_title:
-            mark += next((item["marks"] for item in marks_config if item["property"] == "x_axis_title"), 0)
-            feedback_parts.append(f"✓ X-axis title present: '{x_axis_title}'.")
+            mark += x_axis_marks
+            feedback_parts.append(f"\n<span style='color: red; font-weight: bold;'>✓</span> X-axis title present: '{x_axis_title}'. [{_format_mark(x_axis_marks)}/{_format_mark(x_axis_marks)} mark(s)]")
             print("X-axis title present")
         else:
-            feedback_parts.append("✗ X-axis title is required but missing.")
+            feedback_parts.append(f"\n<span style='color: red; font-weight: bold;'>✗</span> X-axis title is required but missing. [0/{_format_mark(x_axis_marks)} mark(s)]")
             print("X-axis title missing")
     
     # Validate y-axis title (presence only)
     y_axis_title = student_chart.get("y-axis title", "").strip()
     if require_y_axis_title:
+        y_axis_marks = next((item["marks"] for item in marks_config if item["property"] == "y_axis_title"), 0)
         if y_axis_title:
-            mark += next((item["marks"] for item in marks_config if item["property"] == "y_axis_title"), 0)
-            feedback_parts.append(f"✓ Y-axis title present: '{y_axis_title}'.")
+            mark += y_axis_marks
+            feedback_parts.append(f"\n<span style='color: red; font-weight: bold;'>✓</span> Y-axis title present: '{y_axis_title}'. [{_format_mark(y_axis_marks)}/{_format_mark(y_axis_marks)} mark(s)]")
             print("Y-axis title present")
         else:
-            feedback_parts.append("✗ Y-axis title is required but missing.")
+            feedback_parts.append(f"\n<span style='color: red; font-weight: bold;'>✗</span> Y-axis title is required but missing. [0/{_format_mark(y_axis_marks)} mark(s)]")
             print("Y-axis title missing")
     
     # Validate series data
@@ -555,35 +601,136 @@ def mark_chart_answer(chartdata_json, cursor, question_md_id):
     student_series_list = student_chart.get("series data", [])
     
     if expected_series_list:
-        # Check if at least one student series matches a rule series
-        series_match_found = False
-        
+        # Check matches for full/partial credit
+        series_marks = next((item["marks"] for item in marks_config if item["property"] == "series_data"), 0)
+        full_match_found = False
+        partial_match_found = False
+        values_match_found = False
+        xvalues_match_found = False
+        full_match_pair = None
+        values_match_pair = None
+        xvalues_match_pair = None
+
         for expected_series_row in expected_series_list:
-            argument_id, exp_values_ref, exp_xvalues_ref, is_required = expected_series_row
-            
+            _, exp_values_ref, exp_xvalues_ref, is_required = expected_series_row
+
             expected_series = {
                 "expected_values_reference": exp_values_ref,
                 "expected_xvalues_reference": exp_xvalues_ref,
                 "is_required": is_required
             }
-            
-            # Check if any student series matches this expected series
+
+            expected_values_norm = _normalize_cell_reference(exp_values_ref)
+            expected_xvalues_norm = _normalize_cell_reference(exp_xvalues_ref)
+
             for student_series in student_series_list:
-                if _series_matches(student_series, expected_series):
-                    series_match_found = True
+                student_values_raw = student_series.get("values", {}).get("value", "")
+                student_xvalues_raw = student_series.get("xvalues", {}).get("value", "")
+                student_values_norm = _normalize_cell_reference(student_values_raw)
+                student_xvalues_norm = _normalize_cell_reference(student_xvalues_raw)
+
+                values_match = student_values_norm == expected_values_norm
+                xvalues_match = student_xvalues_norm == expected_xvalues_norm
+
+                if values_match:
+                    values_match_found = True
+                    if values_match_pair is None:
+                        values_match_pair = (student_values_raw, exp_values_ref, student_xvalues_raw, exp_xvalues_ref)
+                if xvalues_match:
+                    xvalues_match_found = True
+                    if xvalues_match_pair is None:
+                        xvalues_match_pair = (student_values_raw, exp_values_ref, student_xvalues_raw, exp_xvalues_ref)
+
+                if values_match and xvalues_match:
+                    full_match_found = True
+                    if full_match_pair is None:
+                        full_match_pair = (student_values_raw, exp_values_ref, student_xvalues_raw, exp_xvalues_ref)
                     break
-            
-            if series_match_found:
+                if values_match or xvalues_match:
+                    partial_match_found = True
+
+            if full_match_found:
                 break
-        
-        if series_match_found:
-            mark += next((item["marks"] for item in marks_config if item["property"] == "series_data"), 0)
-            feedback_parts.append("✓ Series data matches expected data.")
-            print("Series data match")
+
+        if full_match_found:
+            mark += series_marks
+            feedback_parts.append(f"\n<span style='color: red; font-weight: bold;'>✓</span> Your series data matches the expected data. [{_format_mark(series_marks)}/{_format_mark(series_marks)} mark(s)]")
+            if full_match_pair:
+                s_vals, e_vals, s_xvals, e_xvals = full_match_pair
+                feedback_parts.append(f"\n\t<span style='color: red; font-weight: bold;'>✓</span> Values match:\n\t\tyours = {s_vals}\n\t\texpected = {e_vals}")
+                feedback_parts.append(f"\n\t<span style='color: red; font-weight: bold;'>✓</span> X-values match:\n\t\tyours = {s_xvals}\n\t\texpected = {e_xvals}")
+            print("Series data full match")
+        elif partial_match_found:
+            half_marks = round(series_marks / 2, 1)
+            mark += half_marks
+            feedback_parts.append(f"\n<span style='color: red; font-weight: bold;'>△</span> Your series data partially matches the expected data. [{_format_mark(half_marks)}/{_format_mark(series_marks)} mark(s)]")
+            # Values match but x-values do not
+            if values_match_found and not xvalues_match_found:
+                feedback_parts.append("\n\t<span style='color: red; font-weight: bold;'>✓</span> Values match, but x-values do not.")
+                if values_match_pair:
+                    s_vals, e_vals, s_xvals, e_xvals = values_match_pair
+                    feedback_parts.append(f"\n\t\t<span style='color: red; font-weight: bold;'>✓</span> Values match:\n\t\t\t\tyours = {s_vals}\n\t\t\t\texpected = {e_vals}")
+                    feedback_parts.append(f"\n\t\t<span style='color: red; font-weight: bold;'>✗</span> X-values do not match:\n\t\t\t\tyours = {s_xvals}\n\t\t\t\texpected = {e_xvals}")
+            # X-values match but values do not
+            elif xvalues_match_found and not values_match_found:
+                feedback_parts.append("\n\t\t<span style='color: red; font-weight: bold;'>✓</span> X-values match, but values do not.")
+                if xvalues_match_pair:
+                    s_vals, e_vals, s_xvals, e_xvals = xvalues_match_pair
+                    feedback_parts.append(f"\n\t\t<span style='color: red; font-weight: bold;'>✓</span> X-values match:\n\t\t\t\tyours = {s_xvals}\n\t\t\t\texpected = {e_xvals}")
+                    feedback_parts.append(f"\n\t\t<span style='color: red; font-weight: bold;'>✗</span> Values do not match:\n\t\t\t\tyours = {s_vals}\n\t\t\t\texpected = {e_vals}")
+            # Both matched somewhere but not in the same series
+            elif values_match_found and xvalues_match_found:
+                feedback_parts.append("\n\t\t<span style='color: red; font-weight: bold;'>✓</span> Values and x-values each matched at least once, but not in the same series.")
+                if values_match_pair:
+                    s_vals, e_vals, s_xvals, e_xvals = values_match_pair
+                    feedback_parts.append(f"\n\t\t<span style='color: red; font-weight: bold;'>✓</span> Values match:\n\t\t\t\tyours = {s_vals}\n\t\t\t\texpected = {e_vals}")
+                    feedback_parts.append(f"\n\t\t<span style='color: red; font-weight: bold;'>✗</span> X-values do not match:\n\t\t\t\tyours = {s_xvals}\n\t\t\t\texpected = {e_xvals}")
+                if xvalues_match_pair:
+                    s_vals, e_vals, s_xvals, e_xvals = xvalues_match_pair
+                    feedback_parts.append(f"\n\t\t<span style='color: red; font-weight: bold;'>✓</span> X-values match:\n\t\t\t\tyours = {s_xvals}\n\t\t\t\texpected = {e_xvals}")
+                    feedback_parts.append(f"\n\t\t<span style='color: red; font-weight: bold;'>✗</span> Values do not match:\n\t\t\t\tyours = {s_vals}\n\t\t\t\texpected = {e_vals}")
+            print("Series data partial match")
         else:
-            feedback_parts.append("✗ Series data does not match expected data.")
+            # Provide detailed feedback on mismatch
+            feedback_parts.append(f"\n<span style='color: red; font-weight: bold;'>✗</span> Your series data does not match the expected data. [0/{_format_mark(series_marks)} mark(s)]")
+            
+            # Show what student provided
+            if student_series_list:
+                student_series_count = len(student_series_list)
+                for idx, student_series in enumerate(student_series_list):
+                    student_values = student_series.get("values", {}).get("value", "N/A")
+                    student_xvalues = student_series.get("xvalues", {}).get("value", "N/A")
+                    if student_series_count == 1:
+                        label = "Your chart data"
+                    else:
+                        label = f"Your chart data series {idx+1}"
+                    feedback_parts.append(f"\n  {label}: values={student_values}, xvalues={student_xvalues}")
+            else:
+                feedback_parts.append("\n  You provided no series data.")
+            
+            # Show what was expected
+            expected_series_count = len(expected_series_list)
+            feedback_parts.append("\n  Expected:")
+            for idx, expected_series_row in enumerate(expected_series_list):
+                _, exp_values_ref, exp_xvalues_ref, _ = expected_series_row
+                if expected_series_count == 1:
+                    label = "Chart data"
+                else:
+                    label = f"Chart data series {idx+1}"
+                feedback_parts.append(f"\n    {label}: values = {exp_values_ref or 'N/A'}, xvalues = {exp_xvalues_ref or 'N/A'}")
+            
             print("Series data mismatch")
     
+    try:
+        m = float(mark)
+    except Exception:
+        pass
+    else:
+        if math.isclose(m, round(m), abs_tol=1e-9):
+            mark = int(round(m))
+        else:
+            mark = round(m, 1)
+
     feedback = " ".join(feedback_parts)
     print(f"Final mark: {mark}/{total_marks_available}")
     
@@ -593,12 +740,17 @@ def mark_answers_for_session(sessionid):
     """
     For a given sessionid, fetch all answers, compare to solutions in question_md,
     and update the markawarded column in answers.
+    
+    Batches WebSocket broadcasts to reduce network overhead.
     """
     print(f"Step 2: Marking actually started with sessionid: {sessionid}")
     print(f"Step 2a: sessionid type = {type(sessionid)}, value = {repr(sessionid)}")
     
     # Force fresh connection state to avoid stale data
     connection.close()
+    
+    # Collect all marks before broadcasting
+    marked_answers = []
     
     answers = [] #initialize outside the cursor context
     with connection.cursor() as cursor:
@@ -676,18 +828,25 @@ def mark_answers_for_session(sessionid):
             )
             print(f"Updated markawarded to {mark} and feedback to '{feedback}' for sessionid {orig_sessionid}, questionid {questionid}")
         
-        # Broadcast mark update to WebSocket clients viewing this session
+        # Store marked answer for batch broadcast later
+        marked_answers.append({
+            "sessionid": orig_sessionid,
+            "questionid": questionid,
+            "mark": mark,
+            "feedback": feedback
+        })
+    
+    # Broadcast all marks for this session at once (batch operation)
+    if marked_answers:
         try:
             channel_layer = get_channel_layer()
             async_to_sync(channel_layer.group_send)(
                 f"session_{orig_sessionid}",
                 {
-                    "type": "mark_update",
-                    "questionid": questionid,
-                    "mark": mark,
-                    "feedback": feedback
+                    "type": "batch_mark_update",
+                    "marks": marked_answers
                 }
             )
-            print(f"Broadcast mark_update for session_{orig_sessionid}, question {questionid}, mark {mark}, feedback '{feedback}'")
+            print(f"✓ Batch broadcast {len(marked_answers)} marks for session {orig_sessionid}")
         except Exception as e:
-            print(f"Broadcast failed for session_{orig_sessionid}, question {questionid}: {e}")
+            print(f"Batch broadcast failed for session {orig_sessionid}: {e}")

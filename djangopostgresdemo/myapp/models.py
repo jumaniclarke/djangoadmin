@@ -33,4 +33,4 @@ class AnswersTable(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'answers_stream'
+        db_table = 'answers'

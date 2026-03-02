@@ -1,0 +1,1057 @@
+ 
+ -------------- worker2@Jumanis-MacBook-Pro.local v5.4.0 (opalescent)
+--- ***** ----- 
+-- ******* ---- macOS-26.2-arm64-arm-64bit 2026-02-14 05:47:43
+- *** --- * --- 
+- ** ---------- [config]
+- ** ---------- .> app:         dbapp:0x10be894c0
+- ** ---------- .> transport:   redis://127.0.0.1:6379/0
+- ** ---------- .> results:     redis://127.0.0.1:6379/0
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[tasks]
+  . dbapp.celery.debug_task
+  . myapp.tasks.detect_unmarked_submissions
+  . myapp.tasks.mark_submission_async
+  . myapp.tasks.submit_notification_update
+
+[2026-02-14 05:47:43,606: WARNING/MainProcess] /Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2026-02-14 05:47:43,627: INFO/MainProcess] Connected to redis://127.0.0.1:6379/0
+[2026-02-14 05:47:43,628: WARNING/MainProcess] /Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2026-02-14 05:47:43,629: INFO/MainProcess] mingle: searching for neighbors
+[2026-02-14 05:47:44,635: INFO/MainProcess] mingle: all alone
+[2026-02-14 05:47:44,647: INFO/MainProcess] worker2@Jumanis-MacBook-Pro.local ready.
+[2026-02-14 05:47:48,523: INFO/MainProcess] Events of group {task} enabled by remote.
+[2026-02-14 09:35:38,535: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 09:53:25,531: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 09:57:35,855: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 10:20:52,388: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 10:29:55,788: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 11:20:41,439: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 11:49:29,584: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 12:07:43,959: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 12:48:30,278: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 13:04:45,372: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 13:19:13,075: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 13:40:28,857: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 13:54:28,525: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 14:52:17,777: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 15:24:35,829: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 16:00:00,836: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 16:25:22,207: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 16:29:28,007: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 17:10:09,488: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 17:30:54,301: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 17:53:19,516: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 18:09:46,969: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 18:31:39,454: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 19:08:04,364: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 19:30:54,171: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 19:50:31,209: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 19:59:34,263: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 20:09:55,949: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 20:45:04,974: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 20:54:08,007: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 21:21:23,778: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 21:32:15,145: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 22:34:03,932: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 23:01:20,055: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 23:20:02,951: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-14 23:29:06,987: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 00:09:19,933: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 00:21:47,545: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 00:34:14,476: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 01:12:15,534: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 01:15:54,005: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 01:16:27,687: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 01:29:20,023: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 02:40:56,635: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 04:51:52,934: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 05:29:12,889: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 06:34:37,712: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 07:26:49,208: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 09:42:48,733: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 09:57:20,736: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 10:19:15,644: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 10:37:09,413: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 11:30:20,603: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 11:32:17,926: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 12:02:45,231: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 12:21:41,498: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 12:28:27,567: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 12:46:16,900: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 13:22:59,661: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 13:26:53,441: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 14:24:22,826: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 15:03:21,704: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 15:42:44,834: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 16:01:10,603: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 16:48:04,564: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 17:05:12,621: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 18:20:59,720: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 18:44:16,590: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 18:56:06,389: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 19:12:54,584: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 19:19:12,182: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 20:21:42,751: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 20:48:57,721: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-15 23:59:11,666: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-16 02:24:22,006: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-16 03:01:11,455: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-16 03:20:37,076: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-16 03:25:49,793: INFO/MainProcess] Task myapp.tasks.mark_submission_async[05ad7aca-c142-4cbb-b000-e6dc27484ad8] received
+[2026-02-16 03:25:52,321: WARNING/ForkPoolWorker-2] ⚙️  Loaded spaCy model once (cached for all submissions)
+[2026-02-16 03:25:52,322: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1105119
+[2026-02-16 03:25:52,322: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1105119
+[2026-02-16 03:25:52,322: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1105119
+[2026-02-16 03:25:52,412: WARNING/ForkPoolWorker-2] Step 2b: COUNT(*) for sessionid 1105119 = 6
+[2026-02-16 03:25:52,418: WARNING/ForkPoolWorker-2] Step 3: Fetched 6 answers for sessionid 1105119
+[2026-02-16 03:25:52,418: WARNING/ForkPoolWorker-2] Reached after fetchall, answers:
+[2026-02-16 03:25:52,418: WARNING/ForkPoolWorker-2]  
+[2026-02-16 03:25:52,419: WARNING/ForkPoolWorker-2] [(1105119, 'test_sheet_1', 'True', 0.0, 'TRUE', None), (1105119, 'test_sheet_2', '4', 4.0, '4', None), (1105119, 'test_sheet_3', '60% of the data is less than 63', 0.0, '60% of the data is less than 63', None), (1105119, 'test_sheet_4', '63', 63.0, '=MEDIAN(L8:L18)', None), (1105119, 'test_sheet_5', '56.2727272727273', 56.2727272727273, '=AVERAGE(L8:L18)', None), (1105119, 'test_sheet_chartinfo', None, 0.0, None, '{"charts": [{"top": 199.125, "left": 420, "title": "Chart Title", "width": 360, "height": 216, "chart name": "Chart 2", "chart type": 5, "has legend": true, "chart style": 251, "series data": [{"name": " & nameStr & ", "values": {"type": "String", "value": "test_sheet!$L$8:$L$18"}, "xvalues": {"type": "explicit", "value": ",,,,,,,,,,"}, "plot_order": "1"}], "series colors": [{"colors": [12874308, 3243501, 10855845, 49407, 13998939, 4697456, 7881766, 936094, 6513507, 29593, 9526821]}], "legend position": -4107, "title font bold": false, "title font name": "+mn-lt", "title font size": 14, "legend font bold": false, "legend font name": "Calibri", "legend font size": 9, "series trendlines": [{"trendline data": ""}], "series data labels": [{"has data labels": false}]}], "sheetname": "test_sheet"}')]
+[2026-02-16 03:25:52,430: WARNING/ForkPoolWorker-2] DEBUG: question_id=test_sheet_1, question_type='boolean', question_md_id=1
+[2026-02-16 03:25:52,430: WARNING/ForkPoolWorker-2] Comparing answer 'True' to solution 'True'
+[2026-02-16 03:25:52,430: WARNING/ForkPoolWorker-2] Comparing answer 'True' to solution 'True'
+[2026-02-16 03:25:52,431: WARNING/ForkPoolWorker-2] Marking boolean question for questionid test_sheet_1
+[2026-02-16 03:25:52,477: WARNING/ForkPoolWorker-2] Updated markawarded to 1 and feedback to 'Correct.' for sessionid 1105119, questionid test_sheet_1
+[2026-02-16 03:25:52,502: WARNING/ForkPoolWorker-2] DEBUG: question_id=test_sheet_2, question_type='mcq', question_md_id=3
+[2026-02-16 03:25:52,503: WARNING/ForkPoolWorker-2] Comparing answer '4' to solution '4'
+[2026-02-16 03:25:52,503: WARNING/ForkPoolWorker-2] Comparing answer '4' to solution '4'
+[2026-02-16 03:25:52,503: WARNING/ForkPoolWorker-2] Unknown question type 'mcq' for questionid test_sheet_2
+[2026-02-16 03:25:52,516: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'Unknown question type.' for sessionid 1105119, questionid test_sheet_2
+[2026-02-16 03:25:52,521: WARNING/ForkPoolWorker-2] DEBUG: question_id=test_sheet_3, question_type='nlp', question_md_id=7
+[2026-02-16 03:25:52,522: WARNING/ForkPoolWorker-2] Comparing answer '60% of the data is less than 63' to solution 'At least 50% of the data is less than or equal to 63'
+[2026-02-16 03:25:52,523: WARNING/ForkPoolWorker-2] Comparing answer '60% of the data is less than 63' to solution 'At least 50% of the data is less than or equal to 63'
+[2026-02-16 03:25:52,524: WARNING/ForkPoolWorker-2] Marking NLP question for questionid test_sheet_3, with answer text 60% of the data is less than 63
+[2026-02-16 03:25:52,524: WARNING/ForkPoolWorker-2] Marking NLP answer: 60% of the data is less than 63 for question_md_id: 7
+[2026-02-16 03:25:52,532: WARNING/ForkPoolWorker-2] Using NLP rule_id: 1, language: en, spacy_model: en_core_web_md
+[2026-02-16 03:25:53,912: WARNING/ForkPoolWorker-2] head_phrase: 60% of the data
+[2026-02-16 03:25:53,912: WARNING/ForkPoolWorker-2]  
+[2026-02-16 03:25:53,912: WARNING/ForkPoolWorker-2] head_token: %
+[2026-02-16 03:25:53,912: WARNING/ForkPoolWorker-2] Extracted head phrase before simplification: '60% of the data'
+[2026-02-16 03:25:53,913: WARNING/ForkPoolWorker-2]  
+[2026-02-16 03:25:53,913: WARNING/ForkPoolWorker-2] with head token: '%'
+[2026-02-16 03:25:53,914: WARNING/ForkPoolWorker-2] Student base: the data
+[2026-02-16 03:25:53,936: WARNING/ForkPoolWorker-2] Student root nouns: ['data']
+[2026-02-16 03:25:54,342: WARNING/ForkPoolWorker-2] head_phrase: 50% of the data values
+[2026-02-16 03:25:54,342: WARNING/ForkPoolWorker-2]  
+[2026-02-16 03:25:54,342: WARNING/ForkPoolWorker-2] head_token: %
+[2026-02-16 03:25:54,342: WARNING/ForkPoolWorker-2] Extracted head phrase before simplification: '50% of the data values'
+[2026-02-16 03:25:54,343: WARNING/ForkPoolWorker-2]  
+[2026-02-16 03:25:54,343: WARNING/ForkPoolWorker-2] with head token: '%'
+[2026-02-16 03:25:54,343: WARNING/ForkPoolWorker-2] Expected base for variant 1: the data values
+[2026-02-16 03:25:54,358: WARNING/ForkPoolWorker-2] Expected root nouns for variant 1: ['values']
+[2026-02-16 03:25:54,615: WARNING/ForkPoolWorker-2] head_phrase: 50% of the data
+[2026-02-16 03:25:54,616: WARNING/ForkPoolWorker-2]  
+[2026-02-16 03:25:54,616: WARNING/ForkPoolWorker-2] head_token: %
+[2026-02-16 03:25:54,616: WARNING/ForkPoolWorker-2] Extracted head phrase before simplification: '50% of the data'
+[2026-02-16 03:25:54,616: WARNING/ForkPoolWorker-2]  
+[2026-02-16 03:25:54,616: WARNING/ForkPoolWorker-2] with head token: '%'
+[2026-02-16 03:25:54,616: WARNING/ForkPoolWorker-2] Expected base for variant 2: the data
+[2026-02-16 03:25:54,632: WARNING/ForkPoolWorker-2] Expected root nouns for variant 2: ['data']
+[2026-02-16 03:25:54,966: WARNING/ForkPoolWorker-2] head_phrase: At least 50% of the values
+[2026-02-16 03:25:54,967: WARNING/ForkPoolWorker-2]  
+[2026-02-16 03:25:54,967: WARNING/ForkPoolWorker-2] head_token: %
+[2026-02-16 03:25:54,968: WARNING/ForkPoolWorker-2] Extracted head phrase before simplification: 'At least 50% of the values'
+[2026-02-16 03:25:54,968: WARNING/ForkPoolWorker-2]  
+[2026-02-16 03:25:54,968: WARNING/ForkPoolWorker-2] with head token: '%'
+[2026-02-16 03:25:54,968: WARNING/ForkPoolWorker-2] Expected base for variant 3: the values
+[2026-02-16 03:25:54,992: WARNING/ForkPoolWorker-2] Expected root nouns for variant 3: ['values']
+[2026-02-16 03:25:54,992: WARNING/ForkPoolWorker-2] Match found! Student root noun 'data' matches expected root noun(s)
+[2026-02-16 03:25:55,012: WARNING/ForkPoolWorker-2] Updated markawarded to 2 and feedback to 'You chose as base "the data". This is correct.' for sessionid 1105119, questionid test_sheet_3
+[2026-02-16 03:25:55,019: WARNING/ForkPoolWorker-2] DEBUG: question_id=test_sheet_4, question_type='value', question_md_id=4
+[2026-02-16 03:25:55,019: WARNING/ForkPoolWorker-2] Comparing answer '63' to solution '63'
+[2026-02-16 03:25:55,019: WARNING/ForkPoolWorker-2] Comparing answer '63' to solution '63'
+[2026-02-16 03:25:55,019: WARNING/ForkPoolWorker-2] Marking value question for questionid test_sheet_4, with answervalue 63.0 and solution 63
+[2026-02-16 03:25:55,040: WARNING/ForkPoolWorker-2] Updated markawarded to 1 and feedback to 'Correct.' for sessionid 1105119, questionid test_sheet_4
+[2026-02-16 03:25:55,046: WARNING/ForkPoolWorker-2] DEBUG: question_id=test_sheet_5, question_type='formula', question_md_id=5
+[2026-02-16 03:25:55,046: WARNING/ForkPoolWorker-2] Comparing answer '56.2727272727273' to solution '56.27'
+[2026-02-16 03:25:55,046: WARNING/ForkPoolWorker-2] Comparing answer '56.2727272727273' to solution '56.27'
+[2026-02-16 03:25:55,046: WARNING/ForkPoolWorker-2] Marking formula question for questionid test_sheet_5, with formula =AVERAGE(L8:L18)
+[2026-02-16 03:25:55,046: WARNING/ForkPoolWorker-2] Marking formula answer: =AVERAGE(L8:L18) for question_md_id: 5
+[2026-02-16 03:25:55,056: WARNING/ForkPoolWorker-2] Using formula rule_id: 1, function_name: AVERAGE, arg_count: 1, match_policy: strict, case_insensitive: True, ignore_whitespace: True
+[2026-02-16 03:25:55,057: WARNING/ForkPoolWorker-2] Comparing function name 'average' to expected 'average'
+[2026-02-16 03:25:55,076: WARNING/ForkPoolWorker-2] Updated markawarded to 1 and feedback to '✓ Function name 'AVERAGE' matches the expected function 'AVERAGE'. 
+✗ Argument 1: 'L8:L18' does not match. Expected: K8:K18' for sessionid 1105119, questionid test_sheet_5
+[2026-02-16 03:25:55,082: WARNING/ForkPoolWorker-2] DEBUG: question_id=test_sheet_chartinfo, question_type='chart', question_md_id=8
+[2026-02-16 03:25:55,082: WARNING/ForkPoolWorker-2] Comparing answer 'None' to solution 'None'
+[2026-02-16 03:25:55,082: WARNING/ForkPoolWorker-2] Comparing answer 'None' to solution 'None'
+[2026-02-16 03:25:55,082: WARNING/ForkPoolWorker-2] Marking chart question for questionid test_sheet_chartinfo
+[2026-02-16 03:25:55,083: WARNING/ForkPoolWorker-2] Marking chart answer for question_md_id: 8
+[2026-02-16 03:25:55,107: WARNING/ForkPoolWorker-2] Using chart rule_id: 1, expected type: xlColumnClustered
+[2026-02-16 03:25:55,108: WARNING/ForkPoolWorker-2] Chart type mismatch: xlPie vs xlColumnClustered
+[2026-02-16 03:25:55,108: WARNING/ForkPoolWorker-2] Title present
+[2026-02-16 03:25:55,108: WARNING/ForkPoolWorker-2] X-axis title missing
+[2026-02-16 03:25:55,108: WARNING/ForkPoolWorker-2] Y-axis title missing
+[2026-02-16 03:25:55,114: WARNING/ForkPoolWorker-2] Series data partial match
+[2026-02-16 03:25:55,114: WARNING/ForkPoolWorker-2] Final mark: 3/9
+[2026-02-16 03:25:55,128: WARNING/ForkPoolWorker-2] Updated markawarded to 3 and feedback to '<span style='color: red; font-weight: bold;'>✗</span> Your chart type is 'Pie' but expected type is 'Column Clustered'. [0/1 mark(s)] 
+<span style='color: red; font-weight: bold;'>✓</span> Title present: 'Chart Title'. [1/1 mark(s)] 
+<span style='color: red; font-weight: bold;'>✗</span> X-axis title is required but missing. [0/1 mark(s)] 
+<span style='color: red; font-weight: bold;'>✗</span> Y-axis title is required but missing. [0/1 mark(s)] 
+<span style='color: red; font-weight: bold;'>△</span> Your series data partially matches the expected data. [2/4 mark(s)] 
+	<span style='color: red; font-weight: bold;'>✓</span> Values match, but x-values do not. 
+		<span style='color: red; font-weight: bold;'>✓</span> Values match:
+				yours = test_sheet!$L$8:$L$18
+				expected = test_sheet!$L$8:$L$18 
+		<span style='color: red; font-weight: bold;'>✗</span> X-values do not match:
+				yours = ,,,,,,,,,,
+				expected = test_sheet!$K$8:$K$18' for sessionid 1105119, questionid test_sheet_chartinfo
+[2026-02-16 03:25:55,132: WARNING/ForkPoolWorker-2] ✓ Batch broadcast 6 marks for session 1105119
+[2026-02-16 03:25:55,132: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1105119
+[2026-02-16 03:25:55,134: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[05ad7aca-c142-4cbb-b000-e6dc27484ad8] succeeded in 5.337982459022896s: {'status': 'success', 'submission_id': 1105119}
+[2026-02-16 03:30:06,374: INFO/MainProcess] Task myapp.tasks.mark_submission_async[1ce27bed-a1d0-4163-bacc-fd57f0616cf7] received
+[2026-02-16 03:30:06,378: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1105120
+[2026-02-16 03:30:06,378: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1105120
+[2026-02-16 03:30:06,379: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1105120
+[2026-02-16 03:30:06,512: WARNING/ForkPoolWorker-2] Step 2b: COUNT(*) for sessionid 1105120 = 6
+[2026-02-16 03:30:06,520: WARNING/ForkPoolWorker-2] Step 3: Fetched 6 answers for sessionid 1105120
+[2026-02-16 03:30:06,520: WARNING/ForkPoolWorker-2] Reached after fetchall, answers:
+[2026-02-16 03:30:06,521: WARNING/ForkPoolWorker-2]  
+[2026-02-16 03:30:06,521: WARNING/ForkPoolWorker-2] [(1105120, 'test_sheet_1', 'True', 0.0, 'TRUE', None), (1105120, 'test_sheet_2', '4', 4.0, '4', None), (1105120, 'test_sheet_3', '60% of the data is less than 63', 0.0, '60% of the data is less than 63', None), (1105120, 'test_sheet_4', '63', 63.0, '=MEDIAN(L8:L18)', None), (1105120, 'test_sheet_5', '56.2727272727273', 56.2727272727273, '=AVERAGE(L8:L18)', None), (1105120, 'test_sheet_chartinfo', None, 0.0, None, '{"charts": [{"top": 266.625, "left": 540, "title": "Chart Title", "width": 360, "height": 216, "chart name": "Chart 1", "chart type": 51, "has legend": false, "chart style": 201, "series data": [{"name": " & nameStr & ", "values": {"type": "String", "value": "test_sheet!$L$8:$L$18"}, "xvalues": {"type": "explicit", "value": "1,2,3,4,5,6,7,8,9,10,11"}, "plot_order": "1"}], "x-axis title": "", "y-axis title": "", "series colors": [{"colors": [12874308, 12874308, 12874308, 12874308, 12874308, 12874308, 12874308, 12874308, 12874308, 12874308, 12874308]}], "title font bold": false, "title font name": "+mn-lt", "title font size": 14, "series trendlines": [{"trendline data": ""}], "series data labels": [{"has data labels": false}]}], "sheetname": "test_sheet"}')]
+[2026-02-16 03:30:06,528: WARNING/ForkPoolWorker-2] DEBUG: question_id=test_sheet_1, question_type='boolean', question_md_id=1
+[2026-02-16 03:30:06,529: WARNING/ForkPoolWorker-2] Comparing answer 'True' to solution 'True'
+[2026-02-16 03:30:06,530: WARNING/ForkPoolWorker-2] Comparing answer 'True' to solution 'True'
+[2026-02-16 03:30:06,530: WARNING/ForkPoolWorker-2] Marking boolean question for questionid test_sheet_1
+[2026-02-16 03:30:06,540: WARNING/ForkPoolWorker-2] Updated markawarded to 1 and feedback to 'Correct.' for sessionid 1105120, questionid test_sheet_1
+[2026-02-16 03:30:06,547: WARNING/ForkPoolWorker-2] DEBUG: question_id=test_sheet_2, question_type='mcq', question_md_id=3
+[2026-02-16 03:30:06,548: WARNING/ForkPoolWorker-2] Comparing answer '4' to solution '4'
+[2026-02-16 03:30:06,548: WARNING/ForkPoolWorker-2] Comparing answer '4' to solution '4'
+[2026-02-16 03:30:06,549: WARNING/ForkPoolWorker-2] Unknown question type 'mcq' for questionid test_sheet_2
+[2026-02-16 03:30:06,558: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'Unknown question type.' for sessionid 1105120, questionid test_sheet_2
+[2026-02-16 03:30:06,564: WARNING/ForkPoolWorker-2] DEBUG: question_id=test_sheet_3, question_type='nlp', question_md_id=7
+[2026-02-16 03:30:06,564: WARNING/ForkPoolWorker-2] Comparing answer '60% of the data is less than 63' to solution 'At least 50% of the data is less than or equal to 63'
+[2026-02-16 03:30:06,565: WARNING/ForkPoolWorker-2] Comparing answer '60% of the data is less than 63' to solution 'At least 50% of the data is less than or equal to 63'
+[2026-02-16 03:30:06,566: WARNING/ForkPoolWorker-2] Marking NLP question for questionid test_sheet_3, with answer text 60% of the data is less than 63
+[2026-02-16 03:30:06,566: WARNING/ForkPoolWorker-2] Marking NLP answer: 60% of the data is less than 63 for question_md_id: 7
+[2026-02-16 03:30:06,572: WARNING/ForkPoolWorker-2] Using NLP rule_id: 1, language: en, spacy_model: en_core_web_md
+[2026-02-16 03:30:07,018: WARNING/ForkPoolWorker-2] head_phrase: 60% of the data
+[2026-02-16 03:30:07,018: WARNING/ForkPoolWorker-2]  
+[2026-02-16 03:30:07,018: WARNING/ForkPoolWorker-2] head_token: %
+[2026-02-16 03:30:07,018: WARNING/ForkPoolWorker-2] Extracted head phrase before simplification: '60% of the data'
+[2026-02-16 03:30:07,018: WARNING/ForkPoolWorker-2]  
+[2026-02-16 03:30:07,018: WARNING/ForkPoolWorker-2] with head token: '%'
+[2026-02-16 03:30:07,018: WARNING/ForkPoolWorker-2] Student base: the data
+[2026-02-16 03:30:07,035: WARNING/ForkPoolWorker-2] Student root nouns: ['data']
+[2026-02-16 03:30:07,300: WARNING/ForkPoolWorker-2] head_phrase: 50% of the data values
+[2026-02-16 03:30:07,300: WARNING/ForkPoolWorker-2]  
+[2026-02-16 03:30:07,300: WARNING/ForkPoolWorker-2] head_token: %
+[2026-02-16 03:30:07,300: WARNING/ForkPoolWorker-2] Extracted head phrase before simplification: '50% of the data values'
+[2026-02-16 03:30:07,300: WARNING/ForkPoolWorker-2]  
+[2026-02-16 03:30:07,300: WARNING/ForkPoolWorker-2] with head token: '%'
+[2026-02-16 03:30:07,301: WARNING/ForkPoolWorker-2] Expected base for variant 1: the data values
+[2026-02-16 03:30:07,316: WARNING/ForkPoolWorker-2] Expected root nouns for variant 1: ['values']
+[2026-02-16 03:30:07,579: WARNING/ForkPoolWorker-2] head_phrase: 50% of the data
+[2026-02-16 03:30:07,579: WARNING/ForkPoolWorker-2]  
+[2026-02-16 03:30:07,579: WARNING/ForkPoolWorker-2] head_token: %
+[2026-02-16 03:30:07,580: WARNING/ForkPoolWorker-2] Extracted head phrase before simplification: '50% of the data'
+[2026-02-16 03:30:07,580: WARNING/ForkPoolWorker-2]  
+[2026-02-16 03:30:07,580: WARNING/ForkPoolWorker-2] with head token: '%'
+[2026-02-16 03:30:07,580: WARNING/ForkPoolWorker-2] Expected base for variant 2: the data
+[2026-02-16 03:30:07,597: WARNING/ForkPoolWorker-2] Expected root nouns for variant 2: ['data']
+[2026-02-16 03:30:07,916: WARNING/ForkPoolWorker-2] head_phrase: At least 50% of the values
+[2026-02-16 03:30:07,916: WARNING/ForkPoolWorker-2]  
+[2026-02-16 03:30:07,916: WARNING/ForkPoolWorker-2] head_token: %
+[2026-02-16 03:30:07,916: WARNING/ForkPoolWorker-2] Extracted head phrase before simplification: 'At least 50% of the values'
+[2026-02-16 03:30:07,916: WARNING/ForkPoolWorker-2]  
+[2026-02-16 03:30:07,916: WARNING/ForkPoolWorker-2] with head token: '%'
+[2026-02-16 03:30:07,917: WARNING/ForkPoolWorker-2] Expected base for variant 3: the values
+[2026-02-16 03:30:07,936: WARNING/ForkPoolWorker-2] Expected root nouns for variant 3: ['values']
+[2026-02-16 03:30:07,937: WARNING/ForkPoolWorker-2] Match found! Student root noun 'data' matches expected root noun(s)
+[2026-02-16 03:30:07,957: WARNING/ForkPoolWorker-2] Updated markawarded to 2 and feedback to 'You chose as base "the data". This is correct.' for sessionid 1105120, questionid test_sheet_3
+[2026-02-16 03:30:07,963: WARNING/ForkPoolWorker-2] DEBUG: question_id=test_sheet_4, question_type='value', question_md_id=4
+[2026-02-16 03:30:07,963: WARNING/ForkPoolWorker-2] Comparing answer '63' to solution '63'
+[2026-02-16 03:30:07,963: WARNING/ForkPoolWorker-2] Comparing answer '63' to solution '63'
+[2026-02-16 03:30:07,963: WARNING/ForkPoolWorker-2] Marking value question for questionid test_sheet_4, with answervalue 63.0 and solution 63
+[2026-02-16 03:30:07,977: WARNING/ForkPoolWorker-2] Updated markawarded to 1 and feedback to 'Correct.' for sessionid 1105120, questionid test_sheet_4
+[2026-02-16 03:30:07,983: WARNING/ForkPoolWorker-2] DEBUG: question_id=test_sheet_5, question_type='formula', question_md_id=5
+[2026-02-16 03:30:07,984: WARNING/ForkPoolWorker-2] Comparing answer '56.2727272727273' to solution '56.27'
+[2026-02-16 03:30:07,985: WARNING/ForkPoolWorker-2] Comparing answer '56.2727272727273' to solution '56.27'
+[2026-02-16 03:30:07,986: WARNING/ForkPoolWorker-2] Marking formula question for questionid test_sheet_5, with formula =AVERAGE(L8:L18)
+[2026-02-16 03:30:07,987: WARNING/ForkPoolWorker-2] Marking formula answer: =AVERAGE(L8:L18) for question_md_id: 5
+[2026-02-16 03:30:07,993: WARNING/ForkPoolWorker-2] Using formula rule_id: 1, function_name: AVERAGE, arg_count: 1, match_policy: strict, case_insensitive: True, ignore_whitespace: True
+[2026-02-16 03:30:07,994: WARNING/ForkPoolWorker-2] Comparing function name 'average' to expected 'average'
+[2026-02-16 03:30:08,006: WARNING/ForkPoolWorker-2] Updated markawarded to 1 and feedback to '✓ Function name 'AVERAGE' matches the expected function 'AVERAGE'. 
+✗ Argument 1: 'L8:L18' does not match. Expected: K8:K18' for sessionid 1105120, questionid test_sheet_5
+[2026-02-16 03:30:08,011: WARNING/ForkPoolWorker-2] DEBUG: question_id=test_sheet_chartinfo, question_type='chart', question_md_id=8
+[2026-02-16 03:30:08,011: WARNING/ForkPoolWorker-2] Comparing answer 'None' to solution 'None'
+[2026-02-16 03:30:08,012: WARNING/ForkPoolWorker-2] Comparing answer 'None' to solution 'None'
+[2026-02-16 03:30:08,012: WARNING/ForkPoolWorker-2] Marking chart question for questionid test_sheet_chartinfo
+[2026-02-16 03:30:08,012: WARNING/ForkPoolWorker-2] Marking chart answer for question_md_id: 8
+[2026-02-16 03:30:08,021: WARNING/ForkPoolWorker-2] Using chart rule_id: 1, expected type: xlColumnClustered
+[2026-02-16 03:30:08,021: WARNING/ForkPoolWorker-2] Chart type match: xlColumnClustered -> Column
+[2026-02-16 03:30:08,021: WARNING/ForkPoolWorker-2] Title present
+[2026-02-16 03:30:08,022: WARNING/ForkPoolWorker-2] X-axis title missing
+[2026-02-16 03:30:08,022: WARNING/ForkPoolWorker-2] Y-axis title missing
+[2026-02-16 03:30:08,038: WARNING/ForkPoolWorker-2] Series data partial match
+[2026-02-16 03:30:08,038: WARNING/ForkPoolWorker-2] Final mark: 4/9
+[2026-02-16 03:30:08,045: WARNING/ForkPoolWorker-2] Updated markawarded to 4 and feedback to '<span style='color: red; font-weight: bold;'>✓</span> Your chart type is correct [1/1 mark(s)] 
+<span style='color: red; font-weight: bold;'>✓</span> Title present: 'Chart Title'. [1/1 mark(s)] 
+<span style='color: red; font-weight: bold;'>✗</span> X-axis title is required but missing. [0/1 mark(s)] 
+<span style='color: red; font-weight: bold;'>✗</span> Y-axis title is required but missing. [0/1 mark(s)] 
+<span style='color: red; font-weight: bold;'>△</span> Your series data partially matches the expected data. [2/4 mark(s)] 
+	<span style='color: red; font-weight: bold;'>✓</span> Values match, but x-values do not. 
+		<span style='color: red; font-weight: bold;'>✓</span> Values match:
+				yours = test_sheet!$L$8:$L$18
+				expected = test_sheet!$L$8:$L$18 
+		<span style='color: red; font-weight: bold;'>✗</span> X-values do not match:
+				yours = 1,2,3,4,5,6,7,8,9,10,11
+				expected = test_sheet!$K$8:$K$18' for sessionid 1105120, questionid test_sheet_chartinfo
+[2026-02-16 03:30:08,134: WARNING/ForkPoolWorker-2] ✓ Batch broadcast 6 marks for session 1105120
+[2026-02-16 03:30:08,134: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1105120
+[2026-02-16 03:30:08,137: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[1ce27bed-a1d0-4163-bacc-fd57f0616cf7] succeeded in 1.7601091660035308s: {'status': 'success', 'submission_id': 1105120}
+[2026-02-16 05:17:35,657: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-16 05:36:54,293: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-16 07:39:06,323: INFO/MainProcess] Task myapp.tasks.mark_submission_async[8fe9d384-3cfe-46df-b8b1-5a6c79a7f898] received
+[2026-02-16 07:39:06,335: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1105125
+[2026-02-16 07:39:06,337: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1105125
+[2026-02-16 07:39:06,337: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1105125
+[2026-02-16 07:39:06,415: WARNING/ForkPoolWorker-2] Step 2b: COUNT(*) for sessionid 1105125 = 50
+[2026-02-16 07:39:06,423: WARNING/ForkPoolWorker-2] Step 3: Fetched 56 answers for sessionid 1105125
+[2026-02-16 07:39:06,424: WARNING/ForkPoolWorker-2] Reached after fetchall, answers:
+[2026-02-16 07:39:06,425: WARNING/ForkPoolWorker-2]  
+[2026-02-16 07:39:06,425: WARNING/ForkPoolWorker-2] [(1105125, 'exercise1_a_5_3', '', 0.0, '=IF(AND(C59<>TRUE,D59<>TRUE),"",IF(D59=TRUE,"FALSE","TRUE"))', None), (1105125, 'exercise1_a_6_a', '', 0.0, '=IF(INDEX(exercise1_a_6_choices,J63)=0,"",INDEX(exercise1_a_6_choices,J63))', None), (1105125, 'exercise1_a_6_b', '', 0.0, '=IF(INDEX(exercise1_a_6_choices,K66)=0,"",INDEX(exercise1_a_6_choices,K66))', None), (1105125, 'exercise1_a_6_c', '', 0.0, '=IF(INDEX(exercise1_a_6_choices,J71)=0,"",INDEX(exercise1_a_6_choices,J71))', None), (1105125, 'b_click1', '', 0.0, '', None), (1105125, 'bar_charts_a', ' - select one - ', 0.0, '=INDEX(bar_choices_3,C28)', None), (1105125, 'bar_charts_b', '', 0.0, '', None), (1105125, 'bar_charts_c', ' - select one - ', 0.0, '=INDEX(bar_charts_choices_c,C40)', None), (1105125, 'bar_charts_d', ' - select one - ', 0.0, '=INDEX(bar_charts_choices_c,C45)', None), (1105125, 'bar_charts_e', ' - select one - ', 0.0, '=INDEX(bar_choices_3,M28)', None), (1105125, 'compare_a', '', 0.0, '=IF(INDEX(compare_choices_a,D31)=0,"",INDEX(compare_choices_a,D31))', None), (1105125, 'compare_b', '', 0.0, '', None), (1105125, 'compare_c', '', 0.0, '=IF(INDEX(compare_choices_a,D41)=0,"",INDEX(compare_choices_a,D41))', None), (1105125, 'compare_d', '', 0.0, '', None), (1105125, 'entering_info_a', '', 0.0, '', None), (1105125, 'entering_info_b', '', 0.0, '', None), (1105125, 'entering_info_c', '', 0.0, '', None), (1105125, 'exercise1_a', '', 0.0, '=IF(INDEX(exercise1_choices_a,F20)=0,"",INDEX(exercise1_choices_a,F20))', None), (1105125, 'exercise1_a_1_1', '', 0.0, '', None), (1105125, 'exercise1_a_1_2', '', 0.0, '', None), (1105125, 'exercise1_a_2', '', 0.0, '', None), (1105125, 'exercise1_a_3', '', 0.0, '', None), (1105125, 'exercise1_a_4_a', '', 0.0, '', None), (1105125, 'exercise1_a_4_b', '', 0.0, '', None), (1105125, 'exercise1_a_4_c', '', 0.0, '', None), (1105125, 'exercise1_a_4_d_1', '', 0.0, '', None), (1105125, 'exercise1_a_4_d_2', '', 0.0, '', None), (1105125, 'exercise1_a_5_1', '', 0.0, '=IF(AND(C55<>TRUE,D55<>TRUE),"",IF(D55=TRUE,"FALSE","TRUE"))', None), (1105125, 'exercise1_a_5_2', '', 0.0, '=IF(AND(C57<>TRUE,D57<>TRUE),"",IF(D57=TRUE,"FALSE","TRUE"))', None), (1105125, 'exercise1_a_6_d', '', 0.0, '=IF(INDEX(exercise1_a_6_choices,J74)=0,"",INDEX(exercise1_a_6_choices,J74))', None), (1105125, 'exercise1_a_6_e', '', 0.0, '=IF(INDEX(exercise1_a_6_choices,J77)=0,"",INDEX(exercise1_a_6_choices,J77))', None), (1105125, 'exercise1_b', '', 0.0, '=IF(INDEX(exercise1_choices_a,L20)=0,"",INDEX(exercise1_choices_a,L20))', None), (1105125, 'exercise1_b_1_a', '', 0.0, '', None), (1105125, 'exercise1_b_1_b', '', 0.0, '', None), (1105125, 'exercise1_b_1_c', '', 0.0, '', None), (1105125, 'exercise1_b_2_1', '', 0.0, '=IF(AND(C42<>TRUE,D42<>TRUE),"",IF(D42=TRUE,"FALSE","TRUE"))', None), (1105125, 'exercise1_b_2_2', '', 0.0, '=IF(AND(C44<>TRUE,D44<>TRUE),"",IF(D44=TRUE,"FALSE","TRUE"))', None), (1105125, 'exercise1_b_2_3', '', 0.0, '=IF(AND(C46<>TRUE,D46<>TRUE),"",IF(D46=TRUE,"FALSE","TRUE"))', None), (1105125, 'exercise1_b_3_a', '', 0.0, '', None), (1105125, 'exercise1_b_3_b_i', '', 0.0, '', None), (1105125, 'exercise1_b_3_b_ii', '', 0.0, '', None), (1105125, 'exercise1_b_3_c', '', 0.0, '', None), (1105125, 'exercise1_c', '', 0.0, '=IF(INDEX(exercise1_choices_a,R20)=0,"",INDEX(exercise1_choices_a,R20))', None), (1105125, 'exercise1_d_1', '', 0.0, '=IF(INDEX(exercise1_choices_a,F36)=0,"",INDEX(exercise1_choices_a,F36))', None), (1105125, 'exercise1_d_2', '', 0.0, '', None), (1105125, 'exercise1_e_1', '', 0.0, '=IF(INDEX(exercise1_choices_a,L36)=0,"",INDEX(exercise1_choices_a,L36))', None), (1105125, 'exercise1_e_2', '', 0.0, '', None), (1105125, 'exercise1_f', '', 0.0, '=IF(INDEX(exercise1_choices_b,R38)=0,"",INDEX(exercise1_choices_b,R38))', None), (1105125, 'exercise2_1a', '', 0.0, '=IF(INDEX(exercise1_choices_a,N8)=0,"",INDEX(exercise1_choices_a,N8))', None), (1105125, 'exercise2_1b', '', 0.0, '', None), (1105125, 'exercise2_2a', '', 0.0, '=IF(INDEX(exercise1_choices_a,N14)=0,"",INDEX(exercise1_choices_a,N14))', None), (1105125, 'exercise2_2b', '', 0.0, '', None), (1105125, 'exercise2_3a', '', 0.0, '=IF(INDEX(exercise1_choices_a,N23)=0,"",INDEX(exercise1_choices_a,N23))', None), (1105125, 'exercise2_3b', '', 0.0, '=IF(INDEX(exercise1_choices_a,N27)=0,"",INDEX(exercise1_choices_a,N27))', None), (1105125, 'exercise3_1', '', 0.0, '', None), (1105125, 'exercise3_2', '', 0.0, '', None)]
+[2026-02-16 07:39:06,447: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_a_5_3
+[2026-02-16 07:39:06,461: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_a_6_a
+[2026-02-16 07:39:06,473: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_a_6_b
+[2026-02-16 07:39:06,490: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_a_6_c
+[2026-02-16 07:39:06,505: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid b_click1
+[2026-02-16 07:39:06,517: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid bar_charts_a
+[2026-02-16 07:39:06,530: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid bar_charts_b
+[2026-02-16 07:39:06,549: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid bar_charts_c
+[2026-02-16 07:39:06,564: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid bar_charts_d
+[2026-02-16 07:39:06,579: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid bar_charts_e
+[2026-02-16 07:39:06,599: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid compare_a
+[2026-02-16 07:39:06,623: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid compare_b
+[2026-02-16 07:39:06,636: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid compare_c
+[2026-02-16 07:39:06,651: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid compare_d
+[2026-02-16 07:39:06,665: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid entering_info_a
+[2026-02-16 07:39:06,683: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid entering_info_b
+[2026-02-16 07:39:06,703: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid entering_info_c
+[2026-02-16 07:39:06,725: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_a
+[2026-02-16 07:39:06,738: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_a_1_1
+[2026-02-16 07:39:06,756: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_a_1_2
+[2026-02-16 07:39:06,772: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_a_2
+[2026-02-16 07:39:06,784: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_a_3
+[2026-02-16 07:39:06,799: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_a_4_a
+[2026-02-16 07:39:06,813: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_a_4_b
+[2026-02-16 07:39:06,826: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_a_4_c
+[2026-02-16 07:39:06,838: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_a_4_d_1
+[2026-02-16 07:39:06,857: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_a_4_d_2
+[2026-02-16 07:39:06,875: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_a_5_1
+[2026-02-16 07:39:06,891: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_a_5_2
+[2026-02-16 07:39:06,914: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_a_6_d
+[2026-02-16 07:39:06,932: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_a_6_e
+[2026-02-16 07:39:06,949: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_b
+[2026-02-16 07:39:06,969: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_b_1_a
+[2026-02-16 07:39:06,984: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_b_1_b
+[2026-02-16 07:39:07,004: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_b_1_c
+[2026-02-16 07:39:07,026: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_b_2_1
+[2026-02-16 07:39:07,042: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_b_2_2
+[2026-02-16 07:39:07,060: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_b_2_3
+[2026-02-16 07:39:07,077: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_b_3_a
+[2026-02-16 07:39:07,092: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_b_3_b_i
+[2026-02-16 07:39:07,107: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_b_3_b_ii
+[2026-02-16 07:39:07,119: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_b_3_c
+[2026-02-16 07:39:07,138: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_c
+[2026-02-16 07:39:07,154: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_d_1
+[2026-02-16 07:39:07,174: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_d_2
+[2026-02-16 07:39:07,188: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_e_1
+[2026-02-16 07:39:07,202: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_e_2
+[2026-02-16 07:39:07,218: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise1_f
+[2026-02-16 07:39:07,233: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise2_1a
+[2026-02-16 07:39:07,247: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise2_1b
+[2026-02-16 07:39:07,264: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise2_2a
+[2026-02-16 07:39:07,280: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise2_2b
+[2026-02-16 07:39:07,294: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise2_3a
+[2026-02-16 07:39:07,309: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise2_3b
+[2026-02-16 07:39:07,328: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise3_1
+[2026-02-16 07:39:07,354: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1105125, questionid exercise3_2
+[2026-02-16 07:39:07,358: WARNING/ForkPoolWorker-2] ✓ Batch broadcast 56 marks for session 1105125
+[2026-02-16 07:39:07,358: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1105125
+[2026-02-16 07:39:07,359: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[8fe9d384-3cfe-46df-b8b1-5a6c79a7f898] succeeded in 1.028328332991805s: {'status': 'success', 'submission_id': 1105125}
+[2026-02-16 10:25:21,807: INFO/MainProcess] Task myapp.tasks.mark_submission_async[a30f0041-3840-4937-ade7-c612d6e46f26] received
+[2026-02-16 10:25:21,815: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1072049
+[2026-02-16 10:25:21,816: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1072049
+[2026-02-16 10:25:21,816: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1072049
+[2026-02-16 10:25:21,936: WARNING/ForkPoolWorker-2] Step 2b: COUNT(*) for sessionid 1072049 = 70
+[2026-02-16 10:25:21,946: WARNING/ForkPoolWorker-2] Step 3: Fetched 70 answers for sessionid 1072049
+[2026-02-16 10:25:21,946: WARNING/ForkPoolWorker-2] Reached after fetchall, answers:
+[2026-02-16 10:25:21,946: WARNING/ForkPoolWorker-2]  
+[2026-02-16 10:25:21,947: WARNING/ForkPoolWorker-2] [(1072049, 'exam_ID', 'bvccbv001', 0.0, 'bvccbv001', None), (1072049, 'Firstname', '', 0.0, '', None), (1072049, 'q1_1', '', 0.0, '', None), (1072049, 'q1_2a', '', 0.0, '', None), (1072049, 'q1_2b', '', 0.0, '', None), (1072049, 'q1_2c', '', 0.0, '', None), (1072049, 'q1_2d', '', 0.0, '', None), (1072049, 'q1_2e', '', 0.0, '', None), (1072049, 'q1_2f', '', 0.0, '', None), (1072049, 'q1_2g', '', 0.0, '', None), (1072049, 'q1_2h', '', 0.0, '', None), (1072049, 'q1_2i', '', 0.0, '', None), (1072049, 'q1_3', '', 0.0, '', None), (1072049, 'q1_4', 'C', 0.0, 'C', None), (1072049, 'q2_2a', '', 0.0, '', None), (1072049, 'q2_2b', '', 0.0, '', None), (1072049, 'q2_2c', '', 0.0, '', None), (1072049, 'q2_2d', '', 0.0, '', None), (1072049, 'q2_2e', '', 0.0, '', None), (1072049, 'q2_2f', '', 0.0, '', None), (1072049, 'q2_2g', '', 0.0, '', None), (1072049, 'q2_2h', '', 0.0, '', None), (1072049, 'q2_3', 'B', 0.0, 'B', None), (1072049, 'q2_chart', 'place your chart here', 0.0, 'place your chart here', None), (1072049, 'q3_1a', '', 0.0, '', None), (1072049, 'q3_1b', '', 0.0, '', None), (1072049, 'q3_1c', '', 0.0, '', None), (1072049, 'q3_1d', '', 0.0, '', None), (1072049, 'q3_2', '', 0.0, '', None), (1072049, 'q3_3', '', 0.0, '', None), (1072049, 'q4_1', '', 0.0, '', None), (1072049, 'q4_2ai', '', 0.0, '', None), (1072049, 'q4_2aii', '', 0.0, '', None), (1072049, 'q4_2aiii', '', 0.0, '', None), (1072049, 'q4_2aiv', '', 0.0, '', None), (1072049, 'q4_2bi', '', 0.0, '', None), (1072049, 'q4_2bii', '', 0.0, '', None), (1072049, 'q4_2biii', '', 0.0, '', None), (1072049, 'q4_2biv', '', 0.0, '', None), (1072049, 'q4_2bv', '', 0.0, '', None), (1072049, 'q4_2bvi', '', 0.0, '', None), (1072049, 'q5_2', '', 0.0, '', None), (1072049, 'q5_3', '', 0.0, '', None), (1072049, 'q5_4', 'B', 0.0, 'B', None), (1072049, 'q5_chart', 'place your chart here', 0.0, 'place your chart here', None), (1072049, 'q6_1a', '', 0.0, '', None), (1072049, 'q6_1b', '', 0.0, '', None), (1072049, 'q6_1c', '', 0.0, '', None), (1072049, 'q6_1d', '', 0.0, '', None), (1072049, 'q6_1e', '', 0.0, '', None), (1072049, 'q6_1f', '', 0.0, '', None), (1072049, 'q6_1g', '', 0.0, '', None), (1072049, 'q6_1h', '', 0.0, '', None), (1072049, 'q6_1i', '', 0.0, '', None), (1072049, 'q6_1j', '', 0.0, '', None), (1072049, 'q6_2a', '', 0.0, '', None), (1072049, 'q6_2b', '', 0.0, '', None), (1072049, 'q6_2c', '', 0.0, '', None), (1072049, 'q6_2d', '', 0.0, '', None), (1072049, 'q6_2e', '', 0.0, '', None), (1072049, 'q6_2f', '', 0.0, '', None), (1072049, 'q6_2g', '', 0.0, '', None), (1072049, 'q6_3', '', 0.0, '', None), (1072049, 'q6_4', '', 0.0, '', None), (1072049, 'q7_1', '', 0.0, '', None), (1072049, 'q7_2', '', 0.0, '', None), (1072049, 'q7_3a', '', 0.0, '', None), (1072049, 'q7_3b', '', 0.0, '', None), (1072049, 'q7_3c', '', 0.0, '', None), (1072049, 'Surname', '', 0.0, '', None)]
+[2026-02-16 10:25:21,962: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid exam_ID
+[2026-02-16 10:25:21,975: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid Firstname
+[2026-02-16 10:25:21,990: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q1_1
+[2026-02-16 10:25:22,003: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q1_2a
+[2026-02-16 10:25:22,014: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q1_2b
+[2026-02-16 10:25:22,026: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q1_2c
+[2026-02-16 10:25:22,037: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q1_2d
+[2026-02-16 10:25:22,049: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q1_2e
+[2026-02-16 10:25:22,064: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q1_2f
+[2026-02-16 10:25:22,079: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q1_2g
+[2026-02-16 10:25:22,092: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q1_2h
+[2026-02-16 10:25:22,105: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q1_2i
+[2026-02-16 10:25:22,119: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q1_3
+[2026-02-16 10:25:22,130: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q1_4
+[2026-02-16 10:25:22,143: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q2_2a
+[2026-02-16 10:25:22,154: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q2_2b
+[2026-02-16 10:25:22,169: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q2_2c
+[2026-02-16 10:25:22,183: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q2_2d
+[2026-02-16 10:25:22,197: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q2_2e
+[2026-02-16 10:25:22,212: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q2_2f
+[2026-02-16 10:25:22,223: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q2_2g
+[2026-02-16 10:25:22,234: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q2_2h
+[2026-02-16 10:25:22,247: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q2_3
+[2026-02-16 10:25:22,263: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q2_chart
+[2026-02-16 10:25:22,276: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q3_1a
+[2026-02-16 10:25:22,295: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q3_1b
+[2026-02-16 10:25:22,311: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q3_1c
+[2026-02-16 10:25:22,326: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q3_1d
+[2026-02-16 10:25:22,341: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q3_2
+[2026-02-16 10:25:22,359: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q3_3
+[2026-02-16 10:25:22,372: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q4_1
+[2026-02-16 10:25:22,392: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q4_2ai
+[2026-02-16 10:25:22,405: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q4_2aii
+[2026-02-16 10:25:22,418: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q4_2aiii
+[2026-02-16 10:25:22,433: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q4_2aiv
+[2026-02-16 10:25:22,447: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q4_2bi
+[2026-02-16 10:25:22,461: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q4_2bii
+[2026-02-16 10:25:22,475: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q4_2biii
+[2026-02-16 10:25:22,495: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q4_2biv
+[2026-02-16 10:25:22,513: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q4_2bv
+[2026-02-16 10:25:22,612: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q4_2bvi
+[2026-02-16 10:25:22,624: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q5_2
+[2026-02-16 10:25:22,636: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q5_3
+[2026-02-16 10:25:22,650: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q5_4
+[2026-02-16 10:25:22,663: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q5_chart
+[2026-02-16 10:25:22,680: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q6_1a
+[2026-02-16 10:25:22,696: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q6_1b
+[2026-02-16 10:25:22,711: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q6_1c
+[2026-02-16 10:25:22,724: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q6_1d
+[2026-02-16 10:25:22,734: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q6_1e
+[2026-02-16 10:25:22,746: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q6_1f
+[2026-02-16 10:25:22,758: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q6_1g
+[2026-02-16 10:25:22,773: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q6_1h
+[2026-02-16 10:25:22,786: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q6_1i
+[2026-02-16 10:25:22,802: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q6_1j
+[2026-02-16 10:25:22,813: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q6_2a
+[2026-02-16 10:25:22,823: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q6_2b
+[2026-02-16 10:25:22,834: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q6_2c
+[2026-02-16 10:25:22,846: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q6_2d
+[2026-02-16 10:25:22,858: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q6_2e
+[2026-02-16 10:25:22,877: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q6_2f
+[2026-02-16 10:25:22,895: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q6_2g
+[2026-02-16 10:25:22,908: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q6_3
+[2026-02-16 10:25:22,924: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q6_4
+[2026-02-16 10:25:22,938: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q7_1
+[2026-02-16 10:25:22,956: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q7_2
+[2026-02-16 10:25:22,973: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q7_3a
+[2026-02-16 10:25:22,987: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q7_3b
+[2026-02-16 10:25:23,009: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid q7_3c
+[2026-02-16 10:25:23,021: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072049, questionid Surname
+[2026-02-16 10:25:23,033: WARNING/ForkPoolWorker-2] ✓ Batch broadcast 70 marks for session 1072049
+[2026-02-16 10:25:23,034: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1072049
+[2026-02-16 10:25:23,035: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[a30f0041-3840-4937-ade7-c612d6e46f26] succeeded in 1.2260047909803689s: {'status': 'success', 'submission_id': 1072049}
+[2026-02-16 10:25:36,757: INFO/MainProcess] Task myapp.tasks.mark_submission_async[1867e612-51f1-4933-865b-6d875ede7797] received
+[2026-02-16 10:25:36,760: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1072051
+[2026-02-16 10:25:36,761: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1072051
+[2026-02-16 10:25:36,761: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1072051
+[2026-02-16 10:25:36,827: WARNING/ForkPoolWorker-2] Step 2b: COUNT(*) for sessionid 1072051 = 70
+[2026-02-16 10:25:36,834: WARNING/ForkPoolWorker-2] Step 3: Fetched 70 answers for sessionid 1072051
+[2026-02-16 10:25:36,835: WARNING/ForkPoolWorker-2] Reached after fetchall, answers:
+[2026-02-16 10:25:36,835: WARNING/ForkPoolWorker-2]  
+[2026-02-16 10:25:36,836: WARNING/ForkPoolWorker-2] [(1072051, 'exam_ID', 'sdfsdf001', 0.0, 'sdfsdf001', None), (1072051, 'Firstname', '', 0.0, '', None), (1072051, 'q1_1', '', 0.0, '', None), (1072051, 'q1_2a', '', 0.0, '', None), (1072051, 'q1_2b', '', 0.0, '', None), (1072051, 'q1_2c', '', 0.0, '', None), (1072051, 'q1_2d', '', 0.0, '', None), (1072051, 'q1_2e', '', 0.0, '', None), (1072051, 'q1_2f', '', 0.0, '', None), (1072051, 'q1_2g', '', 0.0, '', None), (1072051, 'q1_2h', '', 0.0, '', None), (1072051, 'q1_2i', '', 0.0, '', None), (1072051, 'q1_3', '', 0.0, '', None), (1072051, 'q1_4', 'C', 0.0, 'C', None), (1072051, 'q2_2a', '', 0.0, '', None), (1072051, 'q2_2b', '', 0.0, '', None), (1072051, 'q2_2c', '', 0.0, '', None), (1072051, 'q2_2d', '', 0.0, '', None), (1072051, 'q2_2e', '', 0.0, '', None), (1072051, 'q2_2f', '', 0.0, '', None), (1072051, 'q2_2g', '', 0.0, '', None), (1072051, 'q2_2h', '', 0.0, '', None), (1072051, 'q2_3', 'B', 0.0, 'B', None), (1072051, 'q2_chart', 'place your chart here', 0.0, 'place your chart here', None), (1072051, 'q3_1a', '', 0.0, '', None), (1072051, 'q3_1b', '', 0.0, '', None), (1072051, 'q3_1c', '', 0.0, '', None), (1072051, 'q3_1d', '', 0.0, '', None), (1072051, 'q3_2', '', 0.0, '', None), (1072051, 'q3_3', '', 0.0, '', None), (1072051, 'q4_1', '', 0.0, '', None), (1072051, 'q4_2ai', '', 0.0, '', None), (1072051, 'q4_2aii', '', 0.0, '', None), (1072051, 'q4_2aiii', '', 0.0, '', None), (1072051, 'q4_2aiv', '', 0.0, '', None), (1072051, 'q4_2bi', '', 0.0, '', None), (1072051, 'q4_2bii', '', 0.0, '', None), (1072051, 'q4_2biii', '', 0.0, '', None), (1072051, 'q4_2biv', '', 0.0, '', None), (1072051, 'q4_2bv', '', 0.0, '', None), (1072051, 'q4_2bvi', '', 0.0, '', None), (1072051, 'q5_2', '', 0.0, '', None), (1072051, 'q5_3', '', 0.0, '', None), (1072051, 'q5_4', 'B', 0.0, 'B', None), (1072051, 'q5_chart', 'place your chart here', 0.0, 'place your chart here', None), (1072051, 'q6_1a', '', 0.0, '', None), (1072051, 'q6_1b', '', 0.0, '', None), (1072051, 'q6_1c', '', 0.0, '', None), (1072051, 'q6_1d', '', 0.0, '', None), (1072051, 'q6_1e', '', 0.0, '', None), (1072051, 'q6_1f', '', 0.0, '', None), (1072051, 'q6_1g', '', 0.0, '', None), (1072051, 'q6_1h', '', 0.0, '', None), (1072051, 'q6_1i', '', 0.0, '', None), (1072051, 'q6_1j', '', 0.0, '', None), (1072051, 'q6_2a', '', 0.0, '', None), (1072051, 'q6_2b', '', 0.0, '', None), (1072051, 'q6_2c', '', 0.0, '', None), (1072051, 'q6_2d', '', 0.0, '', None), (1072051, 'q6_2e', '', 0.0, '', None), (1072051, 'q6_2f', '', 0.0, '', None), (1072051, 'q6_2g', '', 0.0, '', None), (1072051, 'q6_3', '', 0.0, '', None), (1072051, 'q6_4', '', 0.0, '', None), (1072051, 'q7_1', '', 0.0, '', None), (1072051, 'q7_2', '', 0.0, '', None), (1072051, 'q7_3a', '', 0.0, '', None), (1072051, 'q7_3b', '', 0.0, '', None), (1072051, 'q7_3c', '', 0.0, '', None), (1072051, 'Surname', '', 0.0, '', None)]
+[2026-02-16 10:25:36,852: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid exam_ID
+[2026-02-16 10:25:36,862: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid Firstname
+[2026-02-16 10:25:36,873: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q1_1
+[2026-02-16 10:25:36,884: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q1_2a
+[2026-02-16 10:25:36,897: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q1_2b
+[2026-02-16 10:25:36,911: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q1_2c
+[2026-02-16 10:25:36,923: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q1_2d
+[2026-02-16 10:25:36,937: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q1_2e
+[2026-02-16 10:25:36,949: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q1_2f
+[2026-02-16 10:25:36,961: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q1_2g
+[2026-02-16 10:25:36,981: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q1_2h
+[2026-02-16 10:25:36,992: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q1_2i
+[2026-02-16 10:25:37,006: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q1_3
+[2026-02-16 10:25:37,019: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q1_4
+[2026-02-16 10:25:37,036: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q2_2a
+[2026-02-16 10:25:37,051: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q2_2b
+[2026-02-16 10:25:37,062: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q2_2c
+[2026-02-16 10:25:37,075: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q2_2d
+[2026-02-16 10:25:37,089: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q2_2e
+[2026-02-16 10:25:37,106: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q2_2f
+[2026-02-16 10:25:37,118: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q2_2g
+[2026-02-16 10:25:37,133: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q2_2h
+[2026-02-16 10:25:37,147: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q2_3
+[2026-02-16 10:25:37,158: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q2_chart
+[2026-02-16 10:25:37,169: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q3_1a
+[2026-02-16 10:25:37,180: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q3_1b
+[2026-02-16 10:25:37,191: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q3_1c
+[2026-02-16 10:25:37,207: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q3_1d
+[2026-02-16 10:25:37,220: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q3_2
+[2026-02-16 10:25:37,234: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q3_3
+[2026-02-16 10:25:37,251: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q4_1
+[2026-02-16 10:25:37,264: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q4_2ai
+[2026-02-16 10:25:37,277: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q4_2aii
+[2026-02-16 10:25:37,290: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q4_2aiii
+[2026-02-16 10:25:37,307: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q4_2aiv
+[2026-02-16 10:25:37,323: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q4_2bi
+[2026-02-16 10:25:37,337: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q4_2bii
+[2026-02-16 10:25:37,352: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q4_2biii
+[2026-02-16 10:25:37,364: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q4_2biv
+[2026-02-16 10:25:37,379: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q4_2bv
+[2026-02-16 10:25:37,393: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q4_2bvi
+[2026-02-16 10:25:37,403: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q5_2
+[2026-02-16 10:25:37,418: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q5_3
+[2026-02-16 10:25:37,429: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q5_4
+[2026-02-16 10:25:37,446: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q5_chart
+[2026-02-16 10:25:37,457: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q6_1a
+[2026-02-16 10:25:37,468: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q6_1b
+[2026-02-16 10:25:37,480: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q6_1c
+[2026-02-16 10:25:37,493: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q6_1d
+[2026-02-16 10:25:37,508: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q6_1e
+[2026-02-16 10:25:37,525: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q6_1f
+[2026-02-16 10:25:37,540: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q6_1g
+[2026-02-16 10:25:37,554: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q6_1h
+[2026-02-16 10:25:37,566: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q6_1i
+[2026-02-16 10:25:37,580: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q6_1j
+[2026-02-16 10:25:37,590: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q6_2a
+[2026-02-16 10:25:37,601: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q6_2b
+[2026-02-16 10:25:37,614: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q6_2c
+[2026-02-16 10:25:37,629: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q6_2d
+[2026-02-16 10:25:37,642: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q6_2e
+[2026-02-16 10:25:37,654: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q6_2f
+[2026-02-16 10:25:37,667: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q6_2g
+[2026-02-16 10:25:37,680: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q6_3
+[2026-02-16 10:25:37,693: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q6_4
+[2026-02-16 10:25:37,708: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q7_1
+[2026-02-16 10:25:37,724: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q7_2
+[2026-02-16 10:25:37,742: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q7_3a
+[2026-02-16 10:25:37,758: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q7_3b
+[2026-02-16 10:25:37,791: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid q7_3c
+[2026-02-16 10:25:37,871: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072051, questionid Surname
+[2026-02-16 10:25:37,875: WARNING/ForkPoolWorker-2] ✓ Batch broadcast 70 marks for session 1072051
+[2026-02-16 10:25:37,876: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1072051
+[2026-02-16 10:25:37,876: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[1867e612-51f1-4933-865b-6d875ede7797] succeeded in 1.1175730419927277s: {'status': 'success', 'submission_id': 1072051}
+[2026-02-16 10:25:58,021: INFO/MainProcess] Task myapp.tasks.mark_submission_async[c70ca896-d0b8-4c17-bd58-58d9dd8c642d] received
+[2026-02-16 10:25:58,026: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1072053
+[2026-02-16 10:25:58,026: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1072053
+[2026-02-16 10:25:58,027: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1072053
+[2026-02-16 10:25:58,110: WARNING/ForkPoolWorker-2] Step 2b: COUNT(*) for sessionid 1072053 = 70
+[2026-02-16 10:25:58,121: WARNING/ForkPoolWorker-2] Step 3: Fetched 70 answers for sessionid 1072053
+[2026-02-16 10:25:58,122: WARNING/ForkPoolWorker-2] Reached after fetchall, answers:
+[2026-02-16 10:25:58,122: WARNING/ForkPoolWorker-2]  
+[2026-02-16 10:25:58,122: WARNING/ForkPoolWorker-2] [(1072053, 'exam_ID', 'clrjum001', 0.0, 'clrjum001', None), (1072053, 'Firstname', '', 0.0, '', None), (1072053, 'q1_1', '', 0.0, '', None), (1072053, 'q1_2a', '', 0.0, '', None), (1072053, 'q1_2b', '', 0.0, '', None), (1072053, 'q1_2c', '', 0.0, '', None), (1072053, 'q1_2d', '', 0.0, '', None), (1072053, 'q1_2e', '', 0.0, '', None), (1072053, 'q1_2f', '', 0.0, '', None), (1072053, 'q1_2g', '', 0.0, '', None), (1072053, 'q1_2h', '', 0.0, '', None), (1072053, 'q1_2i', '', 0.0, '', None), (1072053, 'q1_3', '', 0.0, '', None), (1072053, 'q1_4', 'C', 0.0, 'C', None), (1072053, 'q2_2a', '', 0.0, '', None), (1072053, 'q2_2b', '', 0.0, '', None), (1072053, 'q2_2c', '', 0.0, '', None), (1072053, 'q2_2d', '', 0.0, '', None), (1072053, 'q2_2e', '', 0.0, '', None), (1072053, 'q2_2f', '', 0.0, '', None), (1072053, 'q2_2g', '', 0.0, '', None), (1072053, 'q2_2h', '', 0.0, '', None), (1072053, 'q2_3', 'B', 0.0, 'B', None), (1072053, 'q2_chart', 'place your chart here', 0.0, 'place your chart here', None), (1072053, 'q3_1a', '', 0.0, '', None), (1072053, 'q3_1b', '', 0.0, '', None), (1072053, 'q3_1c', '', 0.0, '', None), (1072053, 'q3_1d', '', 0.0, '', None), (1072053, 'q3_2', '', 0.0, '', None), (1072053, 'q3_3', '', 0.0, '', None), (1072053, 'q4_1', '', 0.0, '', None), (1072053, 'q4_2ai', '', 0.0, '', None), (1072053, 'q4_2aii', '', 0.0, '', None), (1072053, 'q4_2aiii', '', 0.0, '', None), (1072053, 'q4_2aiv', '', 0.0, '', None), (1072053, 'q4_2bi', '', 0.0, '', None), (1072053, 'q4_2bii', '', 0.0, '', None), (1072053, 'q4_2biii', '', 0.0, '', None), (1072053, 'q4_2biv', '', 0.0, '', None), (1072053, 'q4_2bv', '', 0.0, '', None), (1072053, 'q4_2bvi', '', 0.0, '', None), (1072053, 'q5_2', '', 0.0, '', None), (1072053, 'q5_3', '', 0.0, '', None), (1072053, 'q5_4', 'B', 0.0, 'B', None), (1072053, 'q5_chart', 'place your chart here', 0.0, 'place your chart here', None), (1072053, 'q6_1a', '', 0.0, '', None), (1072053, 'q6_1b', '', 0.0, '', None), (1072053, 'q6_1c', '', 0.0, '', None), (1072053, 'q6_1d', '', 0.0, '', None), (1072053, 'q6_1e', '', 0.0, '', None), (1072053, 'q6_1f', '', 0.0, '', None), (1072053, 'q6_1g', '', 0.0, '', None), (1072053, 'q6_1h', '', 0.0, '', None), (1072053, 'q6_1i', '', 0.0, '', None), (1072053, 'q6_1j', '', 0.0, '', None), (1072053, 'q6_2a', '', 0.0, '', None), (1072053, 'q6_2b', '', 0.0, '', None), (1072053, 'q6_2c', '', 0.0, '', None), (1072053, 'q6_2d', '', 0.0, '', None), (1072053, 'q6_2e', '', 0.0, '', None), (1072053, 'q6_2f', '', 0.0, '', None), (1072053, 'q6_2g', '', 0.0, '', None), (1072053, 'q6_3', '', 0.0, '', None), (1072053, 'q6_4', '', 0.0, '', None), (1072053, 'q7_1', '', 0.0, '', None), (1072053, 'q7_2', '', 0.0, '', None), (1072053, 'q7_3a', '', 0.0, '', None), (1072053, 'q7_3b', '', 0.0, '', None), (1072053, 'q7_3c', '', 0.0, '', None), (1072053, 'Surname', '', 0.0, '', None)]
+[2026-02-16 10:25:58,138: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid exam_ID
+[2026-02-16 10:25:58,151: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid Firstname
+[2026-02-16 10:25:58,164: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q1_1
+[2026-02-16 10:25:58,185: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q1_2a
+[2026-02-16 10:25:58,199: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q1_2b
+[2026-02-16 10:25:58,213: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q1_2c
+[2026-02-16 10:25:58,226: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q1_2d
+[2026-02-16 10:25:58,242: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q1_2e
+[2026-02-16 10:25:58,253: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q1_2f
+[2026-02-16 10:25:58,264: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q1_2g
+[2026-02-16 10:25:58,276: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q1_2h
+[2026-02-16 10:25:58,290: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q1_2i
+[2026-02-16 10:25:58,311: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q1_3
+[2026-02-16 10:25:58,342: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q1_4
+[2026-02-16 10:25:58,354: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q2_2a
+[2026-02-16 10:25:58,364: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q2_2b
+[2026-02-16 10:25:58,377: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q2_2c
+[2026-02-16 10:25:58,388: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q2_2d
+[2026-02-16 10:25:58,403: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q2_2e
+[2026-02-16 10:25:58,417: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q2_2f
+[2026-02-16 10:25:58,438: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q2_2g
+[2026-02-16 10:25:58,451: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q2_2h
+[2026-02-16 10:25:58,462: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q2_3
+[2026-02-16 10:25:58,474: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q2_chart
+[2026-02-16 10:25:58,485: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q3_1a
+[2026-02-16 10:25:58,498: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q3_1b
+[2026-02-16 10:25:58,515: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q3_1c
+[2026-02-16 10:25:58,535: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q3_1d
+[2026-02-16 10:25:58,550: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q3_2
+[2026-02-16 10:25:58,562: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q3_3
+[2026-02-16 10:25:58,576: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q4_1
+[2026-02-16 10:25:58,587: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q4_2ai
+[2026-02-16 10:25:58,602: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q4_2aii
+[2026-02-16 10:25:58,616: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q4_2aiii
+[2026-02-16 10:25:58,632: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q4_2aiv
+[2026-02-16 10:25:58,646: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q4_2bi
+[2026-02-16 10:25:58,659: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q4_2bii
+[2026-02-16 10:25:58,672: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q4_2biii
+[2026-02-16 10:25:58,682: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q4_2biv
+[2026-02-16 10:25:58,695: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q4_2bv
+[2026-02-16 10:25:58,708: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q4_2bvi
+[2026-02-16 10:25:58,722: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q5_2
+[2026-02-16 10:25:58,737: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q5_3
+[2026-02-16 10:25:58,750: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q5_4
+[2026-02-16 10:25:58,855: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q5_chart
+[2026-02-16 10:25:58,868: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q6_1a
+[2026-02-16 10:25:58,880: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q6_1b
+[2026-02-16 10:25:58,891: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q6_1c
+[2026-02-16 10:25:58,905: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q6_1d
+[2026-02-16 10:25:58,921: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q6_1e
+[2026-02-16 10:25:58,932: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q6_1f
+[2026-02-16 10:25:58,949: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q6_1g
+[2026-02-16 10:25:58,960: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q6_1h
+[2026-02-16 10:25:58,972: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q6_1i
+[2026-02-16 10:25:58,982: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q6_1j
+[2026-02-16 10:25:58,993: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q6_2a
+[2026-02-16 10:25:59,008: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q6_2b
+[2026-02-16 10:25:59,027: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q6_2c
+[2026-02-16 10:25:59,041: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q6_2d
+[2026-02-16 10:25:59,057: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q6_2e
+[2026-02-16 10:25:59,069: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q6_2f
+[2026-02-16 10:25:59,082: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q6_2g
+[2026-02-16 10:25:59,093: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q6_3
+[2026-02-16 10:25:59,106: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q6_4
+[2026-02-16 10:25:59,121: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q7_1
+[2026-02-16 10:25:59,133: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q7_2
+[2026-02-16 10:25:59,146: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q7_3a
+[2026-02-16 10:25:59,161: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q7_3b
+[2026-02-16 10:25:59,174: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid q7_3c
+[2026-02-16 10:25:59,186: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072053, questionid Surname
+[2026-02-16 10:25:59,190: WARNING/ForkPoolWorker-2] ✓ Batch broadcast 70 marks for session 1072053
+[2026-02-16 10:25:59,191: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1072053
+[2026-02-16 10:25:59,192: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[c70ca896-d0b8-4c17-bd58-58d9dd8c642d] succeeded in 1.1671184999868274s: {'status': 'success', 'submission_id': 1072053}
+[2026-02-16 10:26:02,919: INFO/MainProcess] Task myapp.tasks.mark_submission_async[8e558b56-e192-435c-949c-3930bf366064] received
+[2026-02-16 10:26:02,921: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1072058
+[2026-02-16 10:26:02,921: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1072058
+[2026-02-16 10:26:02,922: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1072058
+[2026-02-16 10:26:02,992: WARNING/ForkPoolWorker-2] Step 2b: COUNT(*) for sessionid 1072058 = 70
+[2026-02-16 10:26:02,998: WARNING/ForkPoolWorker-2] Step 3: Fetched 70 answers for sessionid 1072058
+[2026-02-16 10:26:02,999: WARNING/ForkPoolWorker-2] Reached after fetchall, answers:
+[2026-02-16 10:26:02,999: WARNING/ForkPoolWorker-2]  
+[2026-02-16 10:26:03,000: WARNING/ForkPoolWorker-2] [(1072058, 'exam_ID', 'vcxcvx001', 0.0, 'vcxcvx001', None), (1072058, 'Firstname', '', 0.0, '', None), (1072058, 'q1_1', '', 0.0, '', None), (1072058, 'q1_2a', '', 0.0, '', None), (1072058, 'q1_2b', '', 0.0, '', None), (1072058, 'q1_2c', '', 0.0, '', None), (1072058, 'q1_2d', '', 0.0, '', None), (1072058, 'q1_2e', '', 0.0, '', None), (1072058, 'q1_2f', '', 0.0, '', None), (1072058, 'q1_2g', '', 0.0, '', None), (1072058, 'q1_2h', '', 0.0, '', None), (1072058, 'q1_2i', '', 0.0, '', None), (1072058, 'q1_3', '', 0.0, '', None), (1072058, 'q1_4', 'C', 0.0, 'C', None), (1072058, 'q2_2a', '', 0.0, '', None), (1072058, 'q2_2b', '', 0.0, '', None), (1072058, 'q2_2c', '', 0.0, '', None), (1072058, 'q2_2d', '', 0.0, '', None), (1072058, 'q2_2e', '', 0.0, '', None), (1072058, 'q2_2f', '', 0.0, '', None), (1072058, 'q2_2g', '', 0.0, '', None), (1072058, 'q2_2h', '', 0.0, '', None), (1072058, 'q2_3', 'B', 0.0, 'B', None), (1072058, 'q2_chart', 'place your chart here', 0.0, 'place your chart here', None), (1072058, 'q3_1a', '', 0.0, '', None), (1072058, 'q3_1b', '', 0.0, '', None), (1072058, 'q3_1c', '', 0.0, '', None), (1072058, 'q3_1d', '', 0.0, '', None), (1072058, 'q3_2', '', 0.0, '', None), (1072058, 'q3_3', '', 0.0, '', None), (1072058, 'q4_1', '', 0.0, '', None), (1072058, 'q4_2ai', '', 0.0, '', None), (1072058, 'q4_2aii', '', 0.0, '', None), (1072058, 'q4_2aiii', '', 0.0, '', None), (1072058, 'q4_2aiv', '', 0.0, '', None), (1072058, 'q4_2bi', '', 0.0, '', None), (1072058, 'q4_2bii', '', 0.0, '', None), (1072058, 'q4_2biii', '', 0.0, '', None), (1072058, 'q4_2biv', '', 0.0, '', None), (1072058, 'q4_2bv', '', 0.0, '', None), (1072058, 'q4_2bvi', '', 0.0, '', None), (1072058, 'q5_2', '', 0.0, '', None), (1072058, 'q5_3', '', 0.0, '', None), (1072058, 'q5_4', 'B', 0.0, 'B', None), (1072058, 'q5_chart', 'place your chart here', 0.0, 'place your chart here', None), (1072058, 'q6_1a', '', 0.0, '', None), (1072058, 'q6_1b', '', 0.0, '', None), (1072058, 'q6_1c', '', 0.0, '', None), (1072058, 'q6_1d', '', 0.0, '', None), (1072058, 'q6_1e', '', 0.0, '', None), (1072058, 'q6_1f', '', 0.0, '', None), (1072058, 'q6_1g', '', 0.0, '', None), (1072058, 'q6_1h', '', 0.0, '', None), (1072058, 'q6_1i', '', 0.0, '', None), (1072058, 'q6_1j', '', 0.0, '', None), (1072058, 'q6_2a', '', 0.0, '', None), (1072058, 'q6_2b', '', 0.0, '', None), (1072058, 'q6_2c', '', 0.0, '', None), (1072058, 'q6_2d', '', 0.0, '', None), (1072058, 'q6_2e', '', 0.0, '', None), (1072058, 'q6_2f', '', 0.0, '', None), (1072058, 'q6_2g', '', 0.0, '', None), (1072058, 'q6_3', '', 0.0, '', None), (1072058, 'q6_4', '', 0.0, '', None), (1072058, 'q7_1', '', 0.0, '', None), (1072058, 'q7_2', '', 0.0, '', None), (1072058, 'q7_3a', '', 0.0, '', None), (1072058, 'q7_3b', '', 0.0, '', None), (1072058, 'q7_3c', '', 0.0, '', None), (1072058, 'Surname', '', 0.0, '', None)]
+[2026-02-16 10:26:03,017: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid exam_ID
+[2026-02-16 10:26:03,028: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid Firstname
+[2026-02-16 10:26:03,042: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q1_1
+[2026-02-16 10:26:03,054: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q1_2a
+[2026-02-16 10:26:03,069: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q1_2b
+[2026-02-16 10:26:03,081: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q1_2c
+[2026-02-16 10:26:03,098: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q1_2d
+[2026-02-16 10:26:03,112: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q1_2e
+[2026-02-16 10:26:03,125: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q1_2f
+[2026-02-16 10:26:03,141: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q1_2g
+[2026-02-16 10:26:03,155: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q1_2h
+[2026-02-16 10:26:03,167: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q1_2i
+[2026-02-16 10:26:03,181: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q1_3
+[2026-02-16 10:26:03,194: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q1_4
+[2026-02-16 10:26:03,208: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q2_2a
+[2026-02-16 10:26:03,223: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q2_2b
+[2026-02-16 10:26:03,237: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q2_2c
+[2026-02-16 10:26:03,250: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q2_2d
+[2026-02-16 10:26:03,264: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q2_2e
+[2026-02-16 10:26:03,276: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q2_2f
+[2026-02-16 10:26:03,290: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q2_2g
+[2026-02-16 10:26:03,302: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q2_2h
+[2026-02-16 10:26:03,334: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q2_3
+[2026-02-16 10:26:03,348: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q2_chart
+[2026-02-16 10:26:03,363: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q3_1a
+[2026-02-16 10:26:03,376: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q3_1b
+[2026-02-16 10:26:03,387: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q3_1c
+[2026-02-16 10:26:03,477: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q3_1d
+[2026-02-16 10:26:03,488: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q3_2
+[2026-02-16 10:26:03,500: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q3_3
+[2026-02-16 10:26:03,516: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q4_1
+[2026-02-16 10:26:03,532: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q4_2ai
+[2026-02-16 10:26:03,543: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q4_2aii
+[2026-02-16 10:26:03,562: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q4_2aiii
+[2026-02-16 10:26:03,575: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q4_2aiv
+[2026-02-16 10:26:03,587: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q4_2bi
+[2026-02-16 10:26:03,598: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q4_2bii
+[2026-02-16 10:26:03,612: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q4_2biii
+[2026-02-16 10:26:03,627: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q4_2biv
+[2026-02-16 10:26:03,641: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q4_2bv
+[2026-02-16 10:26:03,653: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q4_2bvi
+[2026-02-16 10:26:03,666: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q5_2
+[2026-02-16 10:26:03,676: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q5_3
+[2026-02-16 10:26:03,687: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q5_4
+[2026-02-16 10:26:03,698: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q5_chart
+[2026-02-16 10:26:03,715: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q6_1a
+[2026-02-16 10:26:03,729: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q6_1b
+[2026-02-16 10:26:03,742: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q6_1c
+[2026-02-16 10:26:03,755: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q6_1d
+[2026-02-16 10:26:03,771: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q6_1e
+[2026-02-16 10:26:03,783: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q6_1f
+[2026-02-16 10:26:03,795: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q6_1g
+[2026-02-16 10:26:03,807: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q6_1h
+[2026-02-16 10:26:03,822: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q6_1i
+[2026-02-16 10:26:03,839: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q6_1j
+[2026-02-16 10:26:03,850: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q6_2a
+[2026-02-16 10:26:03,864: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q6_2b
+[2026-02-16 10:26:03,879: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q6_2c
+[2026-02-16 10:26:03,892: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q6_2d
+[2026-02-16 10:26:03,904: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q6_2e
+[2026-02-16 10:26:03,921: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q6_2f
+[2026-02-16 10:26:03,935: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q6_2g
+[2026-02-16 10:26:03,947: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q6_3
+[2026-02-16 10:26:03,961: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q6_4
+[2026-02-16 10:26:03,975: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q7_1
+[2026-02-16 10:26:03,987: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q7_2
+[2026-02-16 10:26:04,002: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q7_3a
+[2026-02-16 10:26:04,014: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q7_3b
+[2026-02-16 10:26:04,029: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid q7_3c
+[2026-02-16 10:26:04,044: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072058, questionid Surname
+[2026-02-16 10:26:04,048: WARNING/ForkPoolWorker-2] ✓ Batch broadcast 70 marks for session 1072058
+[2026-02-16 10:26:04,048: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1072058
+[2026-02-16 10:26:04,049: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[8e558b56-e192-435c-949c-3930bf366064] succeeded in 1.1288978749944363s: {'status': 'success', 'submission_id': 1072058}
+[2026-02-16 10:26:09,709: INFO/MainProcess] Task myapp.tasks.mark_submission_async[1bb86375-4c0f-4a0a-a508-19edf660a872] received
+[2026-02-16 10:26:09,713: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1072059
+[2026-02-16 10:26:09,714: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1072059
+[2026-02-16 10:26:09,714: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1072059
+[2026-02-16 10:26:09,779: WARNING/ForkPoolWorker-2] Step 2b: COUNT(*) for sessionid 1072059 = 70
+[2026-02-16 10:26:09,788: WARNING/ForkPoolWorker-2] Step 3: Fetched 70 answers for sessionid 1072059
+[2026-02-16 10:26:09,789: WARNING/ForkPoolWorker-2] Reached after fetchall, answers:
+[2026-02-16 10:26:09,790: WARNING/ForkPoolWorker-2]  
+[2026-02-16 10:26:09,791: WARNING/ForkPoolWorker-2] [(1072059, 'exam_ID', 'unasig001', 0.0, 'unasig001', None), (1072059, 'Firstname', '', 0.0, '', None), (1072059, 'q1_1', '', 0.0, '', None), (1072059, 'q1_2a', '', 0.0, '', None), (1072059, 'q1_2b', '', 0.0, '', None), (1072059, 'q1_2c', '', 0.0, '', None), (1072059, 'q1_2d', '', 0.0, '', None), (1072059, 'q1_2e', '', 0.0, '', None), (1072059, 'q1_2f', '', 0.0, '', None), (1072059, 'q1_2g', '', 0.0, '', None), (1072059, 'q1_2h', '', 0.0, '', None), (1072059, 'q1_2i', '', 0.0, '', None), (1072059, 'q1_3', '', 0.0, '', None), (1072059, 'q1_4', 'C', 0.0, 'C', None), (1072059, 'q2_2a', '', 0.0, '', None), (1072059, 'q2_2b', '', 0.0, '', None), (1072059, 'q2_2c', '', 0.0, '', None), (1072059, 'q2_2d', '', 0.0, '', None), (1072059, 'q2_2e', '', 0.0, '', None), (1072059, 'q2_2f', '', 0.0, '', None), (1072059, 'q2_2g', '', 0.0, '', None), (1072059, 'q2_2h', '', 0.0, '', None), (1072059, 'q2_3', 'B', 0.0, 'B', None), (1072059, 'q2_chart', 'place your chart here', 0.0, 'place your chart here', None), (1072059, 'q3_1a', '', 0.0, '', None), (1072059, 'q3_1b', '', 0.0, '', None), (1072059, 'q3_1c', '', 0.0, '', None), (1072059, 'q3_1d', '', 0.0, '', None), (1072059, 'q3_2', '', 0.0, '', None), (1072059, 'q3_3', '', 0.0, '', None), (1072059, 'q4_1', '', 0.0, '', None), (1072059, 'q4_2ai', '', 0.0, '', None), (1072059, 'q4_2aii', '', 0.0, '', None), (1072059, 'q4_2aiii', '', 0.0, '', None), (1072059, 'q4_2aiv', '', 0.0, '', None), (1072059, 'q4_2bi', '', 0.0, '', None), (1072059, 'q4_2bii', '', 0.0, '', None), (1072059, 'q4_2biii', '', 0.0, '', None), (1072059, 'q4_2biv', '', 0.0, '', None), (1072059, 'q4_2bv', '', 0.0, '', None), (1072059, 'q4_2bvi', '', 0.0, '', None), (1072059, 'q5_2', '', 0.0, '', None), (1072059, 'q5_3', '', 0.0, '', None), (1072059, 'q5_4', 'B', 0.0, 'B', None), (1072059, 'q5_chart', 'place your chart here', 0.0, 'place your chart here', None), (1072059, 'q6_1a', '', 0.0, '', None), (1072059, 'q6_1b', '', 0.0, '', None), (1072059, 'q6_1c', '', 0.0, '', None), (1072059, 'q6_1d', '', 0.0, '', None), (1072059, 'q6_1e', '', 0.0, '', None), (1072059, 'q6_1f', '', 0.0, '', None), (1072059, 'q6_1g', '', 0.0, '', None), (1072059, 'q6_1h', '', 0.0, '', None), (1072059, 'q6_1i', '', 0.0, '', None), (1072059, 'q6_1j', '', 0.0, '', None), (1072059, 'q6_2a', '', 0.0, '', None), (1072059, 'q6_2b', '', 0.0, '', None), (1072059, 'q6_2c', '', 0.0, '', None), (1072059, 'q6_2d', '', 0.0, '', None), (1072059, 'q6_2e', '', 0.0, '', None), (1072059, 'q6_2f', '', 0.0, '', None), (1072059, 'q6_2g', '', 0.0, '', None), (1072059, 'q6_3', '', 0.0, '', None), (1072059, 'q6_4', '', 0.0, '', None), (1072059, 'q7_1', '', 0.0, '', None), (1072059, 'q7_2', '', 0.0, '', None), (1072059, 'q7_3a', '', 0.0, '', None), (1072059, 'q7_3b', '', 0.0, '', None), (1072059, 'q7_3c', '', 0.0, '', None), (1072059, 'Surname', '', 0.0, '', None)]
+[2026-02-16 10:26:09,807: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid exam_ID
+[2026-02-16 10:26:09,819: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid Firstname
+[2026-02-16 10:26:09,830: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q1_1
+[2026-02-16 10:26:09,841: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q1_2a
+[2026-02-16 10:26:09,858: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q1_2b
+[2026-02-16 10:26:09,878: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q1_2c
+[2026-02-16 10:26:09,892: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q1_2d
+[2026-02-16 10:26:09,906: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q1_2e
+[2026-02-16 10:26:09,919: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q1_2f
+[2026-02-16 10:26:09,932: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q1_2g
+[2026-02-16 10:26:09,942: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q1_2h
+[2026-02-16 10:26:09,962: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q1_2i
+[2026-02-16 10:26:09,976: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q1_3
+[2026-02-16 10:26:09,994: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q1_4
+[2026-02-16 10:26:10,014: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q2_2a
+[2026-02-16 10:26:10,026: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q2_2b
+[2026-02-16 10:26:10,037: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q2_2c
+[2026-02-16 10:26:10,050: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q2_2d
+[2026-02-16 10:26:10,065: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q2_2e
+[2026-02-16 10:26:10,078: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q2_2f
+[2026-02-16 10:26:10,091: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q2_2g
+[2026-02-16 10:26:10,106: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q2_2h
+[2026-02-16 10:26:10,121: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q2_3
+[2026-02-16 10:26:10,136: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q2_chart
+[2026-02-16 10:26:10,146: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q3_1a
+[2026-02-16 10:26:10,167: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q3_1b
+[2026-02-16 10:26:10,184: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q3_1c
+[2026-02-16 10:26:10,197: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q3_1d
+[2026-02-16 10:26:10,214: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q3_2
+[2026-02-16 10:26:10,233: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q3_3
+[2026-02-16 10:26:10,247: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q4_1
+[2026-02-16 10:26:10,258: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q4_2ai
+[2026-02-16 10:26:10,272: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q4_2aii
+[2026-02-16 10:26:10,288: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q4_2aiii
+[2026-02-16 10:26:10,300: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q4_2aiv
+[2026-02-16 10:26:10,317: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q4_2bi
+[2026-02-16 10:26:10,330: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q4_2bii
+[2026-02-16 10:26:10,341: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q4_2biii
+[2026-02-16 10:26:10,354: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q4_2biv
+[2026-02-16 10:26:10,368: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q4_2bv
+[2026-02-16 10:26:10,382: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q4_2bvi
+[2026-02-16 10:26:10,399: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q5_2
+[2026-02-16 10:26:10,419: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q5_3
+[2026-02-16 10:26:10,433: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q5_4
+[2026-02-16 10:26:10,447: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q5_chart
+[2026-02-16 10:26:10,458: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q6_1a
+[2026-02-16 10:26:10,537: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q6_1b
+[2026-02-16 10:26:10,547: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q6_1c
+[2026-02-16 10:26:10,562: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q6_1d
+[2026-02-16 10:26:10,575: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q6_1e
+[2026-02-16 10:26:10,589: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q6_1f
+[2026-02-16 10:26:10,603: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q6_1g
+[2026-02-16 10:26:10,616: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q6_1h
+[2026-02-16 10:26:10,632: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q6_1i
+[2026-02-16 10:26:10,635: INFO/MainProcess] Task myapp.tasks.mark_submission_async[38cd3b50-1be2-42ff-ae04-6cb7ea7129e9] received
+[2026-02-16 10:26:10,646: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q6_1j
+[2026-02-16 10:26:10,656: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q6_2a
+[2026-02-16 10:26:10,668: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q6_2b
+[2026-02-16 10:26:10,682: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q6_2c
+[2026-02-16 10:26:10,702: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q6_2d
+[2026-02-16 10:26:10,716: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q6_2e
+[2026-02-16 10:26:10,729: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q6_2f
+[2026-02-16 10:26:10,739: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q6_2g
+[2026-02-16 10:26:10,750: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q6_3
+[2026-02-16 10:26:10,760: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q6_4
+[2026-02-16 10:26:10,771: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q7_1
+[2026-02-16 10:26:10,785: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q7_2
+[2026-02-16 10:26:10,800: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q7_3a
+[2026-02-16 10:26:10,812: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q7_3b
+[2026-02-16 10:26:10,827: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid q7_3c
+[2026-02-16 10:26:10,838: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072059, questionid Surname
+[2026-02-16 10:26:10,839: WARNING/ForkPoolWorker-2] ✓ Batch broadcast 70 marks for session 1072059
+[2026-02-16 10:26:10,840: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1072059
+[2026-02-16 10:26:10,840: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[1bb86375-4c0f-4a0a-a508-19edf660a872] succeeded in 1.1293881250021514s: {'status': 'success', 'submission_id': 1072059}
+[2026-02-16 10:26:12,213: WARNING/ForkPoolWorker-1] ⚙️  Loaded spaCy model once (cached for all submissions)
+[2026-02-16 10:26:12,213: INFO/ForkPoolWorker-1] [Celery Task] Starting marking for submission 1072061
+[2026-02-16 10:26:12,213: WARNING/ForkPoolWorker-1] Step 2: Marking actually started with sessionid: 1072061
+[2026-02-16 10:26:12,213: WARNING/ForkPoolWorker-1] Step 2a: sessionid type = <class 'int'>, value = 1072061
+[2026-02-16 10:26:12,282: WARNING/ForkPoolWorker-1] Step 2b: COUNT(*) for sessionid 1072061 = 70
+[2026-02-16 10:26:12,289: WARNING/ForkPoolWorker-1] Step 3: Fetched 70 answers for sessionid 1072061
+[2026-02-16 10:26:12,289: WARNING/ForkPoolWorker-1] Reached after fetchall, answers:
+[2026-02-16 10:26:12,289: WARNING/ForkPoolWorker-1]  
+[2026-02-16 10:26:12,289: WARNING/ForkPoolWorker-1] [(1072061, 'exam_ID', 'vbcbvc001', 0.0, 'vbcbvc001', None), (1072061, 'Firstname', '', 0.0, '', None), (1072061, 'q1_1', '', 0.0, '', None), (1072061, 'q1_2a', '', 0.0, '', None), (1072061, 'q1_2c', '', 0.0, '', None), (1072061, 'q1_2d', '', 0.0, '', None), (1072061, 'q1_2f', '', 0.0, '', None), (1072061, 'q1_2g', '', 0.0, '', None), (1072061, 'q1_2i', '', 0.0, '', None), (1072061, 'q1_3', '', 0.0, '', None), (1072061, 'q2_2a', '', 0.0, '', None), (1072061, 'q2_2b', '', 0.0, '', None), (1072061, 'q2_2c', '', 0.0, '', None), (1072061, 'q2_2d', '', 0.0, '', None), (1072061, 'q2_2e', '', 0.0, '', None), (1072061, 'q2_2f', '', 0.0, '', None), (1072061, 'q2_2g', '', 0.0, '', None), (1072061, 'q2_2h', '', 0.0, '', None), (1072061, 'q2_3', 'B', 0.0, 'B', None), (1072061, 'q2_chart', 'place your chart here', 0.0, 'place your chart here', None), (1072061, 'q3_1a', '', 0.0, '', None), (1072061, 'q3_1b', '', 0.0, '', None), (1072061, 'q3_1c', '', 0.0, '', None), (1072061, 'q3_1d', '', 0.0, '', None), (1072061, 'q3_2', '', 0.0, '', None), (1072061, 'q3_3', '', 0.0, '', None), (1072061, 'q4_1', '', 0.0, '', None), (1072061, 'q4_2ai', '', 0.0, '', None), (1072061, 'q4_2aii', '', 0.0, '', None), (1072061, 'q4_2aiii', '', 0.0, '', None), (1072061, 'q4_2aiv', '', 0.0, '', None), (1072061, 'q4_2bi', '', 0.0, '', None), (1072061, 'q4_2bii', '', 0.0, '', None), (1072061, 'q4_2biii', '', 0.0, '', None), (1072061, 'q4_2biv', '', 0.0, '', None), (1072061, 'q4_2bv', '', 0.0, '', None), (1072061, 'q4_2bvi', '', 0.0, '', None), (1072061, 'q5_2', '', 0.0, '', None), (1072061, 'q5_3', '', 0.0, '', None), (1072061, 'q5_4', 'B', 0.0, 'B', None), (1072061, 'q5_chart', 'place your chart here', 0.0, 'place your chart here', None), (1072061, 'q6_1a', '', 0.0, '', None), (1072061, 'q6_1b', '', 0.0, '', None), (1072061, 'q6_1c', '', 0.0, '', None), (1072061, 'q6_1d', '', 0.0, '', None), (1072061, 'q6_1e', '', 0.0, '', None), (1072061, 'q6_1f', '', 0.0, '', None), (1072061, 'q6_1g', '', 0.0, '', None), (1072061, 'q6_1h', '', 0.0, '', None), (1072061, 'q6_1i', '', 0.0, '', None), (1072061, 'q6_1j', '', 0.0, '', None), (1072061, 'q6_2a', '', 0.0, '', None), (1072061, 'q6_2b', '', 0.0, '', None), (1072061, 'q6_2c', '', 0.0, '', None), (1072061, 'q6_2d', '', 0.0, '', None), (1072061, 'q6_2e', '', 0.0, '', None), (1072061, 'q6_2f', '', 0.0, '', None), (1072061, 'q6_2g', '', 0.0, '', None), (1072061, 'q6_3', '', 0.0, '', None), (1072061, 'q6_4', '', 0.0, '', None), (1072061, 'q7_1', '', 0.0, '', None), (1072061, 'q7_2', '', 0.0, '', None), (1072061, 'q7_3a', '', 0.0, '', None), (1072061, 'q7_3b', '', 0.0, '', None), (1072061, 'q7_3c', '', 0.0, '', None), (1072061, 'Surname', '', 0.0, '', None), (1072061, 'q1_2b', '', 0.0, '', None), (1072061, 'q1_2e', '', 0.0, '', None), (1072061, 'q1_2h', '', 0.0, '', None), (1072061, 'q1_4', 'C', 0.0, 'C', None)]
+[2026-02-16 10:26:12,306: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid exam_ID
+[2026-02-16 10:26:12,324: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid Firstname
+[2026-02-16 10:26:12,340: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q1_1
+[2026-02-16 10:26:12,354: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q1_2a
+[2026-02-16 10:26:12,371: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q1_2c
+[2026-02-16 10:26:12,385: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q1_2d
+[2026-02-16 10:26:12,399: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q1_2f
+[2026-02-16 10:26:12,412: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q1_2g
+[2026-02-16 10:26:12,423: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q1_2i
+[2026-02-16 10:26:12,441: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q1_3
+[2026-02-16 10:26:12,452: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q2_2a
+[2026-02-16 10:26:12,586: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q2_2b
+[2026-02-16 10:26:12,597: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q2_2c
+[2026-02-16 10:26:12,608: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q2_2d
+[2026-02-16 10:26:12,622: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q2_2e
+[2026-02-16 10:26:12,634: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q2_2f
+[2026-02-16 10:26:12,652: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q2_2g
+[2026-02-16 10:26:12,666: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q2_2h
+[2026-02-16 10:26:12,681: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q2_3
+[2026-02-16 10:26:12,693: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q2_chart
+[2026-02-16 10:26:12,704: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q3_1a
+[2026-02-16 10:26:12,715: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q3_1b
+[2026-02-16 10:26:12,728: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q3_1c
+[2026-02-16 10:26:12,744: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q3_1d
+[2026-02-16 10:26:12,756: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q3_2
+[2026-02-16 10:26:12,769: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q3_3
+[2026-02-16 10:26:12,781: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q4_1
+[2026-02-16 10:26:12,792: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q4_2ai
+[2026-02-16 10:26:12,803: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q4_2aii
+[2026-02-16 10:26:12,815: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q4_2aiii
+[2026-02-16 10:26:12,828: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q4_2aiv
+[2026-02-16 10:26:12,850: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q4_2bi
+[2026-02-16 10:26:12,862: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q4_2bii
+[2026-02-16 10:26:12,876: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q4_2biii
+[2026-02-16 10:26:12,886: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q4_2biv
+[2026-02-16 10:26:12,900: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q4_2bv
+[2026-02-16 10:26:12,913: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q4_2bvi
+[2026-02-16 10:26:12,927: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q5_2
+[2026-02-16 10:26:12,942: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q5_3
+[2026-02-16 10:26:12,957: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q5_4
+[2026-02-16 10:26:12,971: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q5_chart
+[2026-02-16 10:26:12,984: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q6_1a
+[2026-02-16 10:26:12,996: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q6_1b
+[2026-02-16 10:26:13,011: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q6_1c
+[2026-02-16 10:26:13,023: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q6_1d
+[2026-02-16 10:26:13,037: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q6_1e
+[2026-02-16 10:26:13,057: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q6_1f
+[2026-02-16 10:26:13,071: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q6_1g
+[2026-02-16 10:26:13,084: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q6_1h
+[2026-02-16 10:26:13,098: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q6_1i
+[2026-02-16 10:26:13,112: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q6_1j
+[2026-02-16 10:26:13,122: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q6_2a
+[2026-02-16 10:26:13,133: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q6_2b
+[2026-02-16 10:26:13,147: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q6_2c
+[2026-02-16 10:26:13,162: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q6_2d
+[2026-02-16 10:26:13,179: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q6_2e
+[2026-02-16 10:26:13,193: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q6_2f
+[2026-02-16 10:26:13,206: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q6_2g
+[2026-02-16 10:26:13,218: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q6_3
+[2026-02-16 10:26:13,231: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q6_4
+[2026-02-16 10:26:13,245: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q7_1
+[2026-02-16 10:26:13,260: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q7_2
+[2026-02-16 10:26:13,271: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q7_3a
+[2026-02-16 10:26:13,285: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q7_3b
+[2026-02-16 10:26:13,296: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q7_3c
+[2026-02-16 10:26:13,308: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid Surname
+[2026-02-16 10:26:13,321: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q1_2b
+[2026-02-16 10:26:13,345: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q1_2e
+[2026-02-16 10:26:13,361: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q1_2h
+[2026-02-16 10:26:13,381: WARNING/ForkPoolWorker-1] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072061, questionid q1_4
+[2026-02-16 10:26:13,390: WARNING/ForkPoolWorker-1] ✓ Batch broadcast 70 marks for session 1072061
+[2026-02-16 10:26:13,390: INFO/ForkPoolWorker-1] [Celery Task] ✓ Completed marking for submission 1072061
+[2026-02-16 10:26:13,391: INFO/ForkPoolWorker-1] Task myapp.tasks.mark_submission_async[38cd3b50-1be2-42ff-ae04-6cb7ea7129e9] succeeded in 2.752310249983566s: {'status': 'success', 'submission_id': 1072061}
+[2026-02-16 10:37:38,563: INFO/MainProcess] Task myapp.tasks.mark_submission_async[3e7987ea-6a82-44db-965a-f797de8347cb] received
+[2026-02-16 10:37:38,568: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1072063
+[2026-02-16 10:37:38,569: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1072063
+[2026-02-16 10:37:38,569: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1072063
+[2026-02-16 10:37:39,261: WARNING/ForkPoolWorker-2] Step 2b: COUNT(*) for sessionid 1072063 = 70
+[2026-02-16 10:37:39,271: WARNING/ForkPoolWorker-2] Step 3: Fetched 70 answers for sessionid 1072063
+[2026-02-16 10:37:39,272: WARNING/ForkPoolWorker-2] Reached after fetchall, answers:
+[2026-02-16 10:37:39,272: WARNING/ForkPoolWorker-2]  
+[2026-02-16 10:37:39,273: WARNING/ForkPoolWorker-2] [(1072063, 'exam_ID', 'hllboi001', 0.0, 'hllboi001', None), (1072063, 'Firstname', '', 0.0, '', None), (1072063, 'q1_1', '', 0.0, '', None), (1072063, 'q1_2a', '', 0.0, '', None), (1072063, 'q1_2b', '', 0.0, '', None), (1072063, 'q1_2c', '', 0.0, '', None), (1072063, 'q1_2d', '', 0.0, '', None), (1072063, 'q1_2e', '', 0.0, '', None), (1072063, 'q1_2f', '', 0.0, '', None), (1072063, 'q1_2g', '', 0.0, '', None), (1072063, 'q1_2h', '', 0.0, '', None), (1072063, 'q1_2i', '', 0.0, '', None), (1072063, 'q1_3', '', 0.0, '', None), (1072063, 'q1_4', 'C', 0.0, 'C', None), (1072063, 'q2_2a', '', 0.0, '', None), (1072063, 'q2_2b', '', 0.0, '', None), (1072063, 'q2_2c', '', 0.0, '', None), (1072063, 'q2_2d', '', 0.0, '', None), (1072063, 'q2_2e', '', 0.0, '', None), (1072063, 'q2_2f', '', 0.0, '', None), (1072063, 'q2_2g', '', 0.0, '', None), (1072063, 'q2_2h', '', 0.0, '', None), (1072063, 'q2_3', 'B', 0.0, 'B', None), (1072063, 'q2_chart', 'place your chart here', 0.0, 'place your chart here', None), (1072063, 'q3_1a', '', 0.0, '', None), (1072063, 'q3_1b', '', 0.0, '', None), (1072063, 'q3_1c', '', 0.0, '', None), (1072063, 'q3_1d', '', 0.0, '', None), (1072063, 'q3_2', '', 0.0, '', None), (1072063, 'q3_3', '', 0.0, '', None), (1072063, 'q4_1', '', 0.0, '', None), (1072063, 'q4_2ai', '', 0.0, '', None), (1072063, 'q4_2aii', '', 0.0, '', None), (1072063, 'q4_2aiii', '', 0.0, '', None), (1072063, 'q4_2aiv', '', 0.0, '', None), (1072063, 'q4_2bi', '', 0.0, '', None), (1072063, 'q4_2bii', '', 0.0, '', None), (1072063, 'q4_2biii', '', 0.0, '', None), (1072063, 'q4_2biv', '', 0.0, '', None), (1072063, 'q4_2bv', '', 0.0, '', None), (1072063, 'q4_2bvi', '', 0.0, '', None), (1072063, 'q5_2', '', 0.0, '', None), (1072063, 'q5_3', '', 0.0, '', None), (1072063, 'q5_4', 'B', 0.0, 'B', None), (1072063, 'q5_chart', 'place your chart here', 0.0, 'place your chart here', None), (1072063, 'q6_1a', '', 0.0, '', None), (1072063, 'q6_1b', '', 0.0, '', None), (1072063, 'q6_1c', '', 0.0, '', None), (1072063, 'q6_1d', '', 0.0, '', None), (1072063, 'q6_1e', '', 0.0, '', None), (1072063, 'q6_1f', '', 0.0, '', None), (1072063, 'q6_1g', '', 0.0, '', None), (1072063, 'q6_1h', '', 0.0, '', None), (1072063, 'q6_1i', '', 0.0, '', None), (1072063, 'q6_1j', '', 0.0, '', None), (1072063, 'q6_2a', '', 0.0, '', None), (1072063, 'q6_2b', '', 0.0, '', None), (1072063, 'q6_2c', '', 0.0, '', None), (1072063, 'q6_2d', '', 0.0, '', None), (1072063, 'q6_2e', '', 0.0, '', None), (1072063, 'q6_2f', '', 0.0, '', None), (1072063, 'q6_2g', '', 0.0, '', None), (1072063, 'q6_3', '', 0.0, '', None), (1072063, 'q6_4', '', 0.0, '', None), (1072063, 'q7_1', '', 0.0, '', None), (1072063, 'q7_2', '', 0.0, '', None), (1072063, 'q7_3a', '', 0.0, '', None), (1072063, 'q7_3b', '', 0.0, '', None), (1072063, 'q7_3c', '', 0.0, '', None), (1072063, 'Surname', '', 0.0, '', None)]
+[2026-02-16 10:37:39,289: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid exam_ID
+[2026-02-16 10:37:39,305: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid Firstname
+[2026-02-16 10:37:39,321: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q1_1
+[2026-02-16 10:37:39,343: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q1_2a
+[2026-02-16 10:37:39,355: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q1_2b
+[2026-02-16 10:37:39,377: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q1_2c
+[2026-02-16 10:37:39,392: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q1_2d
+[2026-02-16 10:37:39,407: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q1_2e
+[2026-02-16 10:37:39,423: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q1_2f
+[2026-02-16 10:37:39,454: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q1_2g
+[2026-02-16 10:37:39,470: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q1_2h
+[2026-02-16 10:37:39,491: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q1_2i
+[2026-02-16 10:37:39,506: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q1_3
+[2026-02-16 10:37:39,519: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q1_4
+[2026-02-16 10:37:39,535: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q2_2a
+[2026-02-16 10:37:39,553: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q2_2b
+[2026-02-16 10:37:39,583: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q2_2c
+[2026-02-16 10:37:39,595: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q2_2d
+[2026-02-16 10:37:39,610: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q2_2e
+[2026-02-16 10:37:39,629: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q2_2f
+[2026-02-16 10:37:39,651: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q2_2g
+[2026-02-16 10:37:39,669: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q2_2h
+[2026-02-16 10:37:39,689: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q2_3
+[2026-02-16 10:37:39,707: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q2_chart
+[2026-02-16 10:37:39,736: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q3_1a
+[2026-02-16 10:37:39,759: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q3_1b
+[2026-02-16 10:37:39,773: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q3_1c
+[2026-02-16 10:37:39,790: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q3_1d
+[2026-02-16 10:37:39,808: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q3_2
+[2026-02-16 10:37:39,823: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q3_3
+[2026-02-16 10:37:39,839: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q4_1
+[2026-02-16 10:37:39,854: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q4_2ai
+[2026-02-16 10:37:39,879: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q4_2aii
+[2026-02-16 10:37:39,897: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q4_2aiii
+[2026-02-16 10:37:39,911: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q4_2aiv
+[2026-02-16 10:37:39,923: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q4_2bi
+[2026-02-16 10:37:39,936: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q4_2bii
+[2026-02-16 10:37:39,952: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q4_2biii
+[2026-02-16 10:37:39,968: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q4_2biv
+[2026-02-16 10:37:39,987: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q4_2bv
+[2026-02-16 10:37:39,999: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q4_2bvi
+[2026-02-16 10:37:40,012: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q5_2
+[2026-02-16 10:37:40,023: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q5_3
+[2026-02-16 10:37:40,036: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q5_4
+[2026-02-16 10:37:40,049: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q5_chart
+[2026-02-16 10:37:40,072: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q6_1a
+[2026-02-16 10:37:40,111: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q6_1b
+[2026-02-16 10:37:40,129: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q6_1c
+[2026-02-16 10:37:40,149: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q6_1d
+[2026-02-16 10:37:40,171: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q6_1e
+[2026-02-16 10:37:40,196: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q6_1f
+[2026-02-16 10:37:40,212: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q6_1g
+[2026-02-16 10:37:40,227: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q6_1h
+[2026-02-16 10:37:40,243: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q6_1i
+[2026-02-16 10:37:40,264: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q6_1j
+[2026-02-16 10:37:40,280: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q6_2a
+[2026-02-16 10:37:40,297: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q6_2b
+[2026-02-16 10:37:40,310: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q6_2c
+[2026-02-16 10:37:40,324: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q6_2d
+[2026-02-16 10:37:40,335: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q6_2e
+[2026-02-16 10:37:40,352: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q6_2f
+[2026-02-16 10:37:40,367: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q6_2g
+[2026-02-16 10:37:40,378: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q6_3
+[2026-02-16 10:37:40,398: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q6_4
+[2026-02-16 10:37:40,411: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q7_1
+[2026-02-16 10:37:40,424: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q7_2
+[2026-02-16 10:37:40,438: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q7_3a
+[2026-02-16 10:37:40,454: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q7_3b
+[2026-02-16 10:37:40,476: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid q7_3c
+[2026-02-16 10:37:40,499: WARNING/ForkPoolWorker-2] Updated markawarded to 0 and feedback to 'No solution found.' for sessionid 1072063, questionid Surname
+[2026-02-16 10:37:40,504: WARNING/ForkPoolWorker-2] ✓ Batch broadcast 70 marks for session 1072063
+[2026-02-16 10:37:40,504: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1072063
+[2026-02-16 10:37:40,506: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[3e7987ea-6a82-44db-965a-f797de8347cb] succeeded in 1.938296292006271s: {'status': 'success', 'submission_id': 1072063}
+[2026-02-16 15:44:56,786: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-16 16:03:04,685: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-16 16:12:08,754: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-16 16:30:14,476: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-16 17:15:34,421: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-16 17:24:38,134: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-16 18:00:54,602: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-16 18:28:09,474: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-16 18:34:40,471: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+[2026-02-16 19:35:41,083: INFO/MainProcess] missed heartbeat from worker1@Jumanis-MacBook-Pro.local
+
+SIGHUP not supported: Restarting with SIGHUP is unstable on this platform!
+[2026-02-16 20:25:52,115: ERROR/MainProcess] Process 'ForkPoolWorker-1' pid:73145 exited with 'exitcode 70'
+[2026-02-16 20:25:52,189: ERROR/MainProcess] Process 'ForkPoolWorker-2' pid:73148 exited with 'exitcode 70'
+[2026-02-16 20:27:01,154: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/venv/lib/python3.12/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py", line 746, in start
+    c.loop(*c.loop_args())
+  File "/Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/venv/lib/python3.12/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/venv/lib/python3.12/site-packages/kombu/asynchronous/hub.py", line 377, in create_loop
+    cb(*cbargs)
+  File "/Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/venv/lib/python3.12/site-packages/kombu/transport/redis.py", line 1394, in on_readable
+    self.cycle.on_readable(fileno)
+  File "/Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/venv/lib/python3.12/site-packages/kombu/transport/redis.py", line 579, in on_readable
+    chan.handlers[type]()
+  File "/Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/venv/lib/python3.12/site-packages/kombu/transport/redis.py", line 931, in _receive
+    ret.append(self._receive_one(c))
+               ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/venv/lib/python3.12/site-packages/kombu/transport/redis.py", line 941, in _receive_one
+    response = c.parse_response()
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/venv/lib/python3.12/site-packages/redis/client.py", line 824, in parse_response
+    response = self._execute(conn, try_read)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/venv/lib/python3.12/site-packages/redis/client.py", line 800, in _execute
+    return conn.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/venv/lib/python3.12/site-packages/redis/retry.py", line 49, in call_with_retry
+    fail(error)
+  File "/Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/venv/lib/python3.12/site-packages/redis/client.py", line 802, in <lambda>
+    lambda error: self._disconnect_raise_connect(conn, error),
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/venv/lib/python3.12/site-packages/redis/client.py", line 789, in _disconnect_raise_connect
+    raise error
+  File "/Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/venv/lib/python3.12/site-packages/redis/retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "/Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/venv/lib/python3.12/site-packages/redis/client.py", line 801, in <lambda>
+    lambda: command(*args, **kwargs),
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/venv/lib/python3.12/site-packages/redis/client.py", line 822, in try_read
+    return conn.read_response(disconnect_on_error=False, push_request=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/venv/lib/python3.12/site-packages/redis/connection.py", line 500, in read_response
+    response = self._parser.read_response(disable_decoding=disable_decoding)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/venv/lib/python3.12/site-packages/redis/_parsers/resp2.py", line 15, in read_response
+    result = self._read_response(disable_decoding=disable_decoding)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/venv/lib/python3.12/site-packages/redis/_parsers/resp2.py", line 25, in _read_response
+    raw = self._buffer.readline()
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/venv/lib/python3.12/site-packages/redis/_parsers/socket.py", line 115, in readline
+    self._read_from_socket()
+  File "/Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/venv/lib/python3.12/site-packages/redis/_parsers/socket.py", line 68, in _read_from_socket
+    raise ConnectionError(SERVER_CLOSED_CONNECTION_ERROR)
+redis.exceptions.ConnectionError: Connection closed by server.
+[2026-02-16 20:27:01,180: WARNING/MainProcess] /Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py:391: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered
+back to the queue. You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss
+setting. In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2026-02-16 20:27:01,181: WARNING/MainProcess] /Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2026-02-16 20:27:01,181: ERROR/MainProcess] consumer: Cannot connect to redis://127.0.0.1:6379/0: Error 61 connecting to 127.0.0.1:6379. Connection refused..
+Trying again in 2.00 seconds... (1/100)
+
+[2026-02-16 20:27:03,191: ERROR/MainProcess] consumer: Cannot connect to redis://127.0.0.1:6379/0: Error 61 connecting to 127.0.0.1:6379. Connection refused..
+Trying again in 4.00 seconds... (2/100)
+
+
+worker: Warm shutdown (MainProcess)

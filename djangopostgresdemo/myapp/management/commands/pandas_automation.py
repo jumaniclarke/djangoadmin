@@ -15,16 +15,28 @@ import spacy
 
 from nltk.corpus import wordnet
 from spacy import displacy
-nlp = spacy.load("en_core_web_trf")
+
+# Global NLP model cache - load once, reuse everywhere
+_NLP_MODEL = None
+
+def get_nlp():
+    """Get cached NLP model, loading only once."""
+    global _NLP_MODEL
+    if _NLP_MODEL is None:
+        _NLP_MODEL = spacy.load("en_core_web_trf")
+        print("⚙️  Loaded spaCy model once (cached for all submissions)")
+    return _NLP_MODEL
+
+nlp = get_nlp()
 
 """# Load parsing routines"""
 def show_chunks(text):
-  doc = nlp(text)
+  doc = get_nlp()(text)
   for chunk in doc.noun_chunks:
     print(chunk.text, chunk.root.text, chunk.root.dep_,
           chunk.root.head.text)
 def print_pic(text):
-  doc = nlp(text)
+  doc = get_nlp()(text)
   import webbrowser
   from pathlib import Path
   html = displacy.render(doc, style="dep")
@@ -37,8 +49,8 @@ def print_pic(text):
 
   webbrowser.open(out_path.as_uri())
 def print_chunks_pic(text):
-  nlp.add_pipe("merge_noun_chunks", last=True)
-  doc = nlp(text)
+  get_nlp().add_pipe("merge_noun_chunks", last=True)
+  doc = get_nlp()(text)
   import webbrowser
   from pathlib import Path
   html = displacy.render(doc, style="dep")
@@ -77,7 +89,7 @@ def is_equative(clause):
 
 def rearrange_noun_phrase(noun_phrase):
 #moves preposition phrase to back from front
-  noun_tokens = nlp(noun_phrase)
+  noun_tokens = get_nlp()(noun_phrase)
   return_phrase =''
   root_pos = 0
   word2add =''
@@ -100,74 +112,60 @@ def rearrange_noun_phrase(noun_phrase):
       return_phrase = return_phrase + ' ' + word2add
   return return_phrase
 
-# takes a noun phrase and gives a concatenation of all the prepositional phrases that follow the head noun
+# takes a noun phrase Span and extracts prepositional phrases following the head noun
 # for example "the proportion of people" becomes "people"
-def get_base_simple(noun_phrase):
+def get_base_simple(noun_phrase_span, head_noun_token):
   """
-  Extract prepositional phrases following the head noun in a noun phrase.
+  Extract prepositional phrases from an already-tokenized spaCy Span.
+  
+  Args:
+    noun_phrase_span: A spaCy Span object (not a string)
   
   Logic flow:
-  1. Rearrange the noun phrase to move prepositions to the end
-  2. Parse the rearranged phrase with spaCy
-  3. Find the ROOT token and iterate through its children
-  4. Collect left and right edges of prepositional objects (pobj)
-  5. Return the slice of tokens spanning from min left edge to max right edge
-  6. If no prepositional phrases exist, return the entire phrase
+  1. Work directly with the passed-in Span's tokens
+  2. Find the ROOT token and iterate through its children
+  3. Collect left and right edges of prepositional children
+  4. Return the slice of tokens spanning from min left edge to max right edge
+  5. If no prepositional phrases exist, return the entire span
+  6. No re-tokenization - preserves original dependencies
   """
   
   try:
-    # Validate input
-    if not noun_phrase or not isinstance(noun_phrase, str):
-      raise ValueError("noun_phrase must be a non-empty string")
+    # Validate input is a Span
+    if not noun_phrase_span or len(noun_phrase_span) == 0:
+      return noun_phrase_span
     
-    phrase_rearranged = rearrange_noun_phrase(noun_phrase.strip())
     l_edges = set()
     r_edges = set()
-    phrase = nlp(phrase_rearranged)
     
-    # Validate parsed phrase
-    if not phrase or len(phrase) == 0:
-      return phrase
-    
-    # Find ROOT token and traverse its dependency tree for prepositional phrases
-    for token in phrase:
+    # Work directly with the span's tokens (no re-tokenization)
+    for token in noun_phrase_span:
       # find the root of the noun phrase
-      if token.dep_ == 'ROOT' or token.head.text == ' ':
+      if token == head_noun_token:
         # Check direct children for prepositions
         for child in token.children:
-          if child.dep_ == 'prep':
-            # Check for prepositional objects (pobj)
-            for child2 in child.children:
-              if child2.dep_ == 'pobj':
-                print(f"Found preposition object: '{child2.text}' with left edge {child2.left_edge.i} and right edge {child2.right_edge.i}")
-                l_edges.add(child2.left_edge.i)
-                r_edges.add(child2.right_edge.i + 1)
-              # Check for nested prepositions
-              elif child2.dep_ == 'prep':
-                for child3 in child2.children:
-                  if child3.dep_ == 'pobj':
-                    l_edges.add(child3.left_edge.i)
-                    r_edges.add(child3.right_edge.i + 1)
+            if child.dep_ == 'prep':
+                # Get the full span EXCLUDING the preposition itself, but INCLUDING all descendants
+                l_edges.add(child.left_edge.i + 1)  # Skip the preposition token
+                r_edges.add(child.right_edge.i + 1)  # Include all descendants
     
     # Extract min and max boundaries
-    the_min = min(l_edges) if l_edges else 0
-    the_max = max(r_edges) if r_edges else 0
+    the_min = min(l_edges) if l_edges else noun_phrase_span.start
+    the_max = max(r_edges) if r_edges else noun_phrase_span.end
     
-    # Return slice if prepositional phrases found, otherwise return entire phrase
-    return_phrase = phrase[the_min:the_max] if l_edges else phrase
-    
-    return return_phrase
+    # Return span slice - use the document to create the span
+    return noun_phrase_span.doc[the_min:the_max] if l_edges else noun_phrase_span
     
   except Exception as e:
     print(f"Error in get_base_simple: {str(e)}")
-    # Return original phrase as fallback
-    return nlp(noun_phrase)
+    # Return original span as fallback
+    return noun_phrase_span
 
 # is it of the form 'the the nouns phrase is A'?
 def is_encrypting(clause):
   dec_encrypt = False
   if is_equative(clause)==True:
-    clause_tokens = nlp(clause)
+    clause_tokens = get_nlp()(clause)
     for token in clause_tokens:
       if token.dep_ == 'attr' and token.head.dep_ == 'ROOT':
         for child in token.children:
@@ -238,7 +236,7 @@ def get_right_noun_without_embed(atoken):
   return return_right #max(right_edges)
 
 def is_indication_clause(text):
-  clause_tokens = nlp(text)
+  clause_tokens = get_nlp()(text)
   dec_made = False
   for token in clause_tokens:
     if token.dep_ == 'ROOT' and is_syn_with(token.text,'indicate'):
@@ -247,7 +245,7 @@ def is_indication_clause(text):
 
 def is_probability_clause(text):
 
-  clause_tokens = nlp(text)
+  clause_tokens = get_nlp()(text)
   dec_made = False
   for token in clause_tokens:
     if is_syn_with(token.text,'chance') and token.head.dep_ == 'ROOT' and is_syn_with(token.head.text,'is'):
@@ -256,7 +254,7 @@ def is_probability_clause(text):
   return dec_made
 
 def is_syn_with(phrase,given_phrase):
-  doc = nlp(phrase)
+  doc = get_nlp()(phrase)
   # this lemmatizes the noun
   lem_phrase = ''
   names=[]
@@ -280,7 +278,7 @@ def get_base(text):
   3. Otherwise, extract subject/attribute based on clause type (equative vs non-equative)
   4. Return simplified base phrase without embedded modifiers
   """
-  text_tokens = nlp(text)
+  text_tokens = get_nlp()(text)
   
   # Handle indication clauses (e.g., "X indicates that...")
   if is_indication_clause(text):
@@ -312,28 +310,27 @@ def get_base(text):
   else:
     # Non-equative clause: extract subject phrase
     if not is_equative(text):
-      head_phrase = ''
+      head_phrase_span = None
       left_end = 0
       
       # Find subject or nominal modifier
       for token in text_tokens:
-        if token.dep_ in ('nsubj', 'npadvmod') and token.head.dep_ == 'ROOT':
+        if token.dep_ in ('nsubj', 'npadvmod', 'nsubjpass') and token.head.dep_ == 'ROOT':
+          # record token for later use in simple base extraction as the head noun in the noun group
+          head_token = token
           left_end = get_left_noun(token)
-          head_phrase = text_tokens[left_end:get_right_noun(token)].text
+          head_phrase_span = text_tokens[left_end:get_right_noun(token)]
+          print(f"head_phrase: {head_phrase_span.text}", f"head_token: {head_token.text}")
           break
       
-      # Prepend any prepositional phrase that precedes the subject
-      for token in text_tokens:
-        if token.dep_ == 'prep' and token.head.dep_ == 'ROOT' and token.i < left_end:
-          prop_phrase = text_tokens[token.left_edge.i:token.right_edge.i + 1].text
-          head_phrase = prop_phrase + ' ' + head_phrase
-          break
-    
     # Equative clause: extract attribute or subject based on encryption
     else:
       the_dep = 'attr' if is_encrypting(text) else 'nsubj'
+      head_phrase_span = None
       
       for token in text_tokens:
+        # record token for later use in simple base extraction as the head noun in the noun group
+        head_token = token
         if token.dep_ == the_dep and token.head.dep_ == 'ROOT':
           # Determine right boundary, excluding embedded relative clauses
           right_edge_index = (
@@ -342,11 +339,16 @@ def get_base(text):
             else token.right_edge.i + 1
           )
           left_token_index = min([t.i for token in token.subtree for t in token.subtree])
-          head_phrase = text_tokens[left_token_index:right_edge_index].text
-          print(f"head_phrase: {head_phrase}")
+          head_phrase_span = text_tokens[left_token_index:right_edge_index]
+          print(f"head_phrase: {head_phrase_span.text}", f"head_token: {token.text}")
           break
   
-  return get_base_simple(head_phrase).text
+  if head_phrase_span:
+    print(f"Extracted head phrase before simplification: '{head_phrase_span.text}'", f"with head token: '{head_token.text}'")
+    result_span = get_base_simple(head_phrase_span, head_token)
+    return result_span.text
+  else:
+    return text
   
 def extract_root_noun(noun_phrase):
   """
@@ -358,7 +360,7 @@ def extract_root_noun(noun_phrase):
   Returns:
     The root noun token as a string
   """
-  doc = nlp(noun_phrase)
+  doc = get_nlp()(noun_phrase)
   
   for token in doc:
     if token.dep_ == 'ROOT' or token.head == token:
@@ -390,7 +392,20 @@ def there_is_embedding(thetoken):
 
 if __name__ == "__main__":
   #text = "27% is the proportion of people aged 31-40 years that tested positive for an illicit drug."
-  text = "At least 50% of the data is less than or equal to 63"
+  #text = "27% of people aged 31-40 years tested positive for an illicit drug."
+  #text = "At least 50% of the data is less than or equal to 63"
+  #text = "20% of people tested postive for an illicit drug."
+  text = "In 2022, at least twenty percent of the budget that was accounted for was allocated to child protection services."
+  #text = "at least twenty percent of the budget that was accounted for"
+  doc = get_nlp()(text)
+  #for ent in doc.ents: 
+  # print(ent.text, ent.label_) 
   print_pic(text)
-  print('get_base:', get_base(text))
-  print('Root noun:', extract_root_noun(get_base(text)))
+  print('Base noun phrase:', get_base(text)) 
+  #for chunk in doc.noun_chunks:
+  #  print('Noun chunk:', chunk.text, chunk.root.text, chunk.root.dep_, chunk.root.head.text)
+  #print('get_base:', get_base(text))
+  #print('Root noun:', extract_root_noun(get_base(text)))
+  #print('simple base noun phrase:', get_base_simple(text))
+ 
+

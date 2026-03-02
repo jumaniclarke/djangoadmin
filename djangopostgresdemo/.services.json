@@ -1,0 +1,37 @@
+{
+  "listener": {
+    "pid": 73123,
+    "name": "Django Listener",
+    "started_at": 1771048061.585067,
+    "critical": true,
+    "log": "/Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/logs/listener.log"
+  },
+  "celery-worker-1": {
+    "pid": 73124,
+    "name": "Celery Worker 1",
+    "started_at": 1771048061.586576,
+    "critical": false,
+    "log": "/Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/logs/celery_worker1.log"
+  },
+  "celery-worker-2": {
+    "pid": 73125,
+    "name": "Celery Worker 2",
+    "started_at": 1771048061.587656,
+    "critical": false,
+    "log": "/Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/logs/celery_worker2.log"
+  },
+  "celery-beat": {
+    "pid": 73126,
+    "name": "Celery Beat",
+    "started_at": 1771048061.58965,
+    "critical": true,
+    "log": "/Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/logs/celery_beat.log"
+  },
+  "celery-flower": {
+    "pid": 73127,
+    "name": "Celery Flower (Web UI)",
+    "started_at": 1771048061.590868,
+    "critical": false,
+    "log": "/Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/logs/celery_flower.log"
+  }
+}
