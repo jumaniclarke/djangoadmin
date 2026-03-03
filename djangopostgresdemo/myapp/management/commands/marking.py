@@ -1,3 +1,5 @@
+from django.utils import timezone
+
 from django.db import connection
 
 def mark_mcq_answer(answertext, cursor, question_md_id):
@@ -8,7 +10,7 @@ def mark_mcq_answer(answertext, cursor, question_md_id):
     # Fetch MCQ rule for the question
     cursor.execute(
         """
-        SELECT mcq_mode, valid_labels, correct_options, scoring_policy, full_marks, negative_marks, allow_blank, blank_marks, case_sensative
+        SELECT mcq_mode, valid_labels, correct_options, scoring_policy, full_marks, negative_marks, allow_blank, blank_marks, case_sensitive
         FROM question_mcq_rule WHERE question_md_id = %s LIMIT 1
         """,
         [question_md_id]
@@ -17,32 +19,33 @@ def mark_mcq_answer(answertext, cursor, question_md_id):
     if not rule:
         return 0, "No MCQ rule found."
     (
-        mcq_mode, valid_labels, correct_options, scoring_policy, full_marks, negative_marks, allow_blank, blank_marks, case_sensative
+        mcq_mode, valid_labels, correct_options, scoring_policy, full_marks, negative_marks, allow_blank, blank_marks, case_sensitive
     ) = rule
 
     # Parse valid_labels and correct_options (assume text fields with e.g. '{"pie chart", "bar chart"}')
     import json
     def parse_set(text):
+        if isinstance(text, (list, set)):
+            return set(text)
         try:
-            # Accepts both JSON array and set-like string
             if text.strip().startswith('{'):
                 return set(json.loads(text.replace("'", '"').replace('{', '[').replace('}', ']')))
             return set(json.loads(text))
         except Exception:
             return set()
-
     valid_labels = parse_set(valid_labels)
     correct_options = parse_set(correct_options)
 
     # Case sensitivity
     def norm(s):
-        return s if case_sensative else s.lower()
+        return s if case_sensitive else s.lower()
     valid_labels = set(map(norm, valid_labels))
     correct_options = set(map(norm, correct_options))
 
     # Normalize answer
     answer = answertext.strip() if answertext else ''
     norm_answer = norm(answer)
+
 
     # Allow blank
     if allow_blank and not answer:
@@ -343,7 +346,7 @@ def mark_nlp_answer(answertext, cursor, question_md_id):
     4. Extract base form and root nouns from student's answer
     5. Compare: if student's root noun matches any expected root noun, award 2 marks
     6. If match: feedback says "correct"
-    7. If no match: feedback says "your base is different from the expected base" and lists expected bases
+    7. If no match: feedback says "your whole is different from the expected whole" and lists expected wholes (base forms)
     
     Returns:
         tuple: (mark, feedback) where mark is int and feedback is str
@@ -393,13 +396,14 @@ def mark_nlp_answer(answertext, cursor, question_md_id):
     # Extract base and root nouns from student's answer
     try:
         student_base = get_base(answertext.strip())
-        print(f"Student base: {student_base}")
+        print(f"Student whole: {student_base}")
         student_root_nouns = _extract_root_nouns(student_base)
         print(f"Student root nouns: {student_root_nouns}")
         
         # Only proceed if student has exactly one root noun
         if len(student_root_nouns) != 1:
-            return 0, f"Your answer has {len(student_root_nouns)} root noun(s). Expected exactly 1."
+            expected_bases_str = ", ".join([get_base(phrase_text.strip()) for _, phrase_text in phrase_variants]) if phrase_variants else "unknown"
+            return 0, f"Your whole is \"{student_base}\", which is different from the expected whole: {expected_bases_str}"
         
         student_root_noun = student_root_nouns[0].lower()
     except Exception as e:
@@ -433,11 +437,11 @@ def mark_nlp_answer(answertext, cursor, question_md_id):
     # Compare student's root noun with expected root nouns
     if student_root_noun in expected_root_nouns:
         print(f"Match found! Student root noun '{student_root_noun}' matches expected root noun(s)")
-        return 2, f"You chose as base \"{student_base}\". This is correct."
+        return 2, f"You chose as whole \"{student_base}\". This is correct."
     else:
         # Format expected bases for feedback
         expected_bases_str = ", ".join(expected_bases) if expected_bases else "unknown"
-        feedback = f"Your base is different from the expected base. Expected base(s): {expected_bases_str}"
+        feedback = f"Your whole is \"{student_base}\", which is different from the expected whole: {expected_bases_str}"
         print(f"No match. Student: '{student_root_noun}', Expected: {expected_root_nouns}")
         return 0, feedback
 
@@ -857,8 +861,8 @@ def mark_answers_for_session(sessionid):
         cursor.execute("""
             SELECT deadline_id, workbookname, courseid, oyear, scope_level, class_code, studentid, start_at, end_at
             FROM student_deadlines
-            WHERE workbookname = %s AND courseid = %s AND oyear = %s
-        """, [workbookname, courseid, oyear])
+            WHERE LOWER(workbookname) = LOWER(%s) AND LOWER(courseid) = LOWER(%s) AND oyear = %s
+        """, [tutorial_name, courseid, oyear])
         deadlines = cursor.fetchall()
         # Find best matching deadline
         deadline = None
@@ -887,8 +891,8 @@ def mark_answers_for_session(sessionid):
         if not (start_at and end_at):
             print(f"Deadline record missing start or end date for sessionid {sessionid}")
             return
-        if not (start_at <= now <= end_at):
-            print(f"Submission for sessionid {sessionid} is outside the deadline window: {start_at} to {end_at} (now: {now})")
+        if not (start_at <= timezone.now() <= end_at):
+            print(f"Submission for sessionid {sessionid} is outside the deadline window: {start_at} to {end_at} (now: {timezone.now()})")
             return
 
         # Now fetch answers as before
@@ -899,7 +903,6 @@ def mark_answers_for_session(sessionid):
         except Exception as e:
             print(f"Database connection failed: {e}")
             return
-    print("Reached after fetchall, answers:", answers)  # debug
     if not answers:
         print("answers is empty or exhausted")
         return
@@ -918,47 +921,50 @@ def mark_answers_for_session(sessionid):
                 feedback = "No solution found."
             else:
                 question_md_id, question_type, solution = row
-                print(f"DEBUG: question_id={questionid}, question_type='{question_type}', question_md_id={question_md_id}")  # ADD THIS
-                print(f"Comparing answer '{answertext}' to solution '{solution}'")
+                #print(f"DEBUG: question_id={questionid}, question_type='{question_type}', question_md_id={question_md_id}")  # ADD THIS
+                #print(f"Comparing answer '{answertext}' to solution '{solution}'")
 
             if not row:
                 mark = 0  # or handle missing solution
                 feedback = "No solution found."
             else:
                 question_md_id, question_type, solution = row
-                print(f"Comparing answer '{answertext}' to solution '{solution}'")
+                #print(f"Comparing answer '{answertext}' to solution '{solution}'")
                 # Mark based on question type
                 if question_type == 'boolean':
-                    print(f"Marking boolean question for questionid {questionid}")
+                    #rint(f"Marking boolean question for questionid {questionid}")
                     mark = mark_boolean_answer(answertext, solution)
                     feedback = "Correct." if mark else "Incorrect."
                 elif question_type == 'value':
-                    print(f"Marking value question for questionid {questionid}, with answervalue {answervalue} and solution {solution}")
+                    #print(f"Marking value question for questionid {questionid}, with answervalue {answervalue} and solution {solution}")
                     mark = mark_value_answer(answervalue, solution, cursor, question_md_id)
                     feedback = "Correct." if mark else "Incorrect."
                 elif question_type == 'formula':
-                    print(f"Marking formula question for questionid {questionid}, with formula {answerformula}")
+                    #print(f"Marking formula question for questionid {questionid}, with formula {answerformula}")
                     mark, feedback = mark_formula_answer(answerformula, cursor, question_md_id)
                 elif question_type == 'nlp':
-                    print(f"Marking NLP question for questionid {questionid}, with answer text {answertext}")
+                    #print(f"Marking NLP question for questionid {questionid}, with answer text {answertext}")
                     mark, feedback = mark_nlp_answer(answertext, cursor, question_md_id)
                 elif question_type == 'chart':
-                    print(f"Marking chart question for questionid {questionid}")
+                    #print(f"Marking chart question for questionid {questionid}")
                     mark, feedback = mark_chart_answer(chartdata, cursor, question_md_id)
                 elif question_type == 'mcq':
-                    print(f"Marking MCQ question for questionid {questionid}, with answer text {answertext}")
+                    #print(f"Marking MCQ question for questionid {questionid}, with answer text {answertext}")
                     mark, feedback = mark_mcq_answer(answertext, cursor, question_md_id)
                 else:
-                    print(f"Unknown question type '{question_type}' for questionid {questionid}")
+                    #print(f"Unknown question type '{question_type}' for questionid {questionid}")
                     mark = 0
                     feedback = "Unknown question type."
 
         with connection.cursor() as cursor:
+            # Remove HTML formatting from feedback before storing
+            feedback_clean = feedback.replace("<span style='color: red; font-weight: bold;'>", "").replace("</span>", "").replace("\n", " ") if feedback else feedback
+            
             cursor.execute(
                 "UPDATE answers SET markawarded = %s, feedback = %s WHERE sessionid = %s AND questionid = %s",
-                [mark, feedback, orig_sessionid, questionid]
+                [mark, feedback_clean, orig_sessionid, questionid]
             )
-            print(f"Updated markawarded to {mark} and feedback to '{feedback}' for sessionid {orig_sessionid}, questionid {questionid}")
+            #print(f"Updated markawarded to {mark} and feedback to '{feedback}' for sessionid {orig_sessionid}, questionid {questionid}")
         
         # Store marked answer for batch broadcast later
         marked_answers.append({
@@ -979,6 +985,6 @@ def mark_answers_for_session(sessionid):
                     "marks": marked_answers
                 }
             )
-            print(f"✓ Batch broadcast {len(marked_answers)} marks for session {orig_sessionid}")
+            #print(f"✓ Batch broadcast {len(marked_answers)} marks for session {orig_sessionid}")
         except Exception as e:
             print(f"Batch broadcast failed for session {orig_sessionid}: {e}")

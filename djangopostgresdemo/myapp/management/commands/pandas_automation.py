@@ -1,3 +1,74 @@
+# Detects if a clause is of the form 'there is ...'
+def is_there_is_clause(text):
+  doc = nlp(text)
+  # Helper to check synonymy for 'there'
+  def is_syn_with_there(token):
+    from nltk.corpus import wordnet
+    lemma = token.lemma_.lower()
+    if lemma == 'there':
+      return True
+    for syn in wordnet.synsets('there'):
+      if lemma in [l.lower() for l in syn.lemma_names()]:
+        return True
+    return False
+
+  for token in doc:
+    if token.dep_ == 'ROOT':
+      has_expl_there = False
+      has_attr = False
+      for child in token.children:
+        if child.dep_ == 'expl' and is_syn_with_there(child):
+          has_expl_there = True
+        if child.dep_ == 'attr':
+          has_attr = True
+      if has_expl_there and has_attr:
+        return True
+  return False
+# Alternative, more elegant equative clause detector
+def is_equative2(clause):
+  doc = nlp(clause)
+  # Helper to check synonymy
+  def is_syn_with(token_text, *targets):
+    from nltk.corpus import wordnet
+    for target in targets:
+      for syn in wordnet.synsets(target):
+        if token_text.lower() in [lemma.lower() for lemma in syn.lemma_names()]:
+          return True
+    return False
+
+  for token in doc:
+    # Look for ROOT token synonymous with 'is'
+    #print(f"Checking token '{token.text}' with dep '{token.dep_}' against 'is'")
+    if (token.dep_ == 'ROOT' and is_syn_with(token.lemma_, 'is')) or (token.dep_ == 'ROOT' and is_syn_with(token.lemma_, 'represents')):
+      print(f"Found potential equative ROOT: '{token.text}' (lemma: '{token.lemma_}')")
+      # Look for immediate child with dep_ == 'attr'
+      for child in token.children:
+        # If ROOT is 'is' (aux), look for 'attr' child; if ROOT is 'represent', look for 'dobj' child
+        if (
+            (is_syn_with(token.lemma_, 'is') and child.dep_ == 'attr' and is_syn_with(child.lemma_, 'proportion', 'percentage', 'percent'))
+            or
+            (is_syn_with(token.lemma_, 'represent') and child.dep_ == 'dobj' and is_syn_with(child.lemma_, 'proportion', 'percentage', 'percent'))
+        ):
+          print(f"Found potential equative child: '{child.text}' with dep '{child.dep_}'")
+          # Check for child with dep_ == 'relcl'
+          for grandchild in child.children:
+            if grandchild.dep_ == 'relcl':
+              return True
+            # Check for child with dep_ == 'prep' leading to 'pobj' then 'relcl'
+            if grandchild.dep_ == 'prep':
+              for g2 in grandchild.children:
+                if g2.dep_ == 'pobj':
+                  for g3 in g2.children:
+                    if g3.dep_ == 'relcl':
+                      return True
+                    # One more level down: prep > pobj > prep > pobj > relcl
+                    if g3.dep_ == 'prep':
+                      for g4 in g3.children:
+                        if g4.dep_ == 'pobj':
+                          for g5 in g4.children:
+                            if g5.dep_ == 'relcl':
+                              return True
+  return False
 # -*- coding: utf-8 -*-
 """Copy of pandas_tutorial.ipynb
 
@@ -58,31 +129,9 @@ def print_chunks_pic(text):
   out_path.write_text(html, encoding="utf-8")
   print(f"Wrote {out_path} ({len(html)} bytes)")
   webbrowser.open(out_path.as_uri())
-def is_equative(clause):
-  clause_tokens = nlp(clause)
-  dec_made = False
-  clause_attr = False
-  for token in clause_tokens:
-    if token.dep_ == 'attr':
-      clause_attr = True
-  if clause_attr == True:
-    for token in clause_tokens:
-      if token.dep_ == 'attr' and token.head.dep_ == 'ROOT' or token.dep_ == 'nsubj' and token.head.dep_ =='ROOT':
-        for child in token.children:
-          if child.dep_ == 'relcl':
-            dec_made = True
-          elif child.dep_ == 'prep':
-            for child2 in child.children:
-              if child2.dep_ == 'pobj':
-                for child3 in child2.children:
-                  if child3.dep_ == 'relcl':
-                    dec_made = True
-                  elif child3.dep_ == 'prep':
-                    for child4 in child3.children:
-                      if child4.dep_ == 'pobj':
-                        for child5 in child4.children:
-                          if child5.dep_ == 'relcl':
-                            dec_made = True
+  #handle equative clases like "X is the proportion of Y that Z" vs non-equative like "X of Y is Z"
+  #as well as "X represents the proportion of Y that Z"
+
 
 
   return dec_made
@@ -161,13 +210,13 @@ def get_base_simple(noun_phrase_span, head_noun_token):
     # Return original span as fallback
     return noun_phrase_span
 
-# is it of the form 'the the nouns phrase is A'?
+# is it of the form 'the noun phrase is A' or 'A is the noun phrase?
 def is_encrypting(clause):
   dec_encrypt = False
-  if is_equative(clause)==True:
+  if is_equative2(clause)==True:
     clause_tokens = get_nlp()(clause)
     for token in clause_tokens:
-      if token.dep_ == 'attr' and token.head.dep_ == 'ROOT':
+      if (token.dep_ == 'attr' and token.head.dep_ == 'ROOT') or (token.dep_ == 'dobj' and token.head.dep_ == 'ROOT'):
         for child in token.children:
           if child.dep_ == 'relcl':
             dec_encrypt = True
@@ -239,7 +288,7 @@ def is_indication_clause(text):
   clause_tokens = get_nlp()(text)
   dec_made = False
   for token in clause_tokens:
-    if token.dep_ == 'ROOT' and is_syn_with(token.text,'indicate'):
+    if token.dep_ == 'ROOT' and (is_syn_with(token.lemma_, 'indicate') or is_syn_with(token.lemma_, 'means')):
       dec_made = True
   return dec_made
 
@@ -248,7 +297,7 @@ def is_probability_clause(text):
   clause_tokens = get_nlp()(text)
   dec_made = False
   for token in clause_tokens:
-    if is_syn_with(token.text,'chance') and token.head.dep_ == 'ROOT' and is_syn_with(token.head.text,'is'):
+    if is_syn_with(token.lemma_,'chance') and token.head.dep_ == 'ROOT' and is_syn_with(token.head.lemma_,'is'):
       if token.dep_ == 'attr' or token.dep_ == 'nsubj':
         dec_made = True
   return dec_made
@@ -278,12 +327,13 @@ def get_base(text):
   3. Otherwise, extract subject/attribute based on clause type (equative vs non-equative)
   4. Return simplified base phrase without embedded modifiers
   """
+  head_phrase_span = None
   text_tokens = get_nlp()(text)
   
   # Handle indication clauses (e.g., "X indicates that...")
   if is_indication_clause(text):
     for token in text_tokens:
-      if token.head.dep_ == 'ROOT' and token.dep_ == 'ccomp':
+      if token.head.dep_ == 'ROOT' and token.dep_ in ('ccomp'):
         embed_text = ' '.join(atoken.text for atoken in token.subtree)
         return get_base(embed_text.strip())
   
@@ -309,29 +359,38 @@ def get_base(text):
   # Handle standard clauses
   else:
     # Non-equative clause: extract subject phrase
-    if not is_equative(text):
+    if not is_equative2(text):
       head_phrase_span = None
       left_end = 0
-      
-      # Find subject or nominal modifier
-      for token in text_tokens:
-        if token.dep_ in ('nsubj', 'npadvmod', 'nsubjpass') and token.head.dep_ == 'ROOT':
-          # record token for later use in simple base extraction as the head noun in the noun group
-          head_token = token
-          left_end = get_left_noun(token)
-          head_phrase_span = text_tokens[left_end:get_right_noun(token)]
-          print(f"head_phrase: {head_phrase_span.text}", f"head_token: {head_token.text}")
-          break
+      if not is_there_is_clause(text):
+        # Find subject or nominal modifier
+        for token in text_tokens:
+          if token.dep_ in ('nsubj', 'npadvmod', 'nsubjpass') and token.head.dep_ == 'ROOT':
+            # record token for later use in simple base extraction as the head noun in the noun group
+            head_token = token
+            left_end = get_left_noun(token)
+            head_phrase_span = text_tokens[left_end:get_right_noun(token)]
+            print(f"head_phrase: {head_phrase_span.text}", f"head_token: {head_token.text}")
+            break
+      else: 
+        # Handle "there is" clauses by extracting the complement of "there"
+        for token in text_tokens:
+          if token.dep_ == 'attr' and token.head.dep_ == 'ROOT':
+            head_token = token
+            left_end = get_left_noun(token)
+            head_phrase_span = text_tokens[left_end:get_right_noun(token)]
+            print(f"head_phrase: {head_phrase_span.text}", f"head_token: {head_token.text}")
+            break
       
     # Equative clause: extract attribute or subject based on encryption
     else:
-      the_dep = 'attr' if is_encrypting(text) else 'nsubj'
+      the_dep = ('attr','dobj') if is_encrypting(text) else ('nsubj')
       head_phrase_span = None
       
       for token in text_tokens:
         # record token for later use in simple base extraction as the head noun in the noun group
         head_token = token
-        if token.dep_ == the_dep and token.head.dep_ == 'ROOT':
+        if token.dep_ in the_dep and token.head.dep_ == 'ROOT':
           # Determine right boundary, excluding embedded relative clauses
           right_edge_index = (
             get_right_noun_without_embed(token) 
@@ -395,12 +454,16 @@ if __name__ == "__main__":
   #text = "27% of people aged 31-40 years tested positive for an illicit drug."
   #text = "At least 50% of the data is less than or equal to 63"
   #text = "20% of people tested postive for an illicit drug."
-  text = "In 2022, at least twenty percent of the budget that was accounted for was allocated to child protection services."
+  #text = "In 2022, at least twenty percent of the budget that was accounted for was allocated to child protection services."
   #text = "at least twenty percent of the budget that was accounted for"
+  text = "The number 12.5 means that there are 12.5% of 16 300 000 people work in the Manufacturing industry."
+  #text = "that there are 12.5 % of 16 300 000 people work in the Manufacturing industry"
+  #text = "7.7% is the proportion of the total female population in South Africa in October who were between the ages of 30 and 34."
   doc = get_nlp()(text)
   #for ent in doc.ents: 
   # print(ent.text, ent.label_) 
-  print_pic(text)
+  #print_pic(text)
+  print(is_equative2(text))
   print('Base noun phrase:', get_base(text)) 
   #for chunk in doc.noun_chunks:
   #  print('Noun chunk:', chunk.text, chunk.root.text, chunk.root.dep_, chunk.root.head.text)
