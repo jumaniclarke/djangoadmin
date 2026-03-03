@@ -1055,3 +1055,216 @@ Trying again in 4.00 seconds... (2/100)
 
 
 worker: Warm shutdown (MainProcess)
+ 
+ -------------- worker2@6e-4d-a1-17-8a-6.lan.uct.ac.za v5.4.0 (opalescent)
+--- ***** ----- 
+-- ******* ---- macOS-26.3-arm64-arm-64bit 2026-03-03 10:29:35
+- *** --- * --- 
+- ** ---------- [config]
+- ** ---------- .> app:         dbapp:0x10b460ef0
+- ** ---------- .> transport:   redis://127.0.0.1:6379/0
+- ** ---------- .> results:     redis://127.0.0.1:6379/0
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[tasks]
+  . dbapp.celery.debug_task
+  . myapp.tasks.detect_unmarked_submissions
+  . myapp.tasks.mark_submission_async
+  . myapp.tasks.submit_notification_update
+
+[2026-03-03 10:29:36,045: WARNING/MainProcess] /Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2026-03-03 10:29:36,050: INFO/MainProcess] Connected to redis://127.0.0.1:6379/0
+[2026-03-03 10:29:36,050: WARNING/MainProcess] /Users/jumaniclarke/vscodeprojects/djangopostgresdemo/djangoadmin/djangopostgresdemo/venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2026-03-03 10:29:36,053: INFO/MainProcess] mingle: searching for neighbors
+[2026-03-03 10:29:37,057: INFO/MainProcess] mingle: all alone
+[2026-03-03 10:29:37,063: INFO/MainProcess] worker2@6e-4d-a1-17-8a-6.lan.uct.ac.za ready.
+[2026-03-03 10:29:40,951: INFO/MainProcess] Events of group {task} enabled by remote.
+[2026-03-03 10:50:21,044: INFO/MainProcess] Task myapp.tasks.mark_submission_async[18203176-1cfd-4d04-aa02-67a568072afb] received
+[2026-03-03 10:50:23,093: WARNING/ForkPoolWorker-2] ⚙️  Loaded spaCy model once (cached for all submissions)
+[2026-03-03 10:50:23,093: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1107391
+[2026-03-03 10:50:23,093: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1107391
+[2026-03-03 10:50:23,093: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1107391
+[2026-03-03 10:50:23,331: WARNING/ForkPoolWorker-2] No matching deadline found for sessionid 1107391, student 01375850, course MAM1014F, class None, tutorial TUT1
+[2026-03-03 10:50:23,332: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1107391
+[2026-03-03 10:50:23,333: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[18203176-1cfd-4d04-aa02-67a568072afb] succeeded in 2.2840614580200054s: {'status': 'success', 'submission_id': 1107391}
+[2026-03-03 10:51:08,528: INFO/MainProcess] Task myapp.tasks.mark_submission_async[66f03ba9-1c86-4ad9-b4d0-1d05a1833699] received
+[2026-03-03 10:51:08,550: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1107393
+[2026-03-03 10:51:08,550: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1107393
+[2026-03-03 10:51:08,551: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1107393
+[2026-03-03 10:51:08,669: WARNING/ForkPoolWorker-2] No matching deadline found for sessionid 1107393, student SRMKOK001, course MAM1014F, class Lecture Group 2, tutorial TUT1
+[2026-03-03 10:51:08,669: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1107393
+[2026-03-03 10:51:08,670: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[66f03ba9-1c86-4ad9-b4d0-1d05a1833699] succeeded in 0.13807670795358717s: {'status': 'success', 'submission_id': 1107393}
+[2026-03-03 10:52:09,695: INFO/MainProcess] Task myapp.tasks.mark_submission_async[330826d2-51ed-4ba8-9e07-a3cd13bec73a] received
+[2026-03-03 10:52:09,700: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1107394
+[2026-03-03 10:52:09,701: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1107394
+[2026-03-03 10:52:09,701: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1107394
+[2026-03-03 10:52:09,820: WARNING/ForkPoolWorker-2] No matching deadline found for sessionid 1107394, student SRMKOK001, course MAM1014F, class Lecture Group 2, tutorial TUT1
+[2026-03-03 10:52:09,821: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1107394
+[2026-03-03 10:52:09,822: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[330826d2-51ed-4ba8-9e07-a3cd13bec73a] succeeded in 0.12291808397276327s: {'status': 'success', 'submission_id': 1107394}
+[2026-03-03 10:59:06,927: INFO/MainProcess] Task myapp.tasks.mark_submission_async[89b18f27-ad22-4e78-aa2f-0020f212288d] received
+[2026-03-03 10:59:06,938: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1107395
+[2026-03-03 10:59:06,939: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1107395
+[2026-03-03 10:59:06,940: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1107395
+[2026-03-03 10:59:07,174: WARNING/ForkPoolWorker-2] No matching deadline found for sessionid 1107395, student PHLJOR005, course MAM1022F, class Lecture Group 2, tutorial TEST
+[2026-03-03 10:59:07,175: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1107395
+[2026-03-03 10:59:07,178: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[89b18f27-ad22-4e78-aa2f-0020f212288d] succeeded in 0.24214424996171147s: {'status': 'success', 'submission_id': 1107395}
+[2026-03-03 11:08:10,638: INFO/MainProcess] Task myapp.tasks.mark_submission_async[104aab74-bcf3-4cfa-9a88-e2dc5cce9d92] received
+[2026-03-03 11:08:10,648: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1107398
+[2026-03-03 11:08:10,649: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1107398
+[2026-03-03 11:08:10,649: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1107398
+[2026-03-03 11:08:11,003: WARNING/ForkPoolWorker-2] No matching deadline found for sessionid 1107398, student PHLJOR005, course MAM1022F, class Lecture Group 2, tutorial TEST
+[2026-03-03 11:08:11,004: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1107398
+[2026-03-03 11:08:11,007: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[104aab74-bcf3-4cfa-9a88-e2dc5cce9d92] succeeded in 0.3611323329969309s: {'status': 'success', 'submission_id': 1107398}
+[2026-03-03 11:08:30,394: INFO/MainProcess] Task myapp.tasks.mark_submission_async[5213d599-67f4-4b94-825d-1848f196bcae] received
+[2026-03-03 11:08:30,396: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1107399
+[2026-03-03 11:08:30,397: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1107399
+[2026-03-03 11:08:30,397: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1107399
+[2026-03-03 11:08:30,527: WARNING/ForkPoolWorker-2] No matching deadline found for sessionid 1107399, student JRSCAI001, course MAM1014F, class Lecture Group 1, tutorial TUT1
+[2026-03-03 11:08:30,528: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1107399
+[2026-03-03 11:08:30,529: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[5213d599-67f4-4b94-825d-1848f196bcae] succeeded in 0.13396933302283287s: {'status': 'success', 'submission_id': 1107399}
+[2026-03-03 11:08:52,315: INFO/MainProcess] Task myapp.tasks.mark_submission_async[5b143125-d7ef-4cdf-800d-f7ef8caa651b] received
+[2026-03-03 11:08:52,319: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1107401
+[2026-03-03 11:08:52,320: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1107401
+[2026-03-03 11:08:52,320: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1107401
+[2026-03-03 11:08:52,447: WARNING/ForkPoolWorker-2] No matching deadline found for sessionid 1107401, student PHLJOR005, course MAM1022F, class Lecture Group 2, tutorial TEST
+[2026-03-03 11:08:52,447: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1107401
+[2026-03-03 11:08:52,448: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[5b143125-d7ef-4cdf-800d-f7ef8caa651b] succeeded in 0.12985570798628032s: {'status': 'success', 'submission_id': 1107401}
+[2026-03-03 11:09:13,256: INFO/MainProcess] Task myapp.tasks.mark_submission_async[abbd76d7-859d-4877-8a59-052090d307cd] received
+[2026-03-03 11:09:13,259: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1107402
+[2026-03-03 11:09:13,260: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1107402
+[2026-03-03 11:09:13,260: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1107402
+[2026-03-03 11:09:13,369: WARNING/ForkPoolWorker-2] No matching deadline found for sessionid 1107402, student JRSCAI001, course MAM1014F, class Lecture Group 1, tutorial TUT1
+[2026-03-03 11:09:13,370: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1107402
+[2026-03-03 11:09:13,372: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[abbd76d7-859d-4877-8a59-052090d307cd] succeeded in 0.11432554200291634s: {'status': 'success', 'submission_id': 1107402}
+[2026-03-03 11:09:28,987: INFO/MainProcess] Task myapp.tasks.mark_submission_async[074ee5de-757b-4d93-8fee-819441ca3ef0] received
+[2026-03-03 11:09:28,991: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1107404
+[2026-03-03 11:09:28,992: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1107404
+[2026-03-03 11:09:28,992: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1107404
+[2026-03-03 11:09:29,113: WARNING/ForkPoolWorker-2] No matching deadline found for sessionid 1107404, student PHLJOR005, course MAM1022F, class Lecture Group 2, tutorial TEST
+[2026-03-03 11:09:29,114: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1107404
+[2026-03-03 11:09:29,116: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[074ee5de-757b-4d93-8fee-819441ca3ef0] succeeded in 0.12577154202153906s: {'status': 'success', 'submission_id': 1107404}
+[2026-03-03 11:29:03,907: INFO/MainProcess] Task myapp.tasks.mark_submission_async[f017cce6-1f27-4b16-b7f3-b5cccfe500ea] received
+[2026-03-03 11:29:03,915: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1107408
+[2026-03-03 11:29:03,916: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1107408
+[2026-03-03 11:29:03,916: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1107408
+[2026-03-03 11:29:04,057: WARNING/ForkPoolWorker-2] No matching deadline found for sessionid 1107408, student 01375850, course MAM1014F, class None, tutorial TUT1
+[2026-03-03 11:29:04,058: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1107408
+[2026-03-03 11:29:04,061: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[f017cce6-1f27-4b16-b7f3-b5cccfe500ea] succeeded in 0.14906395802972838s: {'status': 'success', 'submission_id': 1107408}
+[2026-03-03 11:31:22,031: INFO/MainProcess] Task myapp.tasks.mark_submission_async[788a5c03-902e-4672-91a2-bee4583ca971] received
+[2026-03-03 11:31:22,036: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1107410
+[2026-03-03 11:31:22,036: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1107410
+[2026-03-03 11:31:22,037: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1107410
+[2026-03-03 11:31:22,148: WARNING/ForkPoolWorker-2] No matching deadline found for sessionid 1107410, student 01375850, course MAM1014F, class None, tutorial TUT1
+[2026-03-03 11:31:22,149: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1107410
+[2026-03-03 11:31:22,151: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[788a5c03-902e-4672-91a2-bee4583ca971] succeeded in 0.11569720896659419s: {'status': 'success', 'submission_id': 1107410}
+[2026-03-03 11:33:21,456: INFO/MainProcess] Task myapp.tasks.mark_submission_async[c1eddbb3-96c3-4519-8b70-e0b2297cf7c4] received
+[2026-03-03 11:33:21,460: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1107413
+[2026-03-03 11:33:21,461: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1107413
+[2026-03-03 11:33:21,461: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1107413
+[2026-03-03 11:33:21,566: WARNING/ForkPoolWorker-2] No matching deadline found for sessionid 1107413, student MKHNDI018, course MAM1014F, class Lecture Group 2, tutorial TUT1
+[2026-03-03 11:33:21,567: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1107413
+[2026-03-03 11:33:21,569: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[c1eddbb3-96c3-4519-8b70-e0b2297cf7c4] succeeded in 0.1097030839882791s: {'status': 'success', 'submission_id': 1107413}
+[2026-03-03 11:33:38,343: INFO/MainProcess] Task myapp.tasks.mark_submission_async[d0e746ea-40bb-4e99-844f-74d3aa866b62] received
+[2026-03-03 11:33:38,345: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1107415
+[2026-03-03 11:33:38,346: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1107415
+[2026-03-03 11:33:38,346: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1107415
+[2026-03-03 11:33:38,542: WARNING/ForkPoolWorker-2] No matching deadline found for sessionid 1107415, student MKHNDI018, course MAM1014F, class Lecture Group 2, tutorial TUT1
+[2026-03-03 11:33:38,543: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1107415
+[2026-03-03 11:33:38,545: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[d0e746ea-40bb-4e99-844f-74d3aa866b62] succeeded in 0.20051270799012855s: {'status': 'success', 'submission_id': 1107415}
+[2026-03-03 11:34:40,499: INFO/MainProcess] Task myapp.tasks.mark_submission_async[0e3f153c-2e63-45fd-a159-bef331207152] received
+[2026-03-03 11:34:40,504: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1107416
+[2026-03-03 11:34:40,504: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1107416
+[2026-03-03 11:34:40,505: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1107416
+[2026-03-03 11:34:40,633: WARNING/ForkPoolWorker-2] No matching deadline found for sessionid 1107416, student MKHNDI018, course MAM1014F, class Lecture Group 2, tutorial TUT1
+[2026-03-03 11:34:40,634: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1107416
+[2026-03-03 11:34:40,634: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[0e3f153c-2e63-45fd-a159-bef331207152] succeeded in 0.1315952080185525s: {'status': 'success', 'submission_id': 1107416}
+[2026-03-03 11:38:36,513: INFO/MainProcess] Task myapp.tasks.mark_submission_async[c6bca1b0-c305-408b-9e8a-8620c8218f05] received
+[2026-03-03 11:38:36,520: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1107418
+[2026-03-03 11:38:36,521: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1107418
+[2026-03-03 11:38:36,521: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1107418
+[2026-03-03 11:38:36,658: WARNING/ForkPoolWorker-2] No matching deadline found for sessionid 1107418, student THMOLI008, course MAM1014F, class Lecture Group 5, tutorial TUT1
+[2026-03-03 11:38:36,659: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1107418
+[2026-03-03 11:38:36,659: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[c6bca1b0-c305-408b-9e8a-8620c8218f05] succeeded in 0.14027016598265618s: {'status': 'success', 'submission_id': 1107418}
+[2026-03-03 11:38:37,490: INFO/MainProcess] Task myapp.tasks.mark_submission_async[2c664784-1e8b-409e-b6a3-1076133a7b02] received
+[2026-03-03 11:38:37,491: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1107419
+[2026-03-03 11:38:37,492: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1107419
+[2026-03-03 11:38:37,492: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1107419
+[2026-03-03 11:38:37,624: WARNING/ForkPoolWorker-2] No matching deadline found for sessionid 1107419, student XLXNKA001, course MAM1014F, class Lecture Group 5, tutorial TUT1
+[2026-03-03 11:38:37,625: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1107419
+[2026-03-03 11:38:37,625: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[2c664784-1e8b-409e-b6a3-1076133a7b02] succeeded in 0.1343497919733636s: {'status': 'success', 'submission_id': 1107419}
+[2026-03-03 11:38:55,599: INFO/MainProcess] Task myapp.tasks.mark_submission_async[47335318-3a84-48a2-b06f-ffa4d0cf8d59] received
+[2026-03-03 11:38:55,602: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1107421
+[2026-03-03 11:38:55,603: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1107421
+[2026-03-03 11:38:55,603: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1107421
+[2026-03-03 11:38:55,718: WARNING/ForkPoolWorker-2] No matching deadline found for sessionid 1107421, student MKHNDI018, course MAM1014F, class Lecture Group 2, tutorial TUT1
+[2026-03-03 11:38:55,719: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1107421
+[2026-03-03 11:38:55,721: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[47335318-3a84-48a2-b06f-ffa4d0cf8d59] succeeded in 0.12069533299654722s: {'status': 'success', 'submission_id': 1107421}
+[2026-03-03 11:39:10,526: INFO/MainProcess] Task myapp.tasks.mark_submission_async[30a2b4b7-c3d3-4a90-ba1c-ceb0a6482287] received
+[2026-03-03 11:39:10,528: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1107422
+[2026-03-03 11:39:10,531: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1107422
+[2026-03-03 11:39:10,531: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1107422
+[2026-03-03 11:39:10,646: WARNING/ForkPoolWorker-2] No matching deadline found for sessionid 1107422, student WLLLIL005, course MAM1022F, class None, tutorial TUT1
+[2026-03-03 11:39:10,647: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1107422
+[2026-03-03 11:39:10,649: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[30a2b4b7-c3d3-4a90-ba1c-ceb0a6482287] succeeded in 0.12231949996203184s: {'status': 'success', 'submission_id': 1107422}
+[2026-03-03 11:40:41,222: INFO/MainProcess] Task myapp.tasks.mark_submission_async[481645fe-0946-42c6-9d12-e6609fffe269] received
+[2026-03-03 11:40:41,226: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1107423
+[2026-03-03 11:40:41,228: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1107423
+[2026-03-03 11:40:41,228: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1107423
+[2026-03-03 11:40:41,354: WARNING/ForkPoolWorker-2] No matching deadline found for sessionid 1107423, student DPNRAQ001, course MAM1014F, class Lecture Group 5, tutorial TUT1
+[2026-03-03 11:40:41,354: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1107423
+[2026-03-03 11:40:41,355: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[481645fe-0946-42c6-9d12-e6609fffe269] succeeded in 0.12991183303529397s: {'status': 'success', 'submission_id': 1107423}
+[2026-03-03 11:52:35,307: INFO/MainProcess] Task myapp.tasks.mark_submission_async[51eb2550-fb1c-4940-859b-5831492e5d39] received
+[2026-03-03 11:52:35,316: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1107424
+[2026-03-03 11:52:35,318: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1107424
+[2026-03-03 11:52:35,319: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1107424
+[2026-03-03 11:52:36,502: WARNING/ForkPoolWorker-2] No matching deadline found for sessionid 1107424, student SHRROB009, course MAM1014F, class Lecture Group 1, tutorial TUT1
+[2026-03-03 11:52:36,503: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1107424
+[2026-03-03 11:52:36,505: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[51eb2550-fb1c-4940-859b-5831492e5d39] succeeded in 1.1917924999725074s: {'status': 'success', 'submission_id': 1107424}
+[2026-03-03 11:53:49,738: INFO/MainProcess] Task myapp.tasks.mark_submission_async[a7dce88f-2fe1-49d1-b14b-deb3b831f4bc] received
+[2026-03-03 11:53:49,743: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1107426
+[2026-03-03 11:53:49,744: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1107426
+[2026-03-03 11:53:49,744: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1107426
+[2026-03-03 11:53:51,006: WARNING/ForkPoolWorker-2] No matching deadline found for sessionid 1107426, student MBZMUS005, course MAM1014F, class Lecture Group 1, tutorial TUT1
+[2026-03-03 11:53:51,007: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1107426
+[2026-03-03 11:53:51,009: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[a7dce88f-2fe1-49d1-b14b-deb3b831f4bc] succeeded in 1.2674212920246646s: {'status': 'success', 'submission_id': 1107426}
+[2026-03-03 12:00:39,174: INFO/MainProcess] Task myapp.tasks.mark_submission_async[22cba74a-94b5-422e-ba44-a42a66d74e31] received
+[2026-03-03 12:00:39,182: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1107428
+[2026-03-03 12:00:39,183: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1107428
+[2026-03-03 12:00:39,183: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1107428
+[2026-03-03 12:00:40,415: WARNING/ForkPoolWorker-2] No matching deadline found for sessionid 1107428, student STHTHO028, course MAM1014F, class None, tutorial TUT1
+[2026-03-03 12:00:40,416: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1107428
+[2026-03-03 12:00:40,417: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[22cba74a-94b5-422e-ba44-a42a66d74e31] succeeded in 1.2373436669586226s: {'status': 'success', 'submission_id': 1107428}
+[2026-03-03 12:11:50,147: INFO/MainProcess] missed heartbeat from worker1@6e-4d-a1-17-8a-6.lan.uct.ac.za
+[2026-03-03 12:13:32,283: INFO/MainProcess] Task myapp.tasks.mark_submission_async[ec91ebda-f1c3-447c-a634-fed03689a678] received
+[2026-03-03 12:13:32,292: INFO/ForkPoolWorker-2] [Celery Task] Starting marking for submission 1107431
+[2026-03-03 12:13:32,294: WARNING/ForkPoolWorker-2] Step 2: Marking actually started with sessionid: 1107431
+[2026-03-03 12:13:32,294: WARNING/ForkPoolWorker-2] Step 2a: sessionid type = <class 'int'>, value = 1107431
+[2026-03-03 12:13:40,039: WARNING/ForkPoolWorker-2] No matching deadline found for sessionid 1107431, student TSHAND034, course MAM1014F, class Lecture Group 2, tutorial TUT1
+[2026-03-03 12:13:40,040: INFO/ForkPoolWorker-2] [Celery Task] ✓ Completed marking for submission 1107431
+[2026-03-03 12:13:40,042: INFO/ForkPoolWorker-2] Task myapp.tasks.mark_submission_async[ec91ebda-f1c3-447c-a634-fed03689a678] succeeded in 7.753204290987924s: {'status': 'success', 'submission_id': 1107431}
+[2026-03-03 12:30:35,531: INFO/MainProcess] missed heartbeat from worker1@6e-4d-a1-17-8a-6.lan.uct.ac.za
+[2026-03-03 12:40:15,494: INFO/MainProcess] missed heartbeat from worker1@6e-4d-a1-17-8a-6.lan.uct.ac.za
+[2026-03-03 13:11:54,436: INFO/MainProcess] missed heartbeat from worker1@6e-4d-a1-17-8a-6.lan.uct.ac.za
+[2026-03-03 13:24:09,521: INFO/MainProcess] missed heartbeat from worker1@6e-4d-a1-17-8a-6.lan.uct.ac.za
+[2026-03-03 13:43:06,689: INFO/MainProcess] missed heartbeat from worker1@6e-4d-a1-17-8a-6.lan.uct.ac.za
+[2026-03-03 14:10:21,534: INFO/MainProcess] missed heartbeat from worker1@6e-4d-a1-17-8a-6.lan.uct.ac.za
+[2026-03-03 14:25:16,564: INFO/MainProcess] missed heartbeat from worker1@6e-4d-a1-17-8a-6.lan.uct.ac.za
+[2026-03-03 14:41:16,890: INFO/MainProcess] missed heartbeat from worker1@6e-4d-a1-17-8a-6.lan.uct.ac.za
+[2026-03-03 15:54:38,628: INFO/MainProcess] missed heartbeat from worker1@6e-4d-a1-17-8a-6.lan.uct.ac.za
+[2026-03-03 16:35:23,470: INFO/MainProcess] missed heartbeat from worker1@6e-4d-a1-17-8a-6.lan.uct.ac.za
+[2026-03-03 16:42:52,040: INFO/MainProcess] missed heartbeat from worker1@6e-4d-a1-17-8a-6.lan.uct.ac.za

@@ -1,4 +1,84 @@
 from django.db import connection
+
+def mark_mcq_answer(answertext, cursor, question_md_id):
+    """
+    Mark an MCQ answer using rules from question_mcq_rule.
+    Returns (mark, feedback).
+    """
+    # Fetch MCQ rule for the question
+    cursor.execute(
+        """
+        SELECT mcq_mode, valid_labels, correct_options, scoring_policy, full_marks, negative_marks, allow_blank, blank_marks, case_sensative
+        FROM question_mcq_rule WHERE question_md_id = %s LIMIT 1
+        """,
+        [question_md_id]
+    )
+    rule = cursor.fetchone()
+    if not rule:
+        return 0, "No MCQ rule found."
+    (
+        mcq_mode, valid_labels, correct_options, scoring_policy, full_marks, negative_marks, allow_blank, blank_marks, case_sensative
+    ) = rule
+
+    # Parse valid_labels and correct_options (assume text fields with e.g. '{"pie chart", "bar chart"}')
+    import json
+    def parse_set(text):
+        try:
+            # Accepts both JSON array and set-like string
+            if text.strip().startswith('{'):
+                return set(json.loads(text.replace("'", '"').replace('{', '[').replace('}', ']')))
+            return set(json.loads(text))
+        except Exception:
+            return set()
+
+    valid_labels = parse_set(valid_labels)
+    correct_options = parse_set(correct_options)
+
+    # Case sensitivity
+    def norm(s):
+        return s if case_sensative else s.lower()
+    valid_labels = set(map(norm, valid_labels))
+    correct_options = set(map(norm, correct_options))
+
+    # Normalize answer
+    answer = answertext.strip() if answertext else ''
+    norm_answer = norm(answer)
+
+    # Allow blank
+    if allow_blank and not answer:
+        return blank_marks if blank_marks is not None else 0, "Blank allowed."
+    if not answer:
+        return negative_marks if negative_marks is not None else 0, "No answer provided."
+    if norm_answer not in valid_labels:
+        return negative_marks if negative_marks is not None else 0, f"Invalid option: {answer}."
+
+    # Marking logic
+    if mcq_mode == 'single':
+        if norm_answer in correct_options:
+            return full_marks, "Correct."
+        else:
+            return negative_marks if negative_marks is not None else 0, "Incorrect."
+    elif mcq_mode == 'multiple':
+        # For now, treat answer as comma-separated string
+        selected = set(map(lambda x: norm(x.strip()), answer.split(',')))
+        if not selected:
+            return blank_marks if blank_marks is not None else 0, "Blank allowed."
+        if not selected.issubset(valid_labels):
+            return negative_marks if negative_marks is not None else 0, "Invalid option(s) selected."
+        n_correct = len(correct_options)
+        n_selected_correct = len(selected & correct_options)
+        if n_correct == 0:
+            return 0, "No correct options configured."
+        partial_mark = (full_marks * n_selected_correct) / n_correct
+        if scoring_policy == 'all_or_nothing':
+            if selected == correct_options:
+                return full_marks, "All correct options selected."
+            else:
+                return negative_marks if negative_marks is not None else 0, "Not all correct options selected."
+        else:
+            return partial_mark, f"{n_selected_correct}/{n_correct} correct options selected."
+    else:
+        return 0, f"Unknown MCQ mode: {mcq_mode}."
 from channels.layers import get_channel_layer
 from asgiref.sync import async_to_sync
 import re
@@ -751,30 +831,79 @@ def mark_answers_for_session(sessionid):
     
     # Collect all marks before broadcasting
     marked_answers = []
-    
-    answers = [] #initialize outside the cursor context
-    with connection.cursor() as cursor:
-        try:
-            # Debug: check if data exists for this sessionid
-            cursor.execute("SELECT COUNT(*) FROM answers WHERE sessionid = %s", [sessionid])
-            count = cursor.fetchone()[0]
-            print(f"Step 2b: COUNT(*) for sessionid {sessionid} = {count}")
 
-            cursor.execute(
-            "SELECT sessionid, questionid, answertext, answervalue, answerformula, chartdata FROM answers WHERE sessionid = %s",
-            [sessionid]
-            )
-            answers = list(cursor.fetchall()) #convert to list immediately, fetchall() returns a list of tuples
+    # --- DEADLINE LOGIC ---
+    import datetime
+    now = datetime.datetime.now()
+    with connection.cursor() as cursor:
+        # Get session info: studentnumber, workbookname
+        cursor.execute("SELECT studentnumber, workbookname FROM sessions WHERE sessionid = %s", [sessionid])
+        session_row = cursor.fetchone()
+        if not session_row:
+            print(f"No session found for sessionid {sessionid}")
+            return
+        studentnumber, workbookname = session_row
+        # Parse workbookname: first 8 = course code, next 4 = tutorial name
+        course_code = workbookname[:8]
+        tutorial_name = workbookname[8:12]
+        # Get student class, courseid, oyear
+        cursor.execute("SELECT class, courseid, oyear FROM studentclassesnew WHERE studentid = %s AND courseid = %s", [studentnumber, course_code])
+        sc_row = cursor.fetchone()
+        if not sc_row:
+            print(f"No student class found for studentid {studentnumber} and course {course_code}")
+            return
+        class_code, courseid, oyear = sc_row
+        # Find deadlines
+        cursor.execute("""
+            SELECT deadline_id, workbookname, courseid, oyear, scope_level, class_code, studentid, start_at, end_at
+            FROM student_deadlines
+            WHERE workbookname = %s AND courseid = %s AND oyear = %s
+        """, [workbookname, courseid, oyear])
+        deadlines = cursor.fetchall()
+        # Find best matching deadline
+        deadline = None
+        # 1. Prefer student-level
+        for d in deadlines:
+            if d[4] == 'student' and d[6] == studentnumber:
+                deadline = d
+                break
+        # 2. Else class-level
+        if not deadline:
+            for d in deadlines:
+                if d[4] == 'class' and d[5] == class_code:
+                    deadline = d
+                    break
+        # 3. Else course-level
+        if not deadline:
+            for d in deadlines:
+                if d[4] == 'course':
+                    deadline = d
+                    break
+        if not deadline:
+            print(f"No matching deadline found for sessionid {sessionid}, student {studentnumber}, course {course_code}, class {class_code}, tutorial {tutorial_name}")
+            return
+        # Check deadline
+        start_at, end_at = deadline[7], deadline[8]
+        if not (start_at and end_at):
+            print(f"Deadline record missing start or end date for sessionid {sessionid}")
+            return
+        if not (start_at <= now <= end_at):
+            print(f"Submission for sessionid {sessionid} is outside the deadline window: {start_at} to {end_at} (now: {now})")
+            return
+
+        # Now fetch answers as before
+        try:
+            cursor.execute("SELECT sessionid, questionid, answertext, answervalue, answerformula, chartdata FROM answers WHERE sessionid = %s", [sessionid])
+            answers = list(cursor.fetchall())
             print(f"Step 3: Fetched {len(answers)} answers for sessionid {sessionid}")
         except Exception as e:
             print(f"Database connection failed: {e}")
             return
-    # ...existing code...
     print("Reached after fetchall, answers:", answers)  # debug
     if not answers:
         print("answers is empty or exhausted")
         return
-    
+
     for orig_sessionid, questionid, answertext, answervalue, answerformula, chartdata in answers:
         feedback = None
         with connection.cursor() as cursor:
@@ -816,6 +945,9 @@ def mark_answers_for_session(sessionid):
                 elif question_type == 'chart':
                     print(f"Marking chart question for questionid {questionid}")
                     mark, feedback = mark_chart_answer(chartdata, cursor, question_md_id)
+                elif question_type == 'mcq':
+                    print(f"Marking MCQ question for questionid {questionid}, with answer text {answertext}")
+                    mark, feedback = mark_mcq_answer(answertext, cursor, question_md_id)
                 else:
                     print(f"Unknown question type '{question_type}' for questionid {questionid}")
                     mark = 0
