@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'mam107h',#'demo_1',
         'USER': 'numeracy',#'jumaniclarke',
         'PASSWORD': 'A7f!r9LpX2q#BvT3',#'Givemetheaws1',
-        'HOST': 'srvubusql002.uct.ac.za',#'database-1.croyeqs8yoif.eu-north-1.rds.amazonaws.com',
+        'HOST': 'mamdb.cet.uct.ac.za',#'database-1.croyeqs8yoif.eu-north-1.rds.amazonaws.com',
         'PORT': '5432',#'5434',
         # Connection pooling + persistent connections
         'CONN_MAX_AGE': 600,  # Reuse connections for 10 minutes

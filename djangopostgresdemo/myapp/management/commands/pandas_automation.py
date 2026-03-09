@@ -1,4 +1,14 @@
+# Helper to check if text is a noun phrase (not a clause/sentence)
+def is_noun_phrase(text):
+  doc = get_nlp()(text)
+  roots = [token for token in doc if token.head == token]
+  if not roots:
+    return False
+  root = roots[0]
+  # Acceptable roots for noun phrases: NOUN, PROPN, ADJ
+  return root.pos_ in ("NOUN", "PROPN", "ADJ")
 # Detects if a clause is of the form 'there is ...'
+
 def is_there_is_clause(text):
   doc = nlp(text)
   # Helper to check synonymy for 'there'
@@ -448,7 +458,34 @@ def there_is_embedding(thetoken):
     if descendent.head != thetoken and descendent.dep_ == 'relcl':
       the_decision = True
   return the_decision
-
+def extract_number_from_noun_phrase(text):
+    """
+    Extracts the number from a noun phrase like '3667500 people'.
+    Returns the number as a string if found, else None.
+    """
+    doc = get_nlp()(text)
+    # Collect consecutive NUM tokens (e.g., '3 667 500')
+    num_tokens = []
+    for token in doc:
+      if token.pos_ == 'NUM':
+        num_tokens.append(token)
+      elif num_tokens:
+        break  # Stop at first non-NUM after a sequence
+    if num_tokens:
+      # Join all NUM tokens (remove spaces, e.g., '3 667 500' -> '3667500')
+      number_str = ''.join(token.text for token in num_tokens)
+      # Remove any spaces just in case
+      number_str = number_str.replace(' ', '')
+      return number_str
+    # Fallback: original logic for nummod attached to NOUN
+    for token in doc:
+      if token.pos_ == 'NUM' and token.dep_ == 'nummod' and token.head.pos_ == 'NOUN':
+        return token.text
+    # Fallback: if the phrase is just a number
+    for token in doc:
+      if token.pos_ == 'NUM':
+        return token.text
+    return None
 if __name__ == "__main__":
   #text = "27% is the proportion of people aged 31-40 years that tested positive for an illicit drug."
   #text = "27% of people aged 31-40 years tested positive for an illicit drug."
@@ -456,19 +493,22 @@ if __name__ == "__main__":
   #text = "20% of people tested postive for an illicit drug."
   #text = "In 2022, at least twenty percent of the budget that was accounted for was allocated to child protection services."
   #text = "at least twenty percent of the budget that was accounted for"
-  text = "The number 12.5 means that there are 12.5% of 16 300 000 people work in the Manufacturing industry."
+  #text = "The number 12.5 means that there are 12.5% of 16 300 000 people work in the Manufacturing industry."
   #text = "that there are 12.5 % of 16 300 000 people work in the Manufacturing industry"
   #text = "7.7% is the proportion of the total female population in South Africa in October who were between the ages of 30 and 34."
-  doc = get_nlp()(text)
+  text = 'worked in the Community and Social Services industry'
+  #doc = get_nlp()(text)
   #for ent in doc.ents: 
   # print(ent.text, ent.label_) 
-  #print_pic(text)
-  print(is_equative2(text))
-  print('Base noun phrase:', get_base(text)) 
+  print_pic(text)
+  #print(is_equative2(text))
+  #print('Base noun phrase:', get_base(text)) 
   #for chunk in doc.noun_chunks:
   #  print('Noun chunk:', chunk.text, chunk.root.text, chunk.root.dep_, chunk.root.head.text)
   #print('get_base:', get_base(text))
   #print('Root noun:', extract_root_noun(get_base(text)))
   #print('simple base noun phrase:', get_base_simple(text))
- 
+# Helper to extract number from noun phrase like '3667500 people'
+
+
 

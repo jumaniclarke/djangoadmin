@@ -1,0 +1,86 @@
+{% extends "myapp/base.html" %}
+{% block title %}Manual Marking{% endblock %}
+{% block content %}
+<h2>Manual Marking: Select Course and Tutorial</h2>
+<form method="get" class="mb-3">
+    <label for="course">Course:</label>
+    <select name="course" id="course">
+        {% for c in courses %}
+        <option value="{{ c }}" {% if c == selected_course %}selected{% endif %}>{{ c }}</option>
+        {% endfor %}
+    </select>
+    <label for="tutorial">Tutorial:</label>
+    <select name="tutorial" id="tutorial">
+        {% for t in tutorials %}
+        <option value="{{ t }}" {% if t == selected_tutorial %}selected{% endif %}>{{ t }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit" class="btn btn-primary">Show Sessions</button>
+</form>
+<hr>
+<form method="post" style="margin-bottom: 1em;" class="row g-2 align-items-center">
+    {% csrf_token %}
+    <div class="col-auto">
+        <label for="batch_date" class="col-form-label">Date:</label>
+    </div>
+    <div class="col-auto">
+        <input type="date" id="batch_date" name="batch_date" class="form-control" value="{{ batch_date|date:'Y-m-d' }}">
+    </div>
+    <div class="col-auto">
+        <button type="submit" name="mark_recent_batch" class="btn btn-warning">Mark Most Recent Submission Per Student (Selected Date)</button>
+    </div>
+</form>
+<h3>Sessions for {{ workbookname }}</h3>
+{% if sessions %}
+<table class="table table-bordered">
+        <thead>
+                <tr>
+                        <th>Session ID</th>
+                        <th>Student Number</th>
+                        <th>Timestamp</th>
+                        <th>Computer Name</th>
+                        <th>Mark</th>
+                </tr>
+        </thead>
+        <tbody>
+                {% for s in sessions %}
+                <tr>
+                        <td>{{ s.0 }}</td>
+                        <td>{{ s.1 }}</td>
+                        <td>{{ s.2 }}</td>
+                        <td>{{ s.3 }}</td>
+                        <td>
+                                <form method="post" style="display:inline;">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="sessionid" value="{{ s.0 }}">
+                                        <button type="submit" class="btn btn-success btn-sm">Mark Now</button>
+                                </form>
+                        </td>
+                </tr>
+                {% endfor %}
+        </tbody>
+</table>
+
+<nav aria-label="Session pagination">
+    <ul class="pagination">
+        {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?course={{ selected_course }}&tutorial={{ selected_tutorial }}&batch_date={{ batch_date|date:'Y-m-d' }}&page={{ page_obj.previous_page_number }}">Previous</a>
+            </li>
+        {% else %}
+            <li class="page-item disabled"><span class="page-link">Previous</span></li>
+        {% endif %}
+        <li class="page-item disabled"><span class="page-link">Page {{ page_obj.number }} of {{ paginator.num_pages }}</span></li>
+        {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?course={{ selected_course }}&tutorial={{ selected_tutorial }}&batch_date={{ batch_date|date:'Y-m-d' }}&page={{ page_obj.next_page_number }}">Next</a>
+            </li>
+        {% else %}
+            <li class="page-item disabled"><span class="page-link">Next</span></li>
+        {% endif %}
+    </ul>
+</nav>
+{% else %}
+<p>No sessions found for this workbook.</p>
+{% endif %}
+{% endblock %}

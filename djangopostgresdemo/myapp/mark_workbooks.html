@@ -1,0 +1,58 @@
+{% extends "myapp/base.html" %}
+{% block title %}Manual Marking{% endblock %}
+{% block content %}
+<h2>Manual Marking: Select Course and Tutorial</h2>
+<form method="get" class="mb-3">
+    <label for="course">Course:</label>
+    <select name="course" id="course">
+        {% for c in courses %}
+        <option value="{{ c }}" {% if c == selected_course %}selected{% endif %}>{{ c }}</option>
+        {% endfor %}
+    </select>
+    <label for="tutorial">Tutorial:</label>
+    <select name="tutorial" id="tutorial">
+        {% for t in tutorials %}
+        <option value="{{ t }}" {% if t == selected_tutorial %}selected{% endif %}>{{ t }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit" class="btn btn-primary">Show Sessions</button>
+</form>
+<hr>
+<form method="post" style="margin-bottom: 1em;">
+    {% csrf_token %}
+    <button type="submit" name="mark_recent_batch" class="btn btn-warning">Mark Most Recent Submission Per Student (Today)</button>
+</form>
+<h3>Sessions for {{ workbookname }}</h3>
+{% if sessions %}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Session ID</th>
+            <th>Student Number</th>
+            <th>Timestamp</th>
+            <th>Computer Name</th>
+            <th>Mark</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for s in sessions %}
+        <tr>
+            <td>{{ s.0 }}</td>
+            <td>{{ s.1 }}</td>
+            <td>{{ s.2 }}</td>
+            <td>{{ s.3 }}</td>
+            <td>
+                <form method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <input type="hidden" name="sessionid" value="{{ s.0 }}">
+                    <button type="submit" class="btn btn-success btn-sm">Mark Now</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No sessions found for this workbook.</p>
+{% endif %}
+{% endblock %}
