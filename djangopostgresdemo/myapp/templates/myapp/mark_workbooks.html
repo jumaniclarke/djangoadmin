@@ -20,6 +20,8 @@
 <hr>
 <form method="post" style="margin-bottom: 1em;" class="row g-2 align-items-center">
     {% csrf_token %}
+    <input type="hidden" name="course" value="{{ selected_course }}">
+    <input type="hidden" name="tutorial" value="{{ selected_tutorial }}">
     <div class="col-auto">
         <label for="batch_date" class="col-form-label">Date:</label>
     </div>

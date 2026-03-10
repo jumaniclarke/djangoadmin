@@ -142,10 +142,6 @@ def print_chunks_pic(text):
   #handle equative clases like "X is the proportion of Y that Z" vs non-equative like "X of Y is Z"
   #as well as "X represents the proportion of Y that Z"
 
-
-
-  return dec_made
-
 def rearrange_noun_phrase(noun_phrase):
 #moves preposition phrase to back from front
   noun_tokens = get_nlp()(noun_phrase)
@@ -307,12 +303,14 @@ def is_probability_clause(text):
   clause_tokens = get_nlp()(text)
   dec_made = False
   for token in clause_tokens:
-    if is_syn_with(token.lemma_,'chance') and token.head.dep_ == 'ROOT' and is_syn_with(token.head.lemma_,'is'):
+    if token.lemma_ and is_syn_with(token.lemma_,'chance') and token.head.dep_ == 'ROOT' and is_syn_with(token.head.lemma_,'is'):
       if token.dep_ == 'attr' or token.dep_ == 'nsubj':
         dec_made = True
   return dec_made
 
 def is_syn_with(phrase,given_phrase):
+  if not phrase or not phrase.strip():
+    return False
   doc = get_nlp()(phrase)
   # this lemmatizes the noun
   lem_phrase = ''

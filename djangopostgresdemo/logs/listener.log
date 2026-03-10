@@ -34139,3 +34139,1734 @@ Listener error: could not translate host name "srvubusql002.uct.ac.za" to addres
 Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
 	Is the server running on that host and accepting TCP/IP connections?
 ; retrying in 5s
+Listener error: server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+; retrying in 5s
+Listener error: could not receive data from server: Operation timed out
+SSL SYSCALL error: Operation timed out
+; retrying in 5s
+Listening on channel 'submission_new'...
+Listening on channel 'submission_new'...
+Listening on channel 'submission_new'...
+Step 1: Enqueuing marking task for submission ID: 1109944
+✓ Task queued for submission 1109944; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109945
+✓ Task queued for submission 1109945; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109946
+✓ Task queued for submission 1109946; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109947
+✓ Task queued for submission 1109947; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109948
+✓ Task queued for submission 1109948; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109949
+✓ Task queued for submission 1109949; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109950
+✓ Task queued for submission 1109950; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109951
+✓ Task queued for submission 1109951; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109952
+✓ Task queued for submission 1109952; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109953
+✓ Task queued for submission 1109953; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109954
+✓ Task queued for submission 1109954; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109955
+✓ Task queued for submission 1109955; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109956
+✓ Task queued for submission 1109956; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109957
+✓ Task queued for submission 1109957; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109958
+✓ Task queued for submission 1109958; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109959
+✓ Task queued for submission 1109959; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109960
+✓ Task queued for submission 1109960; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109961
+✓ Task queued for submission 1109961; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109962
+✓ Task queued for submission 1109962; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109963
+✓ Task queued for submission 1109963; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109964
+✓ Task queued for submission 1109964; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109965
+✓ Task queued for submission 1109965; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109966
+✓ Task queued for submission 1109966; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109967
+✓ Task queued for submission 1109967; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109968
+✓ Task queued for submission 1109968; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109969
+✓ Task queued for submission 1109969; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109970
+✓ Task queued for submission 1109970; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109971
+✓ Task queued for submission 1109971; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109972
+✓ Task queued for submission 1109972; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109973
+✓ Task queued for submission 1109973; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109974
+✓ Task queued for submission 1109974; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109975
+✓ Task queued for submission 1109975; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109976
+✓ Task queued for submission 1109976; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109977
+✓ Task queued for submission 1109977; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109978
+✓ Task queued for submission 1109978; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109979
+✓ Task queued for submission 1109979; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109980
+✓ Task queued for submission 1109980; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109981
+✓ Task queued for submission 1109981; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109982
+✓ Task queued for submission 1109982; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109983
+✓ Task queued for submission 1109983; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109984
+✓ Task queued for submission 1109984; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109985
+✓ Task queued for submission 1109985; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109986
+✓ Task queued for submission 1109986; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109987
+✓ Task queued for submission 1109987; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109988
+✓ Task queued for submission 1109988; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109989
+✓ Task queued for submission 1109989; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109990
+✓ Task queued for submission 1109990; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109991
+✓ Task queued for submission 1109991; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109992
+✓ Task queued for submission 1109992; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109993
+✓ Task queued for submission 1109993; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109994
+✓ Task queued for submission 1109994; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109995
+✓ Task queued for submission 1109995; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109996
+✓ Task queued for submission 1109996; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109997
+✓ Task queued for submission 1109997; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109998
+✓ Task queued for submission 1109998; worker will process
+Step 1: Enqueuing marking task for submission ID: 1109999
+✓ Task queued for submission 1109999; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110000
+✓ Task queued for submission 1110000; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110001
+✓ Task queued for submission 1110001; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110002
+✓ Task queued for submission 1110002; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110003
+✓ Task queued for submission 1110003; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110004
+✓ Task queued for submission 1110004; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110005
+✓ Task queued for submission 1110005; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110006
+✓ Task queued for submission 1110006; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110007
+✓ Task queued for submission 1110007; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110008
+✓ Task queued for submission 1110008; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110009
+✓ Task queued for submission 1110009; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110010
+✓ Task queued for submission 1110010; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110011
+✓ Task queued for submission 1110011; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110012
+Listener error: could not receive data from server: Operation timed out
+SSL SYSCALL error: Operation timed out
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s

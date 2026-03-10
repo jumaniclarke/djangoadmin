@@ -102,11 +102,11 @@ def mark_workbooks(request):
 
     # Handle POST for single marking and batch marking
     if request.method == 'POST':
-        from myapp.management.commands.marking import mark_answers_for_session
         if 'sessionid' in request.POST:
             sessionid = request.POST.get('sessionid')
             if sessionid:
-                mark_answers_for_session(int(sessionid), force=True)
+                from myapp.management.commands.marking import mark_answers_for_session
+                mark_answers_for_session(int(sessionid))
                 messages.success(request, f"Marking triggered for session {sessionid}.")
                 return redirect(request.path + f"?course={selected_course}&tutorial={selected_tutorial}")
         elif 'mark_recent_batch' in request.POST:
@@ -122,10 +122,11 @@ def mark_workbooks(request):
                     [workbookname, batch_date]
                 )
                 recent_sessions = cur.fetchall()
+            from myapp.management.commands.marking import mark_answers_for_session
             marked = 0
             for session in recent_sessions:
                 sessionid = session[0]
-                mark_answers_for_session(int(sessionid), force=True)
+                mark_answers_for_session(int(sessionid))
                 marked += 1
             messages.success(request, f"Marked {marked} most recent submissions for {batch_date}.")
             return redirect(request.path + f"?course={selected_course}&tutorial={selected_tutorial}&batch_date={batch_date}")

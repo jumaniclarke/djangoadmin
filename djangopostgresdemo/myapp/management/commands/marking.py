@@ -4,6 +4,7 @@ from django.db import connection
 import spacy
 from .pandas_automation import get_nlp, is_syn_with, get_base, extract_number_from_noun_phrase
 
+    
 def mark_mcq_answer(answertext, cursor, question_md_id):
     """
     Mark an MCQ answer using rules from question_mcq_rule.
@@ -318,7 +319,7 @@ def mark_formula_answer(answerformula, cursor, question_md_id):
             expected_str = ", ".join(expected_values) if expected_values else "unknown"
             feedback_parts.append(f"\n✗ Argument {position}: '{answer_arg}' does not match. Expected: {expected_str}")
 
-    feedback = " ".join(feedback_parts)
+    feedback = "".join(feedback_parts)
     max_raw = 1 + len(expected_args) if expected_args else 1
     return mark, max_raw, feedback
 
@@ -333,6 +334,8 @@ def _extract_root_nouns(phrase_text):
         List of root noun texts. Returns empty list if no root nouns found.
     """
     from .pandas_automation import get_nlp
+    if not phrase_text or not phrase_text.strip():
+        return []
     doc = get_nlp()(phrase_text)
     root_nouns = []
     for token in doc:
@@ -417,13 +420,26 @@ def mark_nlp_answer(answertext, cursor, question_md_id):
         return 0, 2, feedback
     elif nlp_type == 'verb-phrase':
         # New logic for verb-phrase
-
+        if not answertext or not answertext.strip():
+            return 0, 2, "No answer provided."
         nlp = get_nlp()
-        student_doc = nlp(answertext.strip())
+        def safe_nlp(text):
+            if not text or not isinstance(text, str) or not text.strip():
+                return None
+            try:
+                return nlp(text)
+            except ValueError as e:
+                print(f"[NLP ERROR] Failed to process text: '{text}' | Error: {e}")
+                return None
+        student_doc = safe_nlp(answertext.strip())
         # For each solution variant, try to find a match
         max_raw = 2
         for variant_id, phrase_text in phrase_variants:
-            solution_doc = nlp(phrase_text.strip())
+            if not phrase_text or not phrase_text.strip():
+                continue
+            solution_doc = safe_nlp(phrase_text.strip())
+            if solution_doc is None:
+                return 0, 2, "No answer provided."
             # 1. Find root word (verb or noun) in both
             student_root = [t for t in student_doc if t.head == t][0] if any(t.head == t for t in student_doc) else None
             solution_root = [t for t in solution_doc if t.head == t][0] if any(t.head == t for t in solution_doc) else None
@@ -484,7 +500,7 @@ def mark_nlp_answer(answertext, cursor, question_md_id):
             else:
                 feedback.append(f"✗ No matching prepositional phrase or object found. [0 mark]")
             total = root_mark + obj_mark
-            return total, max_raw, ' '.join(feedback)
+            return total, max_raw, '\n'.join(feedback)
         # If no variant matched
         return 0, max_raw, "No matching verb-phrase structure found in your answer."
     else:
@@ -870,27 +886,26 @@ def mark_chart_answer(chartdata_json, cursor, question_md_id):
         else:
             mark = round(m, 1)
 
-    feedback = " ".join(feedback_parts)
+    feedback = "".join(feedback_parts)
     return mark, max_raw, feedback
 
-def mark_answers_for_session(sessionid):
+def mark_answers_for_session(sessionid, force=False):
     """
     For a given sessionid, fetch all answers, compare to solutions in question_md,
     and update the markawarded column in answers.
-    
+
     Batches WebSocket broadcasts to reduce network overhead.
+
+    Args:
+        force: If True, bypass deadline checks (used for admin-triggered marking).
     """
-    # ...existing code...
-    
     # Force fresh connection state to avoid stale data
     connection.close()
-    
+
     # Collect all marks before broadcasting
     marked_answers = []
 
     # --- DEADLINE LOGIC ---
-    import datetime
-    now = datetime.datetime.now()
     with connection.cursor() as cursor:
         # Get session info: studentnumber, workbookname
         cursor.execute("SELECT studentnumber, workbookname FROM sessions WHERE sessionid = %s", [sessionid])
@@ -901,46 +916,48 @@ def mark_answers_for_session(sessionid):
         # Parse workbookname: first 8 = course code, next 4 = tutorial name
         course_code = workbookname[:8]
         tutorial_name = workbookname[8:12]
-        # Get student class, courseid, oyear
-        cursor.execute("SELECT class, courseid, oyear FROM studentclassesnew WHERE studentid = %s AND courseid = %s", [studentnumber, course_code])
-        sc_row = cursor.fetchone()
-        if not sc_row:
-            return
-        class_code, courseid, oyear = sc_row
-        # Find deadlines
-        cursor.execute("""
-            SELECT deadline_id, workbookname, courseid, oyear, scope_level, class_code, studentid, start_at, end_at
-            FROM student_deadlines
-            WHERE LOWER(workbookname) = LOWER(%s) AND LOWER(courseid) = LOWER(%s) AND oyear = %s
-        """, [tutorial_name, courseid, oyear])
-        deadlines = cursor.fetchall()
-        # Find best matching deadline
-        deadline = None
-        # 1. Prefer student-level
-        for d in deadlines:
-            if d[4] == 'student' and d[6] == studentnumber:
-                deadline = d
-                break
-        # 2. Else class-level
-        if not deadline:
+
+        if not force:
+            # Get student class, courseid, oyear
+            cursor.execute("SELECT class, courseid, oyear FROM studentclassesnew WHERE studentid = %s AND courseid = %s", [studentnumber, course_code])
+            sc_row = cursor.fetchone()
+            if not sc_row:
+                return
+            class_code, courseid, oyear = sc_row
+            # Find deadlines
+            cursor.execute("""
+                SELECT deadline_id, workbookname, courseid, oyear, scope_level, class_code, studentid, start_at, end_at
+                FROM student_deadlines
+                WHERE LOWER(workbookname) = LOWER(%s) AND LOWER(courseid) = LOWER(%s) AND oyear = %s
+            """, [tutorial_name, courseid, oyear])
+            deadlines = cursor.fetchall()
+            # Find best matching deadline
+            deadline = None
+            # 1. Prefer student-level
             for d in deadlines:
-                if d[4] == 'class' and d[5] == class_code:
+                if d[4] == 'student' and d[6] == studentnumber:
                     deadline = d
                     break
-        # 3. Else course-level
-        if not deadline:
-            for d in deadlines:
-                if d[4] == 'course':
-                    deadline = d
-                    break
-        if not deadline:
-            return
-        # Check deadline
-        start_at, end_at = deadline[7], deadline[8]
-        if not (start_at and end_at):
-            return
-        if not (start_at <= timezone.now() <= end_at):
-            return
+            # 2. Else class-level
+            if not deadline:
+                for d in deadlines:
+                    if d[4] == 'class' and d[5] == class_code:
+                        deadline = d
+                        break
+            # 3. Else course-level
+            if not deadline:
+                for d in deadlines:
+                    if d[4] == 'course':
+                        deadline = d
+                        break
+            if not deadline:
+                return
+            # Check deadline window
+            start_at, end_at = deadline[7], deadline[8]
+            if not (start_at and end_at):
+                return
+            if not (start_at <= timezone.now() <= end_at):
+                return
 
         # Now fetch answers as before
         try:
@@ -990,10 +1007,10 @@ def mark_answers_for_session(sessionid):
                     rescaled_mark = round((float(raw_mark) / float(raw_max)) * float(max_mark), 2) if raw_max else 0
                 except Exception:
                     rescaled_mark = 0
-                feedback = f"{fb} [Raw: {raw_mark}/{raw_max}, Rescaled: {rescaled_mark}/{max_mark}]"
+                feedback = f"{fb}\n[Raw: {raw_mark}/{raw_max}, Rescaled: {rescaled_mark}/{max_mark}]"
 
         with connection.cursor() as cursor:
-            feedback_clean = feedback.replace("<span style='color: red; font-weight: bold;'>", "").replace("</span>", "").replace("\n", " ") if feedback else feedback
+            feedback_clean = feedback.replace("<span style='color: red; font-weight: bold;'>", "").replace("</span>", "") if feedback else feedback
             cursor.execute(
                 "UPDATE answers SET markawarded = %s, feedback = %s WHERE sessionid = %s AND questionid = %s",
                 [rescaled_mark, feedback_clean, orig_sessionid, questionid]
