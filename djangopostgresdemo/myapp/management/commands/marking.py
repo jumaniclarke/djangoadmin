@@ -399,6 +399,7 @@ def mark_nlp_answer(answertext, cursor, question_md_id):
         if not is_noun_phrase(answertext.strip()):
             return 0, 2, "Please provide a brief description using nouns and adjectives, not a full sentence or clause."
         student_root_nouns = _extract_root_nouns(answertext.strip())
+        print(f"Student answer text: '{answertext.strip()}', Extracted root nouns from student's answer: {student_root_nouns}")
         if len(student_root_nouns) != 1:
             expected_phrases_str = ", ".join([phrase_text.strip() for _, phrase_text in phrase_variants]) if phrase_variants else "unknown"
             return 0, 2, f"Your answer's root noun could not be determined or is ambiguous. Expected: {expected_phrases_str}"

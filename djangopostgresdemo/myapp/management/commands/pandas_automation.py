@@ -50,7 +50,7 @@ def is_equative2(clause):
     # Look for ROOT token synonymous with 'is'
     #print(f"Checking token '{token.text}' with dep '{token.dep_}' against 'is'")
     if (token.dep_ == 'ROOT' and is_syn_with(token.lemma_, 'is')) or (token.dep_ == 'ROOT' and is_syn_with(token.lemma_, 'represents')):
-      print(f"Found potential equative ROOT: '{token.text}' (lemma: '{token.lemma_}')")
+      #print(f"Found potential equative ROOT: '{token.text}' (lemma: '{token.lemma_}')")
       # Look for immediate child with dep_ == 'attr'
       for child in token.children:
         # If ROOT is 'is' (aux), look for 'attr' child; if ROOT is 'represent', look for 'dobj' child
@@ -59,7 +59,7 @@ def is_equative2(clause):
             or
             (is_syn_with(token.lemma_, 'represent') and child.dep_ == 'dobj' and is_syn_with(child.lemma_, 'proportion', 'percentage', 'percent'))
         ):
-          print(f"Found potential equative child: '{child.text}' with dep '{child.dep_}'")
+          #print(f"Found potential equative child: '{child.text}' with dep '{child.dep_}'")
           # Check for child with dep_ == 'relcl'
           for grandchild in child.children:
             if grandchild.dep_ == 'relcl':
@@ -378,7 +378,7 @@ def get_base(text):
             head_token = token
             left_end = get_left_noun(token)
             head_phrase_span = text_tokens[left_end:get_right_noun(token)]
-            print(f"head_phrase: {head_phrase_span.text}", f"head_token: {head_token.text}")
+            #print(f"head_phrase: {head_phrase_span.text}", f"head_token: {head_token.text}")
             break
       else: 
         # Handle "there is" clauses by extracting the complement of "there"
@@ -387,7 +387,7 @@ def get_base(text):
             head_token = token
             left_end = get_left_noun(token)
             head_phrase_span = text_tokens[left_end:get_right_noun(token)]
-            print(f"head_phrase: {head_phrase_span.text}", f"head_token: {head_token.text}")
+            #print(f"head_phrase: {head_phrase_span.text}", f"head_token: {head_token.text}")
             break
       
     # Equative clause: extract attribute or subject based on encryption
@@ -411,7 +411,7 @@ def get_base(text):
           break
   
   if head_phrase_span:
-    print(f"Extracted head phrase before simplification: '{head_phrase_span.text}'", f"with head token: '{head_token.text}'")
+    #print(f"Extracted head phrase before simplification: '{head_phrase_span.text}'", f"with head token: '{head_token.text}'")
     result_span = get_base_simple(head_phrase_span, head_token)
     return result_span.text
   else:
@@ -494,7 +494,7 @@ if __name__ == "__main__":
   #text = "The number 12.5 means that there are 12.5% of 16 300 000 people work in the Manufacturing industry."
   #text = "that there are 12.5 % of 16 300 000 people work in the Manufacturing industry"
   #text = "7.7% is the proportion of the total female population in South Africa in October who were between the ages of 30 and 34."
-  text = 'worked in the Community and Social Services industry'
+  text = "the people who were employed"
   #doc = get_nlp()(text)
   #for ent in doc.ents: 
   # print(ent.text, ent.label_) 
