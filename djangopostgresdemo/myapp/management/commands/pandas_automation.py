@@ -308,22 +308,24 @@ def is_probability_clause(text):
         dec_made = True
   return dec_made
 
-def is_syn_with(phrase,given_phrase):
+def is_syn_with(phrase, given_phrase):
   if not phrase or not phrase.strip():
+    return False
+  if not given_phrase or not given_phrase.strip():
     return False
   doc = get_nlp()(phrase)
   # this lemmatizes the noun
   lem_phrase = ''
-  names=[]
   for token in doc:
-    lem_phrase =token.lemma_
-  is_prob = False
+    if token.lemma_:
+      lem_phrase = token.lemma_
+  if not lem_phrase:
+    return False
+  names = []
   for syn in wordnet.synsets(given_phrase):
     for lemma in syn.lemma_names():
       names.append(lemma)
-  if lem_phrase in names:
-    is_prob = True
-  return is_prob
+  return lem_phrase in names
 
 def get_base(text):
   """

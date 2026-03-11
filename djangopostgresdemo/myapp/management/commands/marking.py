@@ -1,8 +1,7 @@
 from django.utils import timezone
 
 from django.db import connection
-import spacy
-from .pandas_automation import get_nlp, is_syn_with, get_base, extract_number_from_noun_phrase
+from .pandas_automation import get_base, extract_number_from_noun_phrase
 
     
 def mark_mcq_answer(answertext, cursor, question_md_id):
@@ -88,7 +87,6 @@ def mark_mcq_answer(answertext, cursor, question_md_id):
 from channels.layers import get_channel_layer
 from asgiref.sync import async_to_sync
 import re
-import spacy
 from .pandas_automation import get_base, extract_number_from_noun_phrase
 #from .chart_lookup.xl_chart_types import CODE_TO_META
 
@@ -323,50 +321,35 @@ def mark_formula_answer(answerformula, cursor, question_md_id):
     max_raw = 1 + len(expected_args) if expected_args else 1
     return mark, max_raw, feedback
 
-def _extract_root_nouns(phrase_text):
-    """
-    Extract all root nouns from a phrase using spaCy.
-    
-    Args:
-        phrase_text: String containing the phrase
-        
-    Returns:
-        List of root noun texts. Returns empty list if no root nouns found.
-    """
-    from .pandas_automation import get_nlp
-    if not phrase_text or not phrase_text.strip():
-        return []
-    doc = get_nlp()(phrase_text)
-    root_nouns = []
-    for token in doc:
-        if token.pos_ == 'NOUN' and (token.dep_ == 'ROOT' or token.head == token):
-            root_nouns.append(token.text)
-    return root_nouns
+_sentence_transformer_model = None
+_variant_embedding_cache = {}  # {question_nlp_rule_id: np.ndarray shape (n_variants, dim)}
 
-def mark_nlp_answer(answertext, cursor, question_md_id):
-    # Helper to check if text is a noun phrase (not a clause/sentence)
-    from .pandas_automation import is_noun_phrase
-    """Mark an NLP answer by comparing root nouns with expected phrase variants.
-    
-    Logic:
-    1. Fetch the active NLP rule for the question
-    2. Fetch all phrase variants for that rule
-    3. For each variant, extract base form using get_base() and extract root nouns
-    4. Extract base form and root nouns from student's answer
-    5. Compare: if student's root noun matches any expected root noun, award 2 marks
-    6. If match: feedback says "correct"
-    7. If no match: feedback says "your whole is different from the expected whole" and lists expected wholes (base forms)
-    
+def _get_sentence_model():
+    """Lazy-load and cache the sentence-transformers model."""
+    global _sentence_transformer_model
+    if _sentence_transformer_model is None:
+        from sentence_transformers import SentenceTransformer
+        _sentence_transformer_model = SentenceTransformer("all-MiniLM-L6-v2")
+    return _sentence_transformer_model
+
+def mark_nlp_answer(answertext, cursor, question_md_id, student_embedding=None):
+    """Mark an NLP answer using semantic similarity via sentence-transformers.
+
+    Compares the student's answer against all active phrase variants using
+    cosine similarity. Returns full marks if the best similarity score meets
+    the overall_similarity_threshold configured in question_nlp_rule.
+    The 'proportion' type retains its existing base-form matching logic.
+
     Returns:
-        tuple: (mark, feedback) where mark is int and feedback is str
+        tuple: (raw_mark, raw_max, feedback)
     """
     if not answertext:
         return 0, 2, "No answer provided."
-    
+
     # Fetch the active NLP rule for this question
     cursor.execute(
         """
-        SELECT question_nlp_rule_id, language, spacy_model, type
+        SELECT question_nlp_rule_id, language, spacy_model, type, overall_similarity_threshold
         FROM question_nlp_rule
         WHERE question_md_id = %s AND is_active = TRUE
         ORDER BY question_nlp_rule_id ASC
@@ -377,7 +360,7 @@ def mark_nlp_answer(answertext, cursor, question_md_id):
     rule_row = cursor.fetchone()
     if not rule_row:
         return 0, 2, "No NLP rule found for this question."
-    question_nlp_rule_id, language, spacy_model, nlp_type = rule_row
+    question_nlp_rule_id, language, spacy_model, nlp_type, overall_similarity_threshold = rule_row
 
     # Fetch all active phrase variants for this rule
     cursor.execute(
@@ -393,141 +376,61 @@ def mark_nlp_answer(answertext, cursor, question_md_id):
     if not phrase_variants:
         return 0, 2, "No phrase variants found for this question."
 
-    # Extract base and root nouns from student's answer
-    from .pandas_automation import is_syn_with
-    if nlp_type == 'noun-phrase':
-        if not is_noun_phrase(answertext.strip()):
-            return 0, 2, "Please provide a brief description using nouns and adjectives, not a full sentence or clause."
-        student_root_nouns = _extract_root_nouns(answertext.strip())
-        print(f"Student answer text: '{answertext.strip()}', Extracted root nouns from student's answer: {student_root_nouns}")
-        if len(student_root_nouns) != 1:
-            expected_phrases_str = ", ".join([phrase_text.strip() for _, phrase_text in phrase_variants]) if phrase_variants else "unknown"
-            return 0, 2, f"Your answer's root noun could not be determined or is ambiguous. Expected: {expected_phrases_str}"
-        student_root_noun = student_root_nouns[0].lower()
-        expected_phrases = []
-        expected_root_nouns = []
-        for variant_id, phrase_text in phrase_variants:
-            expected_phrases.append(phrase_text.strip())
-            variant_root_nouns = _extract_root_nouns(phrase_text.strip())
-            if len(variant_root_nouns) == 1:
-                expected_root_nouns.append(variant_root_nouns[0].lower())
-        if not expected_root_nouns:
-            return 0, 2, "Error: Unable to extract valid expected answers."
-        for expected_root in expected_root_nouns:
-            if is_syn_with(student_root_noun, expected_root):
-                return 2, 2, "Your answer is correct (synonymous root noun)."
-        expected_phrases_str = ", ".join(expected_phrases) if expected_phrases else "unknown"
-        feedback = f"Your answer's root noun is not synonymous with the expected answer(s): {expected_phrases_str}"
-        return 0, 2, feedback
-    elif nlp_type == 'verb-phrase':
-        # New logic for verb-phrase
-        if not answertext or not answertext.strip():
-            return 0, 2, "No answer provided."
-        nlp = get_nlp()
-        def safe_nlp(text):
-            if not text or not isinstance(text, str) or not text.strip():
-                return None
-            try:
-                return nlp(text)
-            except ValueError as e:
-                print(f"[NLP ERROR] Failed to process text: '{text}' | Error: {e}")
-                return None
-        student_doc = safe_nlp(answertext.strip())
-        # For each solution variant, try to find a match
-        max_raw = 2
-        for variant_id, phrase_text in phrase_variants:
-            if not phrase_text or not phrase_text.strip():
-                continue
-            solution_doc = safe_nlp(phrase_text.strip())
-            if solution_doc is None:
-                return 0, 2, "No answer provided."
-            # 1. Find root word (verb or noun) in both
-            student_root = [t for t in student_doc if t.head == t][0] if any(t.head == t for t in student_doc) else None
-            solution_root = [t for t in solution_doc if t.head == t][0] if any(t.head == t for t in solution_doc) else None
-            if not student_root or not solution_root:
-                continue
-            # 2. Mark for root word synonymy
-            root_mark = 1 if is_syn_with(student_root.lemma_, solution_root.lemma_) else 0
-            # 3. Mark for prep+pobj or dobj
-            obj_mark = 0
-            obj_feedback = ""
-            # Collect all (prep, pobj) pairs for both
-            def get_prep_pobj_pairs(token):
-                pairs = []
-                for child in token.children:
-                    if child.dep_ == 'prep':
-                        prep = child
-                        pobj = next((c for c in child.children if c.dep_ == 'pobj'), None)
-                        if pobj:
-                            pairs.append((prep, pobj))
-                return pairs
-            # Collect all dobj for both
-            def get_dobj(token):
-                return [child for child in token.children if child.dep_ == 'dobj']
-            # Try prep+pobj
-            student_pairs = get_prep_pobj_pairs(student_root)
-            solution_pairs = get_prep_pobj_pairs(solution_root)
-            found_prep_obj = False
-            for s_prep, s_pobj in student_pairs:
-                for sol_prep, sol_pobj in solution_pairs:
-                    if is_syn_with(s_prep.lemma_, sol_prep.lemma_) and is_syn_with(s_pobj.lemma_, sol_pobj.lemma_):
-                        obj_mark = 1
-                        found_prep_obj = True
-                        obj_feedback = f"✓ Preposition '{s_prep.text}' and its object '{s_pobj.text}' are synonymous with expected '{sol_prep.text} {sol_pobj.text}'."
-                        break
-                if found_prep_obj:
-                    break
-            # If not found, try dobj (for verbs and nouns)
-            if not found_prep_obj:
-                student_dobjs = get_dobj(student_root)
-                solution_dobjs = get_dobj(solution_root)
-                for s_dobj in student_dobjs:
-                    for sol_dobj in solution_dobjs:
-                        if is_syn_with(s_dobj.lemma_, sol_dobj.lemma_):
-                            obj_mark = 1
-                            obj_feedback = f"✓ Object '{s_dobj.text}' is synonymous with expected object '{sol_dobj.text}'."
-                            found_prep_obj = True
-                            break
-                    if found_prep_obj:
-                        break
-            # Feedback
-            feedback = []
-            if root_mark:
-                feedback.append(f"✓ Root word '{student_root.text}' is synonymous with expected '{solution_root.text}'. [1 mark]")
-            else:
-                feedback.append(f"✗ Root word '{student_root.text}' is not synonymous with expected '{solution_root.text}'. [0 mark]")
-            if obj_mark:
-                feedback.append(f"{obj_feedback} [1 mark]")
-            else:
-                feedback.append(f"✗ No matching prepositional phrase or object found. [0 mark]")
-            total = root_mark + obj_mark
-            return total, max_raw, '\n'.join(feedback)
-        # If no variant matched
-        return 0, max_raw, "No matching verb-phrase structure found in your answer."
+    if nlp_type in ('noun-phrase', 'verb-phrase'):
+        from sentence_transformers import util as st_util
+        threshold = float(overall_similarity_threshold) if overall_similarity_threshold is not None else 0.75
+        model = _get_sentence_model()
+
+        # Use pre-computed student embedding if provided (batch path), else encode now
+        if student_embedding is None:
+            student_embedding = model.encode(answertext.strip())
+
+        # Batch-encode all variants once per rule and cache permanently
+        if question_nlp_rule_id not in _variant_embedding_cache:
+            valid_phrases = [pt.strip() for _, pt in phrase_variants if pt and pt.strip()]
+            if not valid_phrases:
+                return 0, 2, "No phrase variants found for this question."
+            _variant_embedding_cache[question_nlp_rule_id] = model.encode(valid_phrases)
+        variant_embeddings = _variant_embedding_cache[question_nlp_rule_id]
+
+        # Compute all similarities in one vectorised call
+        scores = st_util.cos_sim(student_embedding, variant_embeddings)[0]
+        best_score = float(scores.max().item())
+
+        if best_score >= threshold:
+            return 2, 2, "Your answer is correct."
+        else:
+            return 0, 2, "Your answer does not match the expected answer."
     else:
-        # ...existing logic for 'proportion' and others...
+        # 'proportion' and other types: extract base form, then compare semantically
+        from sentence_transformers import util as st_util
+        threshold = float(overall_similarity_threshold) if overall_similarity_threshold is not None else 0.75
+        model = _get_sentence_model()
+
         student_base = get_base(answertext.strip())
-        student_root_nouns = _extract_root_nouns(student_base)
-        if len(student_root_nouns) != 1:
-            expected_bases_str = ", ".join([get_base(phrase_text.strip()) for _, phrase_text in phrase_variants]) if phrase_variants else "unknown"
-            return 0, 2, f"Your whole is \"{student_base}\", which is different from the expected whole: {expected_bases_str}"
-        student_root_noun = student_root_nouns[0].lower()
-        expected_bases = []
-        expected_root_nouns = []
-        for variant_id, phrase_text in phrase_variants:
-            expected_base = get_base(phrase_text.strip())
-            expected_bases.append(expected_base)
-            variant_root_nouns = _extract_root_nouns(expected_base)
-            if len(variant_root_nouns) == 1:
-                expected_root_nouns.append(variant_root_nouns[0].lower())
-        if not expected_root_nouns:
-            return 0, 2, "Error: Unable to extract valid expected answers."
-        if student_root_noun in expected_root_nouns:
+        if not student_base or not student_base.strip():
+            return 0, 2, "Could not extract a base form from your answer."
+
+        student_base_embedding = model.encode(student_base.strip())
+
+        # Cache variant base-form embeddings separately (keyed with '_base' suffix)
+        cache_key = f"{question_nlp_rule_id}_base"
+        if cache_key not in _variant_embedding_cache:
+            valid_bases = [get_base(pt.strip()) for _, pt in phrase_variants if pt and pt.strip()]
+            valid_bases = [b for b in valid_bases if b and b.strip()]
+            if not valid_bases:
+                return 0, 2, "No phrase variants found for this question."
+            _variant_embedding_cache[cache_key] = (valid_bases, model.encode(valid_bases))
+        expected_bases, variant_base_embeddings = _variant_embedding_cache[cache_key]
+
+        scores = st_util.cos_sim(student_base_embedding, variant_base_embeddings)[0]
+        best_score = float(scores.max().item())
+
+        if best_score >= threshold:
             return 2, 2, f"You chose as whole \"{student_base}\". This is correct."
         else:
             expected_bases_str = ", ".join(expected_bases) if expected_bases else "unknown"
-            feedback = f"Your whole is \"{student_base}\", which is different from the expected whole: {expected_bases_str}"
-            return 0, 2, feedback
+            return 0, 2, f"Your whole is \"{student_base}\", which is different from the expected whole: {expected_bases_str}"
 
 import json
 import os
@@ -970,6 +873,26 @@ def mark_answers_for_session(sessionid, force=False):
         #print("answers is empty or exhausted")
         return
 
+    # Pre-batch encode all NLP student answers in a single model call
+    nlp_embeddings = {}
+    with connection.cursor() as cursor:
+        cursor.execute(
+            """
+            SELECT a.questionid, a.answertext
+            FROM answers a
+            JOIN question_md qm ON qm.question_id = a.questionid
+            WHERE a.sessionid = %s AND qm.question_type = 'nlp'
+              AND a.answertext IS NOT NULL AND a.answertext <> ''
+            """,
+            [sessionid]
+        )
+        nlp_text_rows = cursor.fetchall()
+    if nlp_text_rows:
+        valid = [(qid, txt.strip()) for qid, txt in nlp_text_rows if txt and txt.strip()]
+        if valid:
+            qids, texts = zip(*valid)
+            embeddings = _get_sentence_model().encode(list(texts))
+            nlp_embeddings = dict(zip(qids, embeddings))
 
     for orig_sessionid, questionid, answertext, answervalue, answerformula, chartdata in answers:
         feedback = None
@@ -996,7 +919,8 @@ def mark_answers_for_session(sessionid, force=False):
                 elif question_type == 'formula':
                     raw_mark, raw_max, fb = mark_formula_answer(answerformula, cursor, question_md_id)
                 elif question_type == 'nlp':
-                    raw_mark, raw_max, fb = mark_nlp_answer(answertext, cursor, question_md_id)
+                    raw_mark, raw_max, fb = mark_nlp_answer(answertext, cursor, question_md_id,
+                                                            student_embedding=nlp_embeddings.get(questionid))
                 elif question_type == 'chart':
                     raw_mark, raw_max, fb = mark_chart_answer(chartdata, cursor, question_md_id)
                 elif question_type == 'mcq':
