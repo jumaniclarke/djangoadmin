@@ -46,4 +46,5 @@ typing_extensions==4.15.0
 urllib3==2.6.3
 wasabi==1.1.3
 weasel==0.4.3
+sentence-transformers>=3.0.0
 wrapt==2.1.1

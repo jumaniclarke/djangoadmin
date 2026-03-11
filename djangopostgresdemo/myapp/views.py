@@ -116,10 +116,12 @@ def mark_workbooks(request):
                     """
                     SELECT DISTINCT ON (studentnumber) sessionid, studentnumber, inserttimestamp
                     FROM sessions
-                    WHERE workbookname = %s AND DATE(inserttimestamp) = %s
+                    WHERE workbookname = %s
+                      AND inserttimestamp >= %s::date
+                      AND inserttimestamp < %s::date + interval '1 day'
                     ORDER BY studentnumber, inserttimestamp DESC
                     """,
-                    [workbookname, batch_date]
+                    [workbookname, batch_date, batch_date]
                 )
                 recent_sessions = cur.fetchall()
             marked = 0

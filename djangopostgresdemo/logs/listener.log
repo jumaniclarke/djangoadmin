@@ -35870,3 +35870,230 @@ Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.21
 Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
 	Is the server running on that host and accepting TCP/IP connections?
 ; retrying in 5s
+Listener error: could not receive data from server: Operation timed out
+SSL SYSCALL error: Operation timed out
+; retrying in 5s
+Listener error: could not receive data from server: Operation timed out
+SSL SYSCALL error: Operation timed out
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: connection to server at "srvubusql002.uct.ac.za" (137.158.158.216), port 5432 failed: Operation timed out
+	Is the server running on that host and accepting TCP/IP connections?
+; retrying in 5s
+Listener error: server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+; retrying in 5s
+Listener error: server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+; retrying in 5s
+Listener error: could not receive data from server: Operation timed out
+SSL SYSCALL error: Operation timed out
+; retrying in 5s
+Listener error: could not receive data from server: Operation timed out
+SSL SYSCALL error: Operation timed out
+; retrying in 5s
+✓ Task queued for submission 1110012; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110013
+✓ Task queued for submission 1110013; worker will process
+Listening on channel 'submission_new'...
+Listening on channel 'submission_new'...
+Step 1: Enqueuing marking task for submission ID: 1110138
+✓ Task queued for submission 1110138; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110139
+✓ Task queued for submission 1110139; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110140
+✓ Task queued for submission 1110140; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110141
+✓ Task queued for submission 1110141; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110142
+✓ Task queued for submission 1110142; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110143
+✓ Task queued for submission 1110143; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110144
+✓ Task queued for submission 1110144; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110145
+✓ Task queued for submission 1110145; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110146
+✓ Task queued for submission 1110146; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110147
+✓ Task queued for submission 1110147; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110148
+✓ Task queued for submission 1110148; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110149
+✓ Task queued for submission 1110149; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110150
+✓ Task queued for submission 1110150; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110151
+✓ Task queued for submission 1110151; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110152
+✓ Task queued for submission 1110152; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110153
+✓ Task queued for submission 1110153; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110154
+✓ Task queued for submission 1110154; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110155
+✓ Task queued for submission 1110155; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110156
+✓ Task queued for submission 1110156; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110157
+✓ Task queued for submission 1110157; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110158
+✓ Task queued for submission 1110158; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110159
+✓ Task queued for submission 1110159; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110160
+✓ Task queued for submission 1110160; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110161
+✓ Task queued for submission 1110161; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110162
+✓ Task queued for submission 1110162; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110163
+✓ Task queued for submission 1110163; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110164
+✓ Task queued for submission 1110164; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110165
+✓ Task queued for submission 1110165; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110166
+✓ Task queued for submission 1110166; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110167
+✓ Task queued for submission 1110167; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110168
+✓ Task queued for submission 1110168; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110169
+✓ Task queued for submission 1110169; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110170
+✓ Task queued for submission 1110170; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110171
+✓ Task queued for submission 1110171; worker will process
+Listening on channel 'submission_new'...
+Listening on channel 'submission_new'...
+Step 1: Enqueuing marking task for submission ID: 1110642
+✓ Task queued for submission 1110642; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110643
+✓ Task queued for submission 1110643; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110644
+✓ Task queued for submission 1110644; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110645
+✓ Task queued for submission 1110645; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110646
+✓ Task queued for submission 1110646; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110647
+✓ Task queued for submission 1110647; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110648
+✓ Task queued for submission 1110648; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110649
+✓ Task queued for submission 1110649; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110650
+✓ Task queued for submission 1110650; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110651
+✓ Task queued for submission 1110651; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110652
+✓ Task queued for submission 1110652; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110653
+✓ Task queued for submission 1110653; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110654
+✓ Task queued for submission 1110654; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110655
+✓ Task queued for submission 1110655; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110656
+✓ Task queued for submission 1110656; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110657
+✓ Task queued for submission 1110657; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110658
+✓ Task queued for submission 1110658; worker will process
+Listening on channel 'submission_new'...
+Step 1: Enqueuing marking task for submission ID: 1110679
+✓ Task queued for submission 1110679; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110680
+✓ Task queued for submission 1110680; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110681
+✓ Task queued for submission 1110681; worker will process
+Listening on channel 'submission_new'...
+Listening on channel 'submission_new'...
+Step 1: Enqueuing marking task for submission ID: 1110696
+✓ Task queued for submission 1110696; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110697
+✓ Task queued for submission 1110697; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110698
+✓ Task queued for submission 1110698; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110699
+✓ Task queued for submission 1110699; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110700
+✓ Task queued for submission 1110700; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110701
+✓ Task queued for submission 1110701; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110702
+✓ Task queued for submission 1110702; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110703
+✓ Task queued for submission 1110703; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110704
+✓ Task queued for submission 1110704; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110705
+✓ Task queued for submission 1110705; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110706
+✓ Task queued for submission 1110706; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110707

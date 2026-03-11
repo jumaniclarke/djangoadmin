@@ -47,12 +47,22 @@
                 <div class="col-8">
                     <h1 class="mt-2">My Site</h1>
                     <hr class="mt-0 mb-4">
+                    {% if messages %}
+                    <div class="mb-3">
+                        {% for message in messages %}
+                        <div class="alert alert-{{ message.tags|default:'info' }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
                     {% block content%}
                     {% endblock%}
 
                 </div>
             </div>
         </div>
-    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
