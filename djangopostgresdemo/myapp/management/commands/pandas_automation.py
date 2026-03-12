@@ -496,13 +496,13 @@ if __name__ == "__main__":
   #text = "The number 12.5 means that there are 12.5% of 16 300 000 people work in the Manufacturing industry."
   #text = "that there are 12.5 % of 16 300 000 people work in the Manufacturing industry"
   #text = "7.7% is the proportion of the total female population in South Africa in October who were between the ages of 30 and 34."
-  text = "the people who were employed"
+  text = "24% of the total Social Security expenditure in South Africa in 1999 was spent on disabled beneficiaries."
   #doc = get_nlp()(text)
   #for ent in doc.ents: 
   # print(ent.text, ent.label_) 
   print_pic(text)
   #print(is_equative2(text))
-  #print('Base noun phrase:', get_base(text)) 
+  print('Base noun phrase:', get_base(text)) 
   #for chunk in doc.noun_chunks:
   #  print('Noun chunk:', chunk.text, chunk.root.text, chunk.root.dep_, chunk.root.head.text)
   #print('get_base:', get_base(text))

@@ -408,6 +408,8 @@ def mark_nlp_answer(answertext, cursor, question_md_id, student_embedding=None):
         model = _get_sentence_model()
 
         student_base = get_base(answertext.strip())
+        print(f"Answer text: {answertext.strip()}")
+        print(f"Extracted base form from student's answer: '{student_base}'")
         if not student_base or not student_base.strip():
             return 0, 2, "Could not extract a base form from your answer."
 
