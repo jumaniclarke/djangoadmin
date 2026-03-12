@@ -29,7 +29,15 @@
         <input type="date" id="batch_date" name="batch_date" class="form-control" value="{{ batch_date|date:'Y-m-d' }}">
     </div>
     <div class="col-auto">
-        <button type="submit" name="mark_recent_batch" class="btn btn-warning">Mark Most Recent Submission Per Student (Selected Date)</button>
+        <button type="submit" name="mark_recent_batch" class="btn btn-warning">Mark Most Recent Submission Per Student (Up To Selected Date)</button>
+    </div>
+</form>
+<form method="post" style="margin-bottom: 1em;" class="row g-2 align-items-center">
+    {% csrf_token %}
+    <input type="hidden" name="course" value="{{ selected_course }}">
+    <input type="hidden" name="tutorial" value="{{ selected_tutorial }}">
+    <div class="col-auto">
+        <button type="submit" name="mark_recent_month" class="btn btn-danger">Mark Most Recent Submission Per Student ({{ current_month_label }})</button>
     </div>
 </form>
 <h3>Sessions for {{ workbookname }}</h3>

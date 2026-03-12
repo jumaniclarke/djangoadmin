@@ -110,18 +110,17 @@ def mark_workbooks(request):
                 messages.success(request, f"Marking triggered for session {sessionid}.")
                 return redirect(request.path + f"?course={selected_course}&tutorial={selected_tutorial}")
         elif 'mark_recent_batch' in request.POST:
-            # Mark most recent submission per student for selected date
+            # Mark most recent submission per student up to and including the selected date
             with connection.cursor() as cur:
                 cur.execute(
                     """
                     SELECT DISTINCT ON (studentnumber) sessionid, studentnumber, inserttimestamp
                     FROM sessions
                     WHERE workbookname = %s
-                      AND inserttimestamp >= %s::date
                       AND inserttimestamp < %s::date + interval '1 day'
                     ORDER BY studentnumber, inserttimestamp DESC
                     """,
-                    [workbookname, batch_date, batch_date]
+                    [workbookname, batch_date]
                 )
                 recent_sessions = cur.fetchall()
             marked = 0
@@ -129,7 +128,32 @@ def mark_workbooks(request):
                 sessionid = session[0]
                 mark_answers_for_session(int(sessionid), force=True)
                 marked += 1
-            messages.success(request, f"Marked {marked} most recent submissions for {batch_date}.")
+            messages.success(request, f"Marked {marked} most recent submissions up to {batch_date}.")
+            return redirect(request.path + f"?course={selected_course}&tutorial={selected_tutorial}&batch_date={batch_date}")
+        elif 'mark_recent_month' in request.POST:
+            # Mark most recent submission per student for the current calendar month
+            today = datetime.now().date()
+            month_start = today.replace(day=1)
+            with connection.cursor() as cur:
+                cur.execute(
+                    """
+                    SELECT DISTINCT ON (studentnumber) sessionid, studentnumber, inserttimestamp
+                    FROM sessions
+                    WHERE workbookname = %s
+                      AND inserttimestamp >= %s::date
+                      AND inserttimestamp < %s::date + interval '1 month'
+                    ORDER BY studentnumber, inserttimestamp DESC
+                    """,
+                    [workbookname, month_start, month_start]
+                )
+                recent_sessions = cur.fetchall()
+            marked = 0
+            for session in recent_sessions:
+                sessionid = session[0]
+                mark_answers_for_session(int(sessionid), force=True)
+                marked += 1
+            month_label = today.strftime('%B %Y')
+            messages.success(request, f"Marked {marked} most recent submissions for {month_label}.")
             return redirect(request.path + f"?course={selected_course}&tutorial={selected_tutorial}&batch_date={batch_date}")
 
     return render(request, 'myapp/mark_workbooks.html', {
@@ -142,4 +166,5 @@ def mark_workbooks(request):
         'batch_date': batch_date,
         'page_obj': page_obj,
         'paginator': paginator,
+        'current_month_label': datetime.now().strftime('%B %Y'),
     })
