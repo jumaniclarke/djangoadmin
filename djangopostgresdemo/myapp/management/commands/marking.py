@@ -407,7 +407,7 @@ def mark_nlp_answer(answertext, cursor, question_md_id, student_embedding=None):
         threshold = float(overall_similarity_threshold) if overall_similarity_threshold is not None else 0.75
         model = _get_sentence_model()
 
-        student_base = get_base(answertext.strip())
+        student_base = get_base(' '.join(answertext.strip().split()))
         print(f"Answer text: {answertext.strip()}")
         print(f"Extracted base form from student's answer: '{student_base}'")
         if not student_base or not student_base.strip():

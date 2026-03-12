@@ -36384,3 +36384,155 @@ server closed the connection unexpectedly
 Listener error: could not receive data from server: Operation timed out
 SSL SYSCALL error: Operation timed out
 ; retrying in 5s
+Listener error: server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+; retrying in 5s
+✓ Task queued for submission 1110707; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110708
+✓ Task queued for submission 1110708; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110709
+✓ Task queued for submission 1110709; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110710
+✓ Task queued for submission 1110710; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110712
+✓ Task queued for submission 1110712; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110711
+✓ Task queued for submission 1110711; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110713
+✓ Task queued for submission 1110713; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110714
+✓ Task queued for submission 1110714; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110715
+✓ Task queued for submission 1110715; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110716
+✓ Task queued for submission 1110716; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110717
+✓ Task queued for submission 1110717; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110718
+✓ Task queued for submission 1110718; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110719
+✓ Task queued for submission 1110719; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110720
+✓ Task queued for submission 1110720; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110721
+✓ Task queued for submission 1110721; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110722
+✓ Task queued for submission 1110722; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110723
+✓ Task queued for submission 1110723; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110724
+✓ Task queued for submission 1110724; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110725
+✓ Task queued for submission 1110725; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110726
+✓ Task queued for submission 1110726; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110727
+✓ Task queued for submission 1110727; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110728
+✓ Task queued for submission 1110728; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110729
+✓ Task queued for submission 1110729; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110730
+✓ Task queued for submission 1110730; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110731
+✓ Task queued for submission 1110731; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110732
+✓ Task queued for submission 1110732; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110733
+✓ Task queued for submission 1110733; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110734
+✓ Task queued for submission 1110734; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110735
+✓ Task queued for submission 1110735; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110736
+✓ Task queued for submission 1110736; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110737
+✓ Task queued for submission 1110737; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110738
+✓ Task queued for submission 1110738; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110739
+✓ Task queued for submission 1110739; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110740
+✓ Task queued for submission 1110740; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110741
+✓ Task queued for submission 1110741; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110742
+✓ Task queued for submission 1110742; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110743
+✓ Task queued for submission 1110743; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110744
+✓ Task queued for submission 1110744; worker will process
+Step 1: Enqueuing marking task for submission ID: 1110745
+✓ Task queued for submission 1110745; worker will process
+Listening on channel 'submission_new'...
+Step 1: Enqueuing marking task for submission ID: 1111178
+✓ Task queued for submission 1111178; worker will process
+Step 1: Enqueuing marking task for submission ID: 1111179
+✓ Task queued for submission 1111179; worker will process
+Step 1: Enqueuing marking task for submission ID: 1111180
+✓ Task queued for submission 1111180; worker will process
+Step 1: Enqueuing marking task for submission ID: 1111181
+✓ Task queued for submission 1111181; worker will process
+Step 1: Enqueuing marking task for submission ID: 1111182
+✓ Task queued for submission 1111182; worker will process
+Step 1: Enqueuing marking task for submission ID: 1111183
+✓ Task queued for submission 1111183; worker will process
+Step 1: Enqueuing marking task for submission ID: 1111184
+✓ Task queued for submission 1111184; worker will process
+Step 1: Enqueuing marking task for submission ID: 1111185
+✓ Task queued for submission 1111185; worker will process
+Step 1: Enqueuing marking task for submission ID: 1111186
+✓ Task queued for submission 1111186; worker will process
+Step 1: Enqueuing marking task for submission ID: 1111187
+✓ Task queued for submission 1111187; worker will process
+Step 1: Enqueuing marking task for submission ID: 1111188
+✓ Task queued for submission 1111188; worker will process
+Step 1: Enqueuing marking task for submission ID: 1111189
+✓ Task queued for submission 1111189; worker will process
+Step 1: Enqueuing marking task for submission ID: 1111190
+✓ Task queued for submission 1111190; worker will process
+Step 1: Enqueuing marking task for submission ID: 1111191
+✓ Task queued for submission 1111191; worker will process
+Listening on channel 'submission_new'...
+Listening on channel 'submission_new'...
+Listening on channel 'submission_new'...
+Listening on channel 'submission_new'...
+Listening on channel 'submission_new'...
+Listening on channel 'submission_new'...
+Listening on channel 'submission_new'...
+Step 1: Enqueuing marking task for submission ID: 1111902
+✓ Task queued for submission 1111902; worker will process
+Step 1: Enqueuing marking task for submission ID: 1111903
+✓ Task queued for submission 1111903; worker will process
+Step 1: Enqueuing marking task for submission ID: 1111904
+✓ Task queued for submission 1111904; worker will process
+Step 1: Enqueuing marking task for submission ID: 1111905
+✓ Task queued for submission 1111905; worker will process
+Step 1: Enqueuing marking task for submission ID: 1111906
+✓ Task queued for submission 1111906; worker will process
+Step 1: Enqueuing marking task for submission ID: 1111907
+✓ Task queued for submission 1111907; worker will process
+Step 1: Enqueuing marking task for submission ID: 1111908
+✓ Task queued for submission 1111908; worker will process
+Step 1: Enqueuing marking task for submission ID: 1111909
+✓ Task queued for submission 1111909; worker will process
+Step 1: Enqueuing marking task for submission ID: 1111910
+✓ Task queued for submission 1111910; worker will process
+Step 1: Enqueuing marking task for submission ID: 1111911
+✓ Task queued for submission 1111911; worker will process
+Step 1: Enqueuing marking task for submission ID: 1111912
+✓ Task queued for submission 1111912; worker will process
+Step 1: Enqueuing marking task for submission ID: 1111913
+✓ Task queued for submission 1111913; worker will process
+Step 1: Enqueuing marking task for submission ID: 1111914
+✓ Task queued for submission 1111914; worker will process
+Listening on channel 'submission_new'...
+Step 1: Enqueuing marking task for submission ID: 1112022
+✓ Task queued for submission 1112022; worker will process

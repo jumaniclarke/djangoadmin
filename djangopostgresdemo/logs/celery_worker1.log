@@ -11921,3 +11921,323 @@ django.db.utils.OperationalError: could not translate host name "srvubusql002.uc
 [2026-03-12 08:03:53,031: INFO/ForkPoolWorker-5] [Celery Task] ✓ Completed marking for submission 1111914
 [2026-03-12 08:03:53,033: INFO/ForkPoolWorker-5] Task myapp.tasks.mark_submission_async[54eb6c26-6581-4fcf-961f-43eb62ecb0dd] succeeded in 0.12639558291994035s: {'status': 'success', 'submission_id': 1111914}
 [2026-03-12 08:20:26,423: INFO/MainProcess] missed heartbeat from worker2@Jumanis-MacBook-Pro.local
+[2026-03-12 09:17:50,640: INFO/MainProcess] Task myapp.tasks.mark_submission_async[2d5874eb-e70c-4681-a131-6f2378d8ad42] received
+[2026-03-12 09:17:50,647: INFO/ForkPoolWorker-5] [Celery Task] Starting marking for submission 1112023
+[2026-03-12 09:17:51,996: WARNING/ForkPoolWorker-5] Found potential equative ROOT: 'were' (lemma: 'be')
+[2026-03-12 09:17:52,040: WARNING/ForkPoolWorker-5] head_phrase: 7.7% of all South African females
+[2026-03-12 09:17:52,041: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:17:52,041: WARNING/ForkPoolWorker-5] head_token: %
+[2026-03-12 09:17:52,041: WARNING/ForkPoolWorker-5] Extracted head phrase before simplification: '7.7% of all South African females'
+[2026-03-12 09:17:52,041: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:17:52,041: WARNING/ForkPoolWorker-5] with head token: '%'
+[2026-03-12 09:17:52,974: WARNING/ForkPoolWorker-5] Found potential equative ROOT: 'was' (lemma: 'be')
+[2026-03-12 09:17:53,010: WARNING/ForkPoolWorker-5] head_phrase: 7.7% of the female population in South Africa in October in 1999
+[2026-03-12 09:17:53,010: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:17:53,010: WARNING/ForkPoolWorker-5] head_token: %
+[2026-03-12 09:17:53,011: WARNING/ForkPoolWorker-5] Extracted head phrase before simplification: '7.7% of the female population in South Africa in October in 1999'
+[2026-03-12 09:17:53,011: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:17:53,011: WARNING/ForkPoolWorker-5] with head token: '%'
+[2026-03-12 09:17:55,289: WARNING/ForkPoolWorker-5] head_phrase: 12.5 % of all employed people in south africa
+[2026-03-12 09:17:55,289: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:17:55,289: WARNING/ForkPoolWorker-5] head_token: %
+[2026-03-12 09:17:55,290: WARNING/ForkPoolWorker-5] Extracted head phrase before simplification: '12.5 % of all employed people in south africa'
+[2026-03-12 09:17:55,290: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:17:55,290: WARNING/ForkPoolWorker-5] with head token: '%'
+[2026-03-12 09:17:55,915: WARNING/ForkPoolWorker-5] head_phrase: 12.5% of employed people in South Africa in 2023
+[2026-03-12 09:17:55,916: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:17:55,916: WARNING/ForkPoolWorker-5] head_token: %
+[2026-03-12 09:17:55,916: WARNING/ForkPoolWorker-5] Extracted head phrase before simplification: '12.5% of employed people in South Africa in 2023'
+[2026-03-12 09:17:55,916: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:17:55,916: WARNING/ForkPoolWorker-5] with head token: '%'
+[2026-03-12 09:17:57,155: WARNING/ForkPoolWorker-5] head_phrase: 24% of the total Social Security expenditure
+[2026-03-12 09:17:57,155: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:17:57,155: WARNING/ForkPoolWorker-5] head_token: %
+[2026-03-12 09:17:57,155: WARNING/ForkPoolWorker-5] Extracted head phrase before simplification: '24% of the total Social Security expenditure'
+[2026-03-12 09:17:57,156: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:17:57,156: WARNING/ForkPoolWorker-5] with head token: '%'
+[2026-03-12 09:17:57,711: WARNING/ForkPoolWorker-5] head_phrase: 24% of social security expenditure in Soouth Africa in 1999
+[2026-03-12 09:17:57,711: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:17:57,711: WARNING/ForkPoolWorker-5] head_token: %
+[2026-03-12 09:17:57,711: WARNING/ForkPoolWorker-5] Extracted head phrase before simplification: '24% of social security expenditure in Soouth Africa in 1999'
+[2026-03-12 09:17:57,711: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:17:57,711: WARNING/ForkPoolWorker-5] with head token: '%'
+[2026-03-12 09:17:59,270: INFO/ForkPoolWorker-5] [Celery Task] ✓ Completed marking for submission 1112023
+[2026-03-12 09:17:59,271: INFO/ForkPoolWorker-5] Task myapp.tasks.mark_submission_async[2d5874eb-e70c-4681-a131-6f2378d8ad42] succeeded in 8.627363125095144s: {'status': 'success', 'submission_id': 1112023}
+[2026-03-12 09:19:06,885: INFO/MainProcess] missed heartbeat from worker2@Jumanis-MacBook-Pro.local
+[2026-03-12 09:21:40,639: INFO/MainProcess] Task myapp.tasks.mark_submission_async[0019a4bb-9de9-41b5-8652-454128a40295] received
+[2026-03-12 09:21:40,641: INFO/ForkPoolWorker-5] [Celery Task] Starting marking for submission 1112027
+[2026-03-12 09:21:41,481: WARNING/ForkPoolWorker-5] head_phrase: that 12.5 % of the 16300 people
+[2026-03-12 09:21:41,481: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:21:41,481: WARNING/ForkPoolWorker-5] head_token: %
+[2026-03-12 09:21:41,481: WARNING/ForkPoolWorker-5] Extracted head phrase before simplification: 'that 12.5 % of the 16300 people'
+[2026-03-12 09:21:41,481: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:21:41,482: WARNING/ForkPoolWorker-5] with head token: '%'
+[2026-03-12 09:21:41,774: WARNING/ForkPoolWorker-5] head_phrase: 12.5% of employed people in South Africa in 2023
+[2026-03-12 09:21:41,774: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:21:41,774: WARNING/ForkPoolWorker-5] head_token: %
+[2026-03-12 09:21:41,774: WARNING/ForkPoolWorker-5] Extracted head phrase before simplification: '12.5% of employed people in South Africa in 2023'
+[2026-03-12 09:21:41,774: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:21:41,774: WARNING/ForkPoolWorker-5] with head token: '%'
+[2026-03-12 09:21:42,917: WARNING/ForkPoolWorker-5] head_phrase: 7.7% of women in South Africa
+[2026-03-12 09:21:42,917: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:21:42,917: WARNING/ForkPoolWorker-5] head_token: %
+[2026-03-12 09:21:42,917: WARNING/ForkPoolWorker-5] Extracted head phrase before simplification: '7.7% of women in South Africa'
+[2026-03-12 09:21:42,917: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:21:42,917: WARNING/ForkPoolWorker-5] with head token: '%'
+[2026-03-12 09:21:43,293: WARNING/ForkPoolWorker-5] Found potential equative ROOT: 'was' (lemma: 'be')
+[2026-03-12 09:21:43,306: WARNING/ForkPoolWorker-5] head_phrase: 7.7% of the female population in South Africa in October in 1999
+[2026-03-12 09:21:43,306: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:21:43,306: WARNING/ForkPoolWorker-5] head_token: %
+[2026-03-12 09:21:43,306: WARNING/ForkPoolWorker-5] Extracted head phrase before simplification: '7.7% of the female population in South Africa in October in 1999'
+[2026-03-12 09:21:43,306: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:21:43,307: WARNING/ForkPoolWorker-5] with head token: '%'
+[2026-03-12 09:21:43,966: INFO/ForkPoolWorker-5] [Celery Task] ✓ Completed marking for submission 1112027
+[2026-03-12 09:21:43,968: INFO/ForkPoolWorker-5] Task myapp.tasks.mark_submission_async[0019a4bb-9de9-41b5-8652-454128a40295] succeeded in 3.3277112080249935s: {'status': 'success', 'submission_id': 1112027}
+[2026-03-12 09:30:03,799: INFO/MainProcess] Task myapp.tasks.mark_submission_async[fd2722e1-8f6d-44c8-b4a2-82bff6eb700f] received
+[2026-03-12 09:30:03,803: INFO/MainProcess] Task myapp.tasks.mark_submission_async[927964ee-055d-46ea-aba5-ae6ee0f5db34] received
+[2026-03-12 09:30:03,808: INFO/ForkPoolWorker-5] [Celery Task] Starting marking for submission 1112030
+[2026-03-12 09:30:03,811: INFO/ForkPoolWorker-1] [Celery Task] Starting marking for submission 1112032
+[2026-03-12 09:30:03,812: WARNING/ForkPoolWorker-1] Step 2: Marking actually started with sessionid: 1112032
+[2026-03-12 09:30:03,812: WARNING/ForkPoolWorker-1] Step 2a: sessionid type = <class 'int'>, value = 1112032
+[2026-03-12 09:30:03,965: WARNING/ForkPoolWorker-1] Step 3: Fetched 129 answers for sessionid 1112032
+[2026-03-12 09:30:04,078: WARNING/ForkPoolWorker-1] Marking NLP answer: 12.5 refers to the percentage of people who were employed in the Manufacturing industry. This means that 12.5% of the 16300 people worked in Manufacturing in 2023. for question_md_id: 34
+[2026-03-12 09:30:04,085: WARNING/ForkPoolWorker-1] Using NLP rule_id: 2, language: en, spacy_model: en_core_web_md
+[2026-03-12 09:30:04,726: WARNING/ForkPoolWorker-1] head_phrase: that 12.5 % of the 16300 people
+[2026-03-12 09:30:04,727: WARNING/ForkPoolWorker-1]  
+[2026-03-12 09:30:04,727: WARNING/ForkPoolWorker-1] head_token: %
+[2026-03-12 09:30:04,727: WARNING/ForkPoolWorker-1] Extracted head phrase before simplification: 'that 12.5 % of the 16300 people'
+[2026-03-12 09:30:04,727: WARNING/ForkPoolWorker-1]  
+[2026-03-12 09:30:04,727: WARNING/ForkPoolWorker-1] with head token: '%'
+[2026-03-12 09:30:04,727: WARNING/ForkPoolWorker-1] Student whole: the 16300 people
+[2026-03-12 09:30:04,756: WARNING/ForkPoolWorker-1] Student root nouns: ['people']
+[2026-03-12 09:30:05,499: WARNING/ForkPoolWorker-1] head_phrase: 12.5% of employed people in South Africa in 2023
+[2026-03-12 09:30:05,500: WARNING/ForkPoolWorker-1]  
+[2026-03-12 09:30:05,500: WARNING/ForkPoolWorker-1] head_token: %
+[2026-03-12 09:30:05,500: WARNING/ForkPoolWorker-1] Extracted head phrase before simplification: '12.5% of employed people in South Africa in 2023'
+[2026-03-12 09:30:05,500: WARNING/ForkPoolWorker-1]  
+[2026-03-12 09:30:05,500: WARNING/ForkPoolWorker-1] with head token: '%'
+[2026-03-12 09:30:05,500: WARNING/ForkPoolWorker-1] Expected base for variant 6: employed people in South Africa in 2023
+[2026-03-12 09:30:05,537: WARNING/ForkPoolWorker-1] Expected root nouns for variant 6: ['people']
+[2026-03-12 09:30:05,538: WARNING/ForkPoolWorker-1] Match found! Student root noun 'people' matches expected root noun(s)
+[2026-03-12 09:30:05,549: WARNING/ForkPoolWorker-1] Marking NLP answer: 10% of the 16300 thousand people (1630 people) were employed in the Construction industry in 2023. for question_md_id: 60
+[2026-03-12 09:30:05,554: WARNING/ForkPoolWorker-1] Using NLP rule_id: 8, language: en, spacy_model: en_core_web_md
+[2026-03-12 09:30:05,595: WARNING/ForkPoolWorker-5] head_phrase: that 12.5 % of the 16300 people
+[2026-03-12 09:30:05,595: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:30:05,595: WARNING/ForkPoolWorker-5] head_token: %
+[2026-03-12 09:30:05,596: WARNING/ForkPoolWorker-5] Extracted head phrase before simplification: 'that 12.5 % of the 16300 people'
+[2026-03-12 09:30:05,596: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:30:05,596: WARNING/ForkPoolWorker-5] with head token: '%'
+[2026-03-12 09:30:06,304: WARNING/ForkPoolWorker-5] head_phrase: 12.5% of employed people in South Africa in 2023
+[2026-03-12 09:30:06,304: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:30:06,305: WARNING/ForkPoolWorker-5] head_token: %
+[2026-03-12 09:30:06,305: WARNING/ForkPoolWorker-5] Extracted head phrase before simplification: '12.5% of employed people in South Africa in 2023'
+[2026-03-12 09:30:06,305: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:30:06,305: WARNING/ForkPoolWorker-5] with head token: '%'
+[2026-03-12 09:30:06,532: WARNING/ForkPoolWorker-1] head_phrase: 10% of the 16300 thousand people (1630 people)
+[2026-03-12 09:30:06,532: WARNING/ForkPoolWorker-1]  
+[2026-03-12 09:30:06,532: WARNING/ForkPoolWorker-1] head_token: %
+[2026-03-12 09:30:06,532: WARNING/ForkPoolWorker-1] Extracted head phrase before simplification: '10% of the 16300 thousand people (1630 people)'
+[2026-03-12 09:30:06,532: WARNING/ForkPoolWorker-1]  
+[2026-03-12 09:30:06,532: WARNING/ForkPoolWorker-1] with head token: '%'
+[2026-03-12 09:30:06,533: WARNING/ForkPoolWorker-1] Student whole: the 16300 thousand people (1630 people)
+[2026-03-12 09:30:06,555: WARNING/ForkPoolWorker-1] Student root nouns: ['people']
+[2026-03-12 09:30:06,874: WARNING/ForkPoolWorker-1] Expected base for variant 12: employed people in the Manufacturing Industry
+[2026-03-12 09:30:06,905: WARNING/ForkPoolWorker-1] Expected root nouns for variant 12: ['people']
+[2026-03-12 09:30:06,906: WARNING/ForkPoolWorker-1] Match found! Student root noun 'people' matches expected root noun(s)
+[2026-03-12 09:30:06,915: WARNING/ForkPoolWorker-1] Marking NLP answer: 4890 thousand out of 16300 thousand people for question_md_id: 63
+[2026-03-12 09:30:06,920: WARNING/ForkPoolWorker-1] Using NLP rule_id: 11, language: en, spacy_model: en_core_web_md
+[2026-03-12 09:30:07,401: WARNING/ForkPoolWorker-1] Student whole: 4890 thousand out of 16300 thousand people
+[2026-03-12 09:30:07,436: WARNING/ForkPoolWorker-1] Student root nouns: []
+[2026-03-12 09:30:07,880: WARNING/ForkPoolWorker-5] head_phrase: 7.7% of women in South Africa
+[2026-03-12 09:30:07,880: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:30:07,880: WARNING/ForkPoolWorker-5] head_token: %
+[2026-03-12 09:30:07,881: WARNING/ForkPoolWorker-5] Extracted head phrase before simplification: '7.7% of women in South Africa'
+[2026-03-12 09:30:07,881: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:30:07,881: WARNING/ForkPoolWorker-5] with head token: '%'
+[2026-03-12 09:30:08,091: WARNING/ForkPoolWorker-1] Marking NLP answer: 16300000 for question_md_id: 55
+[2026-03-12 09:30:08,095: WARNING/ForkPoolWorker-1] Using NLP rule_id: 5, language: en, spacy_model: en_core_web_md
+[2026-03-12 09:30:08,371: WARNING/ForkPoolWorker-1] Student whole: 16300000
+[2026-03-12 09:30:08,408: WARNING/ForkPoolWorker-1] Student root nouns: []
+[2026-03-12 09:30:08,716: WARNING/ForkPoolWorker-5] Found potential equative ROOT: 'was' (lemma: 'be')
+[2026-03-12 09:30:08,755: WARNING/ForkPoolWorker-5] head_phrase: 7.7% of the female population in South Africa in October in 1999
+[2026-03-12 09:30:08,755: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:30:08,755: WARNING/ForkPoolWorker-5] head_token: %
+[2026-03-12 09:30:08,755: WARNING/ForkPoolWorker-5] Extracted head phrase before simplification: '7.7% of the female population in South Africa in October in 1999'
+[2026-03-12 09:30:08,756: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:30:08,756: WARNING/ForkPoolWorker-5] with head token: '%'
+[2026-03-12 09:30:08,841: WARNING/ForkPoolWorker-1] Marking NLP answer: Community & Social Services for question_md_id: 56
+[2026-03-12 09:30:08,846: WARNING/ForkPoolWorker-1] Using NLP rule_id: 6, language: en, spacy_model: en_core_web_md
+[2026-03-12 09:30:09,086: WARNING/ForkPoolWorker-1] Student whole: Community & Social Services
+[2026-03-12 09:30:09,107: WARNING/ForkPoolWorker-1] Student root nouns: []
+[2026-03-12 09:30:09,539: WARNING/ForkPoolWorker-1] Marking NLP answer: 16300 thousand people in South Africa were employed in various industries in 2023. for question_md_id: 59
+[2026-03-12 09:30:09,545: WARNING/ForkPoolWorker-1] Using NLP rule_id: 7, language: en, spacy_model: en_core_web_md
+[2026-03-12 09:30:10,113: INFO/ForkPoolWorker-5] [Celery Task] ✓ Completed marking for submission 1112030
+[2026-03-12 09:30:10,118: INFO/ForkPoolWorker-5] Task myapp.tasks.mark_submission_async[fd2722e1-8f6d-44c8-b4a2-82bff6eb700f] succeeded in 6.313888250035234s: {'status': 'success', 'submission_id': 1112030}
+[2026-03-12 09:30:10,281: WARNING/ForkPoolWorker-1] head_phrase: 16300 thousand people in South Africa
+[2026-03-12 09:30:10,281: WARNING/ForkPoolWorker-1]  
+[2026-03-12 09:30:10,281: WARNING/ForkPoolWorker-1] head_token: people
+[2026-03-12 09:30:10,281: WARNING/ForkPoolWorker-1] Extracted head phrase before simplification: '16300 thousand people in South Africa'
+[2026-03-12 09:30:10,282: WARNING/ForkPoolWorker-1]  
+[2026-03-12 09:30:10,282: WARNING/ForkPoolWorker-1] with head token: 'people'
+[2026-03-12 09:30:10,282: WARNING/ForkPoolWorker-1] Student whole: South Africa
+[2026-03-12 09:30:10,315: WARNING/ForkPoolWorker-1] Student root nouns: []
+[2026-03-12 09:30:10,688: WARNING/ForkPoolWorker-1] Marking NLP answer: worked in the Community & Social Services industry. for question_md_id: 64
+[2026-03-12 09:30:10,692: WARNING/ForkPoolWorker-1] Using NLP rule_id: 12, language: en, spacy_model: en_core_web_md
+[2026-03-12 09:30:10,946: WARNING/ForkPoolWorker-1] Student whole: worked in the Community & Social Services industry.
+[2026-03-12 09:30:10,966: WARNING/ForkPoolWorker-1] Student root nouns: []
+[2026-03-12 09:30:11,945: WARNING/ForkPoolWorker-1] Marking NLP answer: The whole represents the population of women in South Africa, October of 1999, aged between 30-34  years old. for question_md_id: 61
+[2026-03-12 09:30:11,951: WARNING/ForkPoolWorker-1] Using NLP rule_id: 9, language: en, spacy_model: en_core_web_md
+[2026-03-12 09:30:12,542: WARNING/ForkPoolWorker-1] Error extracting base from student answer: Shape mismatch for blis.gemm: (1, 0), (768, 49)
+[2026-03-12 09:30:12,553: WARNING/ForkPoolWorker-1] Marking NLP answer: The part represents the percentage of the women, which was 7.7% of the female population. for question_md_id: 62
+[2026-03-12 09:30:12,558: WARNING/ForkPoolWorker-1] Using NLP rule_id: 10, language: en, spacy_model: en_core_web_md
+[2026-03-12 09:30:13,128: WARNING/ForkPoolWorker-1] Found potential equative ROOT: 'represents' (lemma: 'represent')
+[2026-03-12 09:30:13,130: WARNING/ForkPoolWorker-1] Found potential equative child: 'percentage' with dep 'dobj'
+[2026-03-12 09:30:13,152: WARNING/ForkPoolWorker-1] Found potential equative ROOT: 'represents' (lemma: 'represent')
+[2026-03-12 09:30:13,153: WARNING/ForkPoolWorker-1] Found potential equative child: 'percentage' with dep 'dobj'
+[2026-03-12 09:30:13,175: WARNING/ForkPoolWorker-1] head_phrase: the percentage of the women, which was 7.7% of the female population
+[2026-03-12 09:30:13,176: WARNING/ForkPoolWorker-1]  
+[2026-03-12 09:30:13,176: WARNING/ForkPoolWorker-1] head_token: percentage
+[2026-03-12 09:30:13,176: WARNING/ForkPoolWorker-1] Extracted head phrase before simplification: 'the percentage of the women, which was 7.7% of the female population'
+[2026-03-12 09:30:13,176: WARNING/ForkPoolWorker-1]  
+[2026-03-12 09:30:13,176: WARNING/ForkPoolWorker-1] with head token: 'percentage'
+[2026-03-12 09:30:13,176: WARNING/ForkPoolWorker-1] Student whole: the women
+[2026-03-12 09:30:13,201: WARNING/ForkPoolWorker-1] Student root nouns: ['women']
+[2026-03-12 09:30:13,701: WARNING/ForkPoolWorker-1] Expected base for variant 16: female population in South Africa in Ocotber 1999 aged 30 - 34
+[2026-03-12 09:30:13,750: WARNING/ForkPoolWorker-1] Expected root nouns for variant 16: ['population']
+[2026-03-12 09:30:13,750: WARNING/ForkPoolWorker-1] No match. Student: 'women', Expected: ['population']
+[2026-03-12 09:30:13,761: WARNING/ForkPoolWorker-1] Marking NLP answer: 7.7% of women in South Africa in October of 1999 were aged between the ages of 30-34 years. for question_md_id: 35
+[2026-03-12 09:30:13,767: WARNING/ForkPoolWorker-1] Using NLP rule_id: 3, language: en, spacy_model: en_core_web_md
+[2026-03-12 09:30:14,614: WARNING/ForkPoolWorker-1] head_phrase: 7.7% of women in South Africa
+[2026-03-12 09:30:14,614: WARNING/ForkPoolWorker-1]  
+[2026-03-12 09:30:14,614: WARNING/ForkPoolWorker-1] head_token: %
+[2026-03-12 09:30:14,614: WARNING/ForkPoolWorker-1] Extracted head phrase before simplification: '7.7% of women in South Africa'
+[2026-03-12 09:30:14,614: WARNING/ForkPoolWorker-1]  
+[2026-03-12 09:30:14,614: WARNING/ForkPoolWorker-1] with head token: '%'
+[2026-03-12 09:30:14,615: WARNING/ForkPoolWorker-1] Student whole: women in South Africa
+[2026-03-12 09:30:14,629: WARNING/ForkPoolWorker-1] Student root nouns: ['women']
+[2026-03-12 09:30:15,377: WARNING/ForkPoolWorker-1] Found potential equative ROOT: 'was' (lemma: 'be')
+[2026-03-12 09:30:15,400: WARNING/ForkPoolWorker-1] head_phrase: 7.7% of the female population in South Africa in October in 1999
+[2026-03-12 09:30:15,400: WARNING/ForkPoolWorker-1]  
+[2026-03-12 09:30:15,400: WARNING/ForkPoolWorker-1] head_token: %
+[2026-03-12 09:30:15,400: WARNING/ForkPoolWorker-1] Extracted head phrase before simplification: '7.7% of the female population in South Africa in October in 1999'
+[2026-03-12 09:30:15,401: WARNING/ForkPoolWorker-1]  
+[2026-03-12 09:30:15,401: WARNING/ForkPoolWorker-1] with head token: '%'
+[2026-03-12 09:30:15,401: WARNING/ForkPoolWorker-1] Expected base for variant 7: the female population in South Africa in October in 1999
+[2026-03-12 09:30:15,422: WARNING/ForkPoolWorker-1] Expected root nouns for variant 7: ['population']
+[2026-03-12 09:30:15,423: WARNING/ForkPoolWorker-1] No match. Student: 'women', Expected: ['population']
+[2026-03-12 09:30:15,789: WARNING/ForkPoolWorker-1] Marking NLP answer:  for question_md_id: 36
+[2026-03-12 09:30:15,790: WARNING/ForkPoolWorker-1] No answer text provided
+[2026-03-12 09:30:16,792: WARNING/ForkPoolWorker-1] Marking chart answer for question_md_id: 28
+[2026-03-12 09:30:16,797: WARNING/ForkPoolWorker-1] Using chart rule_id: 2, expected type: xlColumnClustered
+[2026-03-12 09:30:16,797: WARNING/ForkPoolWorker-1] Chart type match: xlColumnClustered -> Column
+[2026-03-12 09:30:16,798: WARNING/ForkPoolWorker-1] Title missing
+[2026-03-12 09:30:16,799: WARNING/ForkPoolWorker-1] X-axis title present
+[2026-03-12 09:30:16,799: WARNING/ForkPoolWorker-1] Y-axis title present
+[2026-03-12 09:30:16,804: WARNING/ForkPoolWorker-1] Series data full match
+[2026-03-12 09:30:16,805: WARNING/ForkPoolWorker-1] Final mark: 7/9
+[2026-03-12 09:30:16,816: WARNING/ForkPoolWorker-1] Marking chart answer for question_md_id: 29
+[2026-03-12 09:30:16,821: WARNING/ForkPoolWorker-1] Using chart rule_id: 3, expected type: xlColumnClustered
+[2026-03-12 09:30:16,822: WARNING/ForkPoolWorker-1] Chart type mismatch: xlPie vs xlColumnClustered
+[2026-03-12 09:30:16,823: WARNING/ForkPoolWorker-1] Title present
+[2026-03-12 09:30:16,824: WARNING/ForkPoolWorker-1] X-axis title missing
+[2026-03-12 09:30:16,824: WARNING/ForkPoolWorker-1] Y-axis title missing
+[2026-03-12 09:30:16,830: WARNING/ForkPoolWorker-1] Series data full match
+[2026-03-12 09:30:16,830: WARNING/ForkPoolWorker-1] Final mark: 5/9
+[2026-03-12 09:30:16,845: INFO/ForkPoolWorker-1] [Celery Task] ✓ Completed marking for submission 1112032
+[2026-03-12 09:30:16,846: INFO/ForkPoolWorker-1] Task myapp.tasks.mark_submission_async[927964ee-055d-46ea-aba5-ae6ee0f5db34] succeeded in 13.03944575006608s: {'status': 'success', 'submission_id': 1112032}
+[2026-03-12 09:30:47,137: INFO/MainProcess] Task myapp.tasks.mark_submission_async[b78ef4fb-3e49-4435-a5ec-aa43902c4359] received
+[2026-03-12 09:30:47,142: INFO/ForkPoolWorker-5] [Celery Task] Starting marking for submission 1112034
+[2026-03-12 09:30:48,265: WARNING/ForkPoolWorker-5] head_phrase: that 12.5 % of the 16300 people
+[2026-03-12 09:30:48,265: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:30:48,265: WARNING/ForkPoolWorker-5] head_token: %
+[2026-03-12 09:30:48,266: WARNING/ForkPoolWorker-5] Extracted head phrase before simplification: 'that 12.5 % of the 16300 people'
+[2026-03-12 09:30:48,266: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:30:48,266: WARNING/ForkPoolWorker-5] with head token: '%'
+[2026-03-12 09:30:48,582: WARNING/ForkPoolWorker-5] head_phrase: 12.5% of employed people in South Africa in 2023
+[2026-03-12 09:30:48,582: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:30:48,583: WARNING/ForkPoolWorker-5] head_token: %
+[2026-03-12 09:30:48,583: WARNING/ForkPoolWorker-5] Extracted head phrase before simplification: '12.5% of employed people in South Africa in 2023'
+[2026-03-12 09:30:48,583: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:30:48,583: WARNING/ForkPoolWorker-5] with head token: '%'
+[2026-03-12 09:30:49,497: WARNING/ForkPoolWorker-5] head_phrase: 7.7% of women in South Africa
+[2026-03-12 09:30:49,497: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:30:49,497: WARNING/ForkPoolWorker-5] head_token: %
+[2026-03-12 09:30:49,498: WARNING/ForkPoolWorker-5] Extracted head phrase before simplification: '7.7% of women in South Africa'
+[2026-03-12 09:30:49,498: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:30:49,498: WARNING/ForkPoolWorker-5] with head token: '%'
+[2026-03-12 09:30:49,902: WARNING/ForkPoolWorker-5] Found potential equative ROOT: 'was' (lemma: 'be')
+[2026-03-12 09:30:49,915: WARNING/ForkPoolWorker-5] head_phrase: 7.7% of the female population in South Africa in October in 1999
+[2026-03-12 09:30:49,916: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:30:49,916: WARNING/ForkPoolWorker-5] head_token: %
+[2026-03-12 09:30:49,916: WARNING/ForkPoolWorker-5] Extracted head phrase before simplification: '7.7% of the female population in South Africa in October in 1999'
+[2026-03-12 09:30:49,916: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:30:49,916: WARNING/ForkPoolWorker-5] with head token: '%'
+[2026-03-12 09:30:50,048: INFO/ForkPoolWorker-5] [Celery Task] ✓ Completed marking for submission 1112034
+[2026-03-12 09:30:50,049: INFO/ForkPoolWorker-5] Task myapp.tasks.mark_submission_async[b78ef4fb-3e49-4435-a5ec-aa43902c4359] succeeded in 2.9077891249908134s: {'status': 'success', 'submission_id': 1112034}
+[2026-03-12 09:31:28,487: INFO/MainProcess] Task myapp.tasks.mark_submission_async[8daba1fb-d3cc-4bc0-a222-04fb4dc76977] received
+[2026-03-12 09:31:28,489: INFO/ForkPoolWorker-5] [Celery Task] Starting marking for submission 1112035
+[2026-03-12 09:31:28,624: INFO/ForkPoolWorker-5] [Celery Task] ✓ Completed marking for submission 1112035
+[2026-03-12 09:31:28,626: INFO/ForkPoolWorker-5] Task myapp.tasks.mark_submission_async[8daba1fb-d3cc-4bc0-a222-04fb4dc76977] succeeded in 0.1383872498990968s: {'status': 'success', 'submission_id': 1112035}
+[2026-03-12 09:31:31,150: INFO/MainProcess] Task myapp.tasks.mark_submission_async[48052dec-aa1e-44a0-b1d1-f9efe4a6a865] received
+[2026-03-12 09:31:31,153: INFO/ForkPoolWorker-5] [Celery Task] Starting marking for submission 1112036
+[2026-03-12 09:31:31,288: INFO/ForkPoolWorker-5] [Celery Task] ✓ Completed marking for submission 1112036
+[2026-03-12 09:31:31,290: INFO/ForkPoolWorker-5] Task myapp.tasks.mark_submission_async[48052dec-aa1e-44a0-b1d1-f9efe4a6a865] succeeded in 0.13832495803944767s: {'status': 'success', 'submission_id': 1112036}
+[2026-03-12 09:36:44,723: INFO/MainProcess] Task myapp.tasks.mark_submission_async[6aa17caf-9063-447f-98fb-054dff4b84ca] received
+[2026-03-12 09:36:44,728: INFO/ForkPoolWorker-5] [Celery Task] Starting marking for submission 1112040
+[2026-03-12 09:36:44,844: INFO/ForkPoolWorker-5] [Celery Task] ✓ Completed marking for submission 1112040
+[2026-03-12 09:36:44,846: INFO/ForkPoolWorker-5] Task myapp.tasks.mark_submission_async[6aa17caf-9063-447f-98fb-054dff4b84ca] succeeded in 0.11989800003357232s: {'status': 'success', 'submission_id': 1112040}
+[2026-03-12 09:37:37,899: INFO/MainProcess] Task myapp.tasks.mark_submission_async[5f7ae3a8-d381-4ff6-a523-71798cd49f2f] received
+[2026-03-12 09:37:37,904: INFO/ForkPoolWorker-5] [Celery Task] Starting marking for submission 1112041
+[2026-03-12 09:37:40,804: WARNING/ForkPoolWorker-5] Found potential equative ROOT: 'are' (lemma: 'be')
+[2026-03-12 09:37:40,818: WARNING/ForkPoolWorker-5] head_phrase: 30% and 10% of south africans empolyed
+[2026-03-12 09:37:40,818: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:37:40,819: WARNING/ForkPoolWorker-5] head_token: %
+[2026-03-12 09:37:40,819: WARNING/ForkPoolWorker-5] Extracted head phrase before simplification: '30% and 10% of south africans empolyed'
+[2026-03-12 09:37:40,819: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:37:40,819: WARNING/ForkPoolWorker-5] with head token: '%'
+[2026-03-12 09:37:41,140: WARNING/ForkPoolWorker-5] head_phrase: 12.5% of employed people in South Africa in 2023
+[2026-03-12 09:37:41,140: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:37:41,140: WARNING/ForkPoolWorker-5] head_token: %
+[2026-03-12 09:37:41,140: WARNING/ForkPoolWorker-5] Extracted head phrase before simplification: '12.5% of employed people in South Africa in 2023'
+[2026-03-12 09:37:41,140: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:37:41,141: WARNING/ForkPoolWorker-5] with head token: '%'
+[2026-03-12 09:37:42,978: WARNING/ForkPoolWorker-5] Found potential equative ROOT: 'represents' (lemma: 'represent')
+[2026-03-12 09:37:42,993: WARNING/ForkPoolWorker-5] head_phrase: 7.7
+[2026-03-12 09:37:42,994: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:37:42,994: WARNING/ForkPoolWorker-5] head_token: 7.7
+[2026-03-12 09:37:42,994: WARNING/ForkPoolWorker-5] Extracted head phrase before simplification: '7.7'
+[2026-03-12 09:37:42,994: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:37:42,994: WARNING/ForkPoolWorker-5] with head token: '7.7'
+[2026-03-12 09:37:43,437: WARNING/ForkPoolWorker-5] Found potential equative ROOT: 'was' (lemma: 'be')
+[2026-03-12 09:37:43,452: WARNING/ForkPoolWorker-5] head_phrase: 7.7% of the female population in South Africa in October in 1999
+[2026-03-12 09:37:43,452: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:37:43,452: WARNING/ForkPoolWorker-5] head_token: %
+[2026-03-12 09:37:43,452: WARNING/ForkPoolWorker-5] Extracted head phrase before simplification: '7.7% of the female population in South Africa in October in 1999'
+[2026-03-12 09:37:43,452: WARNING/ForkPoolWorker-5]  
+[2026-03-12 09:37:43,452: WARNING/ForkPoolWorker-5] with head token: '%'
+[2026-03-12 09:37:47,204: INFO/ForkPoolWorker-5] [Celery Task] ✓ Completed marking for submission 1112041
+[2026-03-12 09:37:47,206: INFO/ForkPoolWorker-5] Task myapp.tasks.mark_submission_async[5f7ae3a8-d381-4ff6-a523-71798cd49f2f] succeeded in 9.303602250060067s: {'status': 'success', 'submission_id': 1112041}
+[2026-03-12 09:45:36,356: INFO/MainProcess] Task myapp.tasks.mark_submission_async[0ccab5c8-3b0a-41e0-b36a-18345a0d1fb6] received
+[2026-03-12 09:45:36,361: INFO/ForkPoolWorker-5] [Celery Task] Starting marking for submission 1112043
+[2026-03-12 09:45:36,594: INFO/ForkPoolWorker-5] [Celery Task] ✓ Completed marking for submission 1112043
+[2026-03-12 09:45:36,595: INFO/ForkPoolWorker-5] Task myapp.tasks.mark_submission_async[0ccab5c8-3b0a-41e0-b36a-18345a0d1fb6] succeeded in 0.23532266705296934s: {'status': 'success', 'submission_id': 1112043}
+[2026-03-12 09:49:32,115: INFO/MainProcess] Task myapp.tasks.mark_submission_async[e01adfe3-254a-45be-93d4-c3f9ec0bccfc] received
+[2026-03-12 09:49:32,118: INFO/ForkPoolWorker-5] [Celery Task] Starting marking for submission 1112046
+[2026-03-12 09:49:32,589: INFO/ForkPoolWorker-5] [Celery Task] ✓ Completed marking for submission 1112046
+[2026-03-12 09:49:32,590: INFO/ForkPoolWorker-5] Task myapp.tasks.mark_submission_async[e01adfe3-254a-45be-93d4-c3f9ec0bccfc] succeeded in 0.47220479091629386s: {'status': 'success', 'submission_id': 1112046}
+[2026-03-12 09:49:40,030: INFO/MainProcess] Task myapp.tasks.mark_submission_async[dd676a8a-82df-43ad-9cd4-ebc8f1ea2cb3] received
+[2026-03-12 09:49:40,032: INFO/ForkPoolWorker-5] [Celery Task] Starting marking for submission 1112047
+[2026-03-12 09:49:40,157: INFO/ForkPoolWorker-5] [Celery Task] ✓ Completed marking for submission 1112047
+[2026-03-12 09:49:40,159: INFO/ForkPoolWorker-5] Task myapp.tasks.mark_submission_async[dd676a8a-82df-43ad-9cd4-ebc8f1ea2cb3] succeeded in 0.12820095801725984s: {'status': 'success', 'submission_id': 1112047}
+[2026-03-12 09:52:29,522: INFO/MainProcess] Task myapp.tasks.mark_submission_async[6da19910-3e3e-4dab-8665-936a30217420] received
+[2026-03-12 09:52:29,526: INFO/ForkPoolWorker-5] [Celery Task] Starting marking for submission 1112052
+[2026-03-12 09:52:29,645: INFO/ForkPoolWorker-5] [Celery Task] ✓ Completed marking for submission 1112052
+[2026-03-12 09:52:29,647: INFO/ForkPoolWorker-5] Task myapp.tasks.mark_submission_async[6da19910-3e3e-4dab-8665-936a30217420] succeeded in 0.12214483297429979s: {'status': 'success', 'submission_id': 1112052}
+[2026-03-12 09:52:49,619: INFO/MainProcess] Task myapp.tasks.mark_submission_async[affee17e-037a-46d3-9632-7f12a850681e] received
+[2026-03-12 09:52:49,622: INFO/ForkPoolWorker-5] [Celery Task] Starting marking for submission 1112053
+[2026-03-12 09:52:49,840: INFO/ForkPoolWorker-5] [Celery Task] ✓ Completed marking for submission 1112053
+[2026-03-12 09:52:49,843: INFO/ForkPoolWorker-5] Task myapp.tasks.mark_submission_async[affee17e-037a-46d3-9632-7f12a850681e] succeeded in 0.22172666701953858s: {'status': 'success', 'submission_id': 1112053}
+[2026-03-12 09:58:36,592: INFO/MainProcess] Task myapp.tasks.mark_submission_async[e8351a18-7752-4f1c-a35e-b9c6edeb2744] received
+[2026-03-12 09:58:36,597: INFO/ForkPoolWorker-5] [Celery Task] Starting marking for submission 1112054
+[2026-03-12 09:58:37,732: INFO/ForkPoolWorker-5] [Celery Task] ✓ Completed marking for submission 1112054
+[2026-03-12 09:58:37,735: INFO/ForkPoolWorker-5] Task myapp.tasks.mark_submission_async[e8351a18-7752-4f1c-a35e-b9c6edeb2744] succeeded in 1.1389449159614742s: {'status': 'success', 'submission_id': 1112054}
