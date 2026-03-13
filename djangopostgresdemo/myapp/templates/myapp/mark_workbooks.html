@@ -49,16 +49,26 @@
                         <th>Student Number</th>
                         <th>Timestamp</th>
                         <th>Computer Name</th>
+                        <th>Workbook</th>
+                        <th>Status</th>
                         <th>Mark</th>
                 </tr>
         </thead>
         <tbody>
                 {% for s in sessions %}
-                <tr>
+                <tr {% if s.0 in marked_session_ids %}class="table-success"{% endif %}>
                         <td>{{ s.0 }}</td>
                         <td>{{ s.1 }}</td>
                         <td>{{ s.2 }}</td>
                         <td>{{ s.3 }}</td>
+                        <td>{{ s.4 }}</td>
+                        <td>
+                                {% if s.0 in marked_session_ids %}
+                                <span class="badge bg-success">&#10003; Marked</span>
+                                {% else %}
+                                <span class="badge bg-secondary">Unmarked</span>
+                                {% endif %}
+                        </td>
                         <td>
                                 <form method="post" style="display:inline;">
                                         {% csrf_token %}

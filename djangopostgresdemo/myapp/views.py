@@ -74,7 +74,7 @@ def mark_workbooks(request):
     sessions = []
     with connection.cursor() as cur:
         cur.execute(
-            "SELECT sessionid, studentnumber, inserttimestamp, computername FROM sessions WHERE workbookname = %s ORDER BY inserttimestamp DESC",
+            "SELECT sessionid, studentnumber, inserttimestamp, computername, workbookname FROM sessions WHERE workbookname = %s ORDER BY inserttimestamp DESC",
             [workbookname]
         )
         sessions = cur.fetchall()
@@ -100,6 +100,21 @@ def mark_workbooks(request):
     else:
         batch_date = datetime.now().date()
 
+    def get_fully_marked_sessionids(sessionids):
+        """Return the set of session IDs where at least one answer has a non-null markawarded."""
+        if not sessionids:
+            return set()
+        with connection.cursor() as cur:
+            cur.execute(
+                """
+                SELECT DISTINCT sessionid FROM answers
+                WHERE sessionid = ANY(%s)
+                AND markawarded IS NOT NULL
+                """,
+                [list(sessionids)]
+            )
+            return {row[0] for row in cur.fetchall()}
+
     # Handle POST for single marking and batch marking
     if request.method == 'POST':
         from myapp.management.commands.marking import mark_answers_for_session
@@ -123,12 +138,21 @@ def mark_workbooks(request):
                     [workbookname, batch_date]
                 )
                 recent_sessions = cur.fetchall()
+            session_ids = [s[0] for s in recent_sessions]
+            already_marked = get_fully_marked_sessionids(session_ids)
             marked = 0
+            skipped = 0
             for session in recent_sessions:
                 sessionid = session[0]
+                if sessionid in already_marked:
+                    skipped += 1
+                    continue
                 mark_answers_for_session(int(sessionid), force=True)
                 marked += 1
-            messages.success(request, f"Marked {marked} most recent submissions up to {batch_date}.")
+            msg = f"Marked {marked} most recent submissions up to {batch_date}."
+            if skipped:
+                msg += f" Skipped {skipped} already fully marked."
+            messages.success(request, msg)
             return redirect(request.path + f"?course={selected_course}&tutorial={selected_tutorial}&batch_date={batch_date}")
         elif 'mark_recent_month' in request.POST:
             # Mark most recent submission per student for the current calendar month
@@ -147,14 +171,27 @@ def mark_workbooks(request):
                     [workbookname, month_start, month_start]
                 )
                 recent_sessions = cur.fetchall()
+            session_ids = [s[0] for s in recent_sessions]
+            already_marked = get_fully_marked_sessionids(session_ids)
             marked = 0
+            skipped = 0
             for session in recent_sessions:
                 sessionid = session[0]
+                if sessionid in already_marked:
+                    skipped += 1
+                    continue
                 mark_answers_for_session(int(sessionid), force=True)
                 marked += 1
             month_label = today.strftime('%B %Y')
-            messages.success(request, f"Marked {marked} most recent submissions for {month_label}.")
+            msg = f"Marked {marked} most recent submissions for {month_label}."
+            if skipped:
+                msg += f" Skipped {skipped} already fully marked."
+            messages.success(request, msg)
             return redirect(request.path + f"?course={selected_course}&tutorial={selected_tutorial}&batch_date={batch_date}")
+
+    # Determine which sessions on the current page are fully marked
+    page_session_ids = [s[0] for s in page_obj.object_list]
+    marked_session_ids = get_fully_marked_sessionids(page_session_ids)
 
     return render(request, 'myapp/mark_workbooks.html', {
         'courses': courses,
@@ -167,4 +204,5 @@ def mark_workbooks(request):
         'page_obj': page_obj,
         'paginator': paginator,
         'current_month_label': datetime.now().strftime('%B %Y'),
+        'marked_session_ids': marked_session_ids,
     })
