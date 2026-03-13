@@ -1949,3 +1949,43 @@ Configuration ->
 [2026-03-12 09:50:00,000: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
 [2026-03-12 09:55:00,000: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
 [2026-03-12 10:00:00,000: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
+[2026-03-12 10:05:00,000: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
+[2026-03-12 10:10:00,000: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
+[2026-03-12 10:15:00,000: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
+[2026-03-12 10:20:00,000: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
+[2026-03-12 10:25:00,000: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
+[2026-03-12 10:30:00,000: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
+[2026-03-12 10:35:00,000: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
+[2026-03-12 10:40:00,000: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
+[2026-03-12 10:45:00,000: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
+[2026-03-12 10:50:00,002: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
+[2026-03-12 10:55:00,000: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
+[2026-03-12 11:00:00,000: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
+[2026-03-12 11:40:26,827: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
+[2026-03-12 11:45:00,000: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
+[2026-03-12 11:50:00,001: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
+[2026-03-12 11:55:00,000: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
+[2026-03-12 12:00:00,000: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
+[2026-03-12 12:05:00,000: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
+[2026-03-12 12:10:00,000: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
+[2026-03-12 12:29:43,776: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
+[2026-03-12 12:30:00,000: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
+[2026-03-12 12:35:00,000: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
+[2026-03-12 12:55:11,166: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
+[2026-03-12 13:12:20,400: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
+[2026-03-12 13:23:42,945: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
+[2026-03-12 13:25:00,000: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
+[2026-03-12 13:30:00,000: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
+[2026-03-12 13:35:00,000: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
+[2026-03-12 13:40:00,000: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
+[2026-03-12 13:45:00,003: INFO/MainProcess] Scheduler: Sending due task detect-unmarked-submissions (myapp.tasks.detect_unmarked_submissions)
+celery beat v5.4.0 (opalescent) is starting.
+__    -    ... __   -        _
+LocalTime -> 2026-03-03 17:27:19
+Configuration ->
+    . broker -> redis://127.0.0.1:6379/0
+    . loader -> celery.loaders.app.AppLoader
+    . scheduler -> celery.beat.PersistentScheduler
+    . db -> celerybeat-schedule
+    . logfile -> [stderr]@%INFO
+    . maxinterval -> 5.00 minutes (300s)
